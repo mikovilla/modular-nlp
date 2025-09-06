@@ -14,5 +14,6 @@ xlmr_sentiment/
 .DS_Store
 Thumbs.db
 
+# Personal
 miko.*
 **/miko.*
