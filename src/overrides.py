@@ -4,7 +4,6 @@ from transformers import Trainer
 # Overridden HuggingFace WeightedLossTrainer
 class WeightedLossTrainer(Trainer):
     def __init__(self, *args, **kwargs):
-        # extract class_weights if passed
         self.class_weights = kwargs.pop("class_weights", None)
         super().__init__(*args, **kwargs)
 

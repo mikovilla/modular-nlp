@@ -9,7 +9,7 @@ from transformers import (
     TrainingArguments
 )
 
-from src import utility
+from src import utility, metrics
 from src.overrides import WeightedLossTrainer
 from src.config import SharedConfig, AppConfig
 
@@ -68,7 +68,7 @@ def train(csv_path: str, configClass):
         eval_dataset=val_ds,
         tokenizer=tokenizer,
         data_collator=data_collator,
-        compute_metrics=utility.compute_metrics,
+        compute_metrics=metrics.compute_metrics,
         class_weights=class_weights,
     )
 
@@ -81,7 +81,7 @@ def train(csv_path: str, configClass):
         trainer.save_model(modelConfig.OUTPUT_DIR)
         tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
 
-    return tokenizer, model
+    return trainer
 
 def infer(texts, tokenizer, model):
     enc = tokenizer(texts, return_tensors="pt", truncation=True, padding=True, max_length=SharedConfig.MAX_LENGTH)

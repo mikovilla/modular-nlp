@@ -1,7 +1,5 @@
 import pandas as pd
-import numpy as np
 
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 from datasets import Dataset
 from transformers import AutoTokenizer
@@ -20,17 +18,6 @@ def build_label_maps(series: pd.Series):
         label2id = {c: i for i, c in enumerate(classes)}
         id2label = {i: c for c, i in label2id.items()}
         return label2id, id2label, series.astype(str).map(label2id)
-
-# Metrics
-def compute_metrics(eval_pred):
-    logits, labels = eval_pred
-    preds = np.argmax(logits, axis=-1)
-    return {
-        "accuracy": accuracy_score(labels, preds),
-        "f1_macro": f1_score(labels, preds, average="macro"),
-        "precision_macro": precision_score(labels, preds, average="macro", zero_division=0),
-        "recall_macro": recall_score(labels, preds, average="macro", zero_division=0),
-    }
 
 # Data Loading
 # Expects a CSV with columns: text,label
