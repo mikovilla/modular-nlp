@@ -8,7 +8,7 @@ class SharedConfig:
     MAX_LENGTH = 128 # tokens after tokenization (increase for longer sentiments)
     SEED = 42 # randomization for reproducibility
     USE_FP16 = torch.cuda.is_available() # Use GPU
-    BATCH_SIZE = 64 # 64 to maximize effective batching
+    BATCH_SIZE = 64 # 64 to maximize 16G VRAM of effective batching
     EPOCHS = 1
     LR = 2e-5 # Range: 1e-5 to 5e-5, higher is faster but can cause instability
     WEIGHT_DECAY = 0.01 # BERT default to reduce overfitting, increasing shrinks the model's weight and may cause underfitting
@@ -24,3 +24,6 @@ class MBertConfig:
 class XlmrConfig:
     MODEL_NAME = "xlm-roberta-base"
     OUTPUT_DIR = "./xlmr_sentiment"
+
+class AppConfig:
+    SAVE_MODEL = True

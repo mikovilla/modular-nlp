@@ -11,9 +11,9 @@ from transformers import (
 
 from src import utility
 from src.overrides import WeightedLossTrainer
-from src.config import SharedConfig
+from src.config import SharedConfig, AppConfig
 
-def start(csv_path: str, configClass):
+def train(csv_path: str, configClass):
     modelConfig = configClass()
     set_seed(SharedConfig.SEED)
 
@@ -76,19 +76,17 @@ def start(csv_path: str, configClass):
     eval_metrics = trainer.evaluate(eval_dataset=test_ds)
     print("Test metrics:", eval_metrics)
 
-    os.makedirs(modelConfig.OUTPUT_DIR, exist_ok=True)
-    trainer.save_model(modelConfig.OUTPUT_DIR)
-    tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
+    if AppConfig.SAVE_MODEL:
+        os.makedirs(modelConfig.OUTPUT_DIR, exist_ok=True)
+        trainer.save_model(modelConfig.OUTPUT_DIR)
+        tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
 
-    # Quick sanity-check inference on a few examples
-    sample_texts = [
-        "Maganda ang serbisyo at mabilis ang delivery!",  # Tagalog positive
-        "Sobrang pangit ng karanasan ko.",                # Tagalog negative
-        "It was okay, nothing special.",                  # English neutral-ish
-    ]
-    enc = tokenizer(sample_texts, return_tensors="pt", truncation=True, padding=True, max_length=SharedConfig.MAX_LENGTH)
+    return tokenizer, model
+
+def infer(texts, tokenizer, model):
+    enc = tokenizer(texts, return_tensors="pt", truncation=True, padding=True, max_length=SharedConfig.MAX_LENGTH)
     model.eval()
     with torch.no_grad():
         logits = model(**{k: v.to(model.device) for k, v in enc.items()}).logits
         preds = torch.argmax(logits, dim=-1).cpu().numpy().tolist()
-    print("Sample predictions:", list(zip(sample_texts, preds)))
+    print("Sample predictions:", list(zip(texts, preds)))

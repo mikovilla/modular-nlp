@@ -8,6 +8,7 @@ from transformers import AutoTokenizer
 
 from src.config import SharedConfig
 
+# Preprocessing - Label Handling
 def build_label_maps(series: pd.Series):
     if series.dtype.kind in {"i", "u"}:
         classes = sorted(series.unique().tolist())
@@ -20,6 +21,7 @@ def build_label_maps(series: pd.Series):
         id2label = {i: c for c, i in label2id.items()}
         return label2id, id2label, series.astype(str).map(label2id)
 
+# Metrics
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
     preds = np.argmax(logits, axis=-1)
@@ -30,6 +32,7 @@ def compute_metrics(eval_pred):
         "recall_macro": recall_score(labels, preds, average="macro", zero_division=0),
     }
 
+# Data Loading
 # Expects a CSV with columns: text,label
 def load_split_dataset(csv_path: str, test_size: float = 0.2, val_size: float = 0.1):
     df = pd.read_csv(csv_path)
@@ -57,6 +60,7 @@ def load_split_dataset(csv_path: str, test_size: float = 0.2, val_size: float = 
         {k: v for k, v in enumerate({v: k for k, v in build_label_maps(df[SharedConfig.LABEL_COL])[0].items()})}  # id2label (clean)
     )
 
+# Tokenization
 def make_tokenizer(model_name: str):
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
     def tok(batch):
