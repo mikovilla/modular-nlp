@@ -31,7 +31,7 @@ class AppConfig:
     CACHE_DIR = "./cache/translations_cache.jsonl"
 
 class TranslateConfig:
-    MODEL = "Helsinki-NLP/opus-mt-tl-en"
+    MODEL = "Helsinki-NLP/opus-mt-tl-en" # requires sentencepiece
     CACHE_DIR = "./cache/translations_cache.jsonl"
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128

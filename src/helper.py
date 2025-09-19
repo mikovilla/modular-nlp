@@ -14,7 +14,7 @@ def to_list_str(col):
     for x in col:
         if x is None:
             out.append("")
-        elif hasattr(x, "as_py"):   # pyarrow scalar -> Python
+        elif hasattr(x, "as_py"):
             out.append(str(x.as_py()))
         else:
             out.append(str(x))

@@ -1,7 +1,6 @@
 import torch
 from transformers import Trainer
 
-# Overridden HuggingFace WeightedLossTrainer
 class WeightedLossTrainer(Trainer):
     def __init__(self, *args, **kwargs):
         self.class_weights = kwargs.pop("class_weights", None)

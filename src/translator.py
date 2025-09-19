@@ -50,9 +50,7 @@ def append_translation_cache(path: Path, new_items: Dict[str, str]) -> None:
             f.write(json.dumps({"text": txt, "translation_en": trn}, ensure_ascii=False) + "\n")
 
 def raw_translate(texts: List[str], translator, max_new_tokens: int = 256) -> List[str]:
-    # transformers pipeline handles batching internally but we call it on lists for efficiency
     outs = translator(texts, truncation=True, max_new_tokens=max_new_tokens)
-    # Some pipelines return dict, some list of dicts
     if isinstance(outs, dict):
         outs = [outs]
     return [o["translation_text"] for o in outs]
@@ -68,23 +66,14 @@ def batched(iterable, n: int):
         yield batch
 
 def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
-    """
-    Reads a JSONL dataset with at least {'text', 'label'} (plus optional 'id'),
-    translates 'text', preserves 'label' and 'id', and returns a JSONL string:
-    {'id', 'text' (translated), 'label', 'original_text'}.
-
-    Cache file must be a FILE path (e.g., cache/translations_cache.jsonl).
-    """
     dataset = Path(dataset)
-    # Use a FILE path for the cache (not a directory)
     cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", "cache/translations_cache.jsonl"))
-
     cache = load_translation_cache(cache_path)
     device = 0 if SharedConfig.USE_FP16 else -1
 
     translator = pipeline(
         "translation",
-        model=TranslateConfig.MODEL,  # e.g. "Helsinki-NLP/opus-mt-tl-en" (requires `sentencepiece`)
+        model=TranslateConfig.MODEL,
         device=device,
     )
 
@@ -97,7 +86,6 @@ def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
     for batch in tqdm(list(batched(rows, TranslateConfig.BATCH_SIZE)), desc="Processing"):
         texts = [r.get("text", "") for r in batch]
 
-        # build translations list aligned with texts (use cache or mark missing)
         translations: List[Any] = []
         to_translate_idx: List[int] = []
         to_translate_texts: List[str] = []
@@ -109,7 +97,6 @@ def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
                 to_translate_idx.append(i)
                 to_translate_texts.append(t)
 
-        # translate only the missing ones
         if to_translate_texts:
             try:
                 new_tr = raw_translate(
@@ -119,30 +106,25 @@ def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
                 print(f"[WARN] Translation failed for a batch ({len(to_translate_texts)} items): {e}", file=sys.stderr)
                 new_tr = to_translate_texts  # fallback: passthrough
 
-            # fill back + update cache
             for i, tr in zip(to_translate_idx, new_tr):
                 translations[i] = tr
                 src = texts[i]
                 cache[src] = tr
                 new_cache_accumulator[src] = tr
 
-            # periodically flush cache
             if new_cache_accumulator and len(new_cache_accumulator) >= 100:
                 append_translation_cache(cache_path, new_cache_accumulator)
                 new_cache_accumulator.clear()
 
-        # 🚨 important: always append outputs for the batch (even if 100% cached)
         for r, tr in zip(batch, translations):
             outputs.append({
                 "id": r.get("id"),
-                "text": tr,                     # translated text
-                "label": r.get("label"),        # preserved label
-                "original_text": r.get("text"), # original
+                "text": tr,
+                "label": r.get("label"),
+                "original_text": r.get("text"),
             })
 
-    # flush any remaining cache lines
     if new_cache_accumulator:
         append_translation_cache(cache_path, new_cache_accumulator)
 
-    # return the translated DATASET (not the cache)
     return helper.to_jsonl(outputs)

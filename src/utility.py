@@ -7,7 +7,6 @@ from transformers import AutoTokenizer
 
 from src.config import SharedConfig
 
-# Preprocessing - Label Handling
 def build_label_maps(series: pd.Series):
     if series.dtype.kind in {"i", "u"}:
         classes = sorted(series.unique().tolist())
@@ -20,7 +19,6 @@ def build_label_maps(series: pd.Series):
         id2label = {i: c for c, i in label2id.items()}
         return label2id, id2label, series.astype(str).map(label2id)
 
-# Data Loading
 def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1):
     df = pd.read_json(io.StringIO(jsonl), lines=True)
 
@@ -61,7 +59,6 @@ def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1
         id2label
     )
 
-# Tokenization
 def make_tokenizer(model_name: str):
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
     def tok(batch):
