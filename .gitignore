@@ -17,3 +17,6 @@ Thumbs.db
 # Personal
 miko.*
 **/miko.*
+
+# Cache
+cache/

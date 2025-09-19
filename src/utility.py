@@ -1,4 +1,5 @@
 import pandas as pd
+import io
 
 from sklearn.model_selection import train_test_split
 from datasets import Dataset
@@ -20,31 +21,44 @@ def build_label_maps(series: pd.Series):
         return label2id, id2label, series.astype(str).map(label2id)
 
 # Data Loading
-# Expects a CSV with columns: text,label
-def load_split_dataset(csv_path: str, test_size: float = 0.2, val_size: float = 0.1):
-    df = pd.read_csv(csv_path)
-    assert SharedConfig.TEXT_COL in df.columns and SharedConfig.LABEL_COL in df.columns, f"CSV must have '{SharedConfig.TEXT_COL}' and '{SharedConfig.LABEL_COL}' columns."
+def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1):
+    df = pd.read_json(io.StringIO(jsonl), lines=True)
+
+    assert SharedConfig.TEXT_COL in df.columns and SharedConfig.LABEL_COL in df.columns, \
+        f"JSONL must have '{SharedConfig.TEXT_COL}' and '{SharedConfig.LABEL_COL}' columns."
 
     label2id, id2label, y = build_label_maps(df[SharedConfig.LABEL_COL])
     df = df.assign(label_id=y)
 
     X_train, X_temp, y_train, y_temp = train_test_split(
-        df[SharedConfig.TEXT_COL], df["label_id"], test_size=test_size + val_size, random_state=SharedConfig.SEED, stratify=df["label_id"]
+        df[SharedConfig.TEXT_COL],
+        df["label_id"],
+        test_size=test_size + val_size,
+        random_state=SharedConfig.SEED,
+        stratify=df["label_id"]
     )
+
+    # Split val / test
     rel_val = val_size / (test_size + val_size)
     X_val, X_test, y_val, y_test = train_test_split(
-        X_temp, y_temp, test_size=1 - rel_val, random_state=SharedConfig.SEED, stratify=y_temp
+        X_temp,
+        y_temp,
+        test_size=1 - rel_val,
+        random_state=SharedConfig.SEED,
+        stratify=y_temp
     )
 
     def to_ds(X, y):
-        return Dataset.from_pandas(pd.DataFrame({SharedConfig.TEXT_COL: X.values, "label": y.values}))
+        return Dataset.from_pandas(
+            pd.DataFrame({SharedConfig.TEXT_COL: X.values, "label": y.values})
+        )
 
     return (
         to_ds(X_train, y_train),
         to_ds(X_val, y_val),
         to_ds(X_test, y_test),
         label2id,
-        {k: v for k, v in enumerate({v: k for k, v in build_label_maps(df[SharedConfig.LABEL_COL])[0].items()})}  # id2label (clean)
+        id2label
     )
 
 # Tokenization

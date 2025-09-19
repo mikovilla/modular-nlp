@@ -27,3 +27,11 @@ class XlmrConfig:
 
 class AppConfig:
     SAVE_MODEL = True
+    DATASET = "./miko.jsonl"
+    CACHE_DIR = "./cache/translations_cache.jsonl"
+
+class TranslateConfig:
+    MODEL = "Helsinki-NLP/opus-mt-tl-en"
+    CACHE_DIR = "./cache/translations_cache.jsonl"
+    BATCH_SIZE = 64
+    MAX_NEW_TOKENS = 128

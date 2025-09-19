@@ -1,7 +1,9 @@
 import os
 import numpy as np
 import torch
+import pprint
 
+from pathlib import Path
 from transformers import (
     set_seed,
     DataCollatorWithPadding,
@@ -9,15 +11,21 @@ from transformers import (
     TrainingArguments
 )
 
-from src import utility, metrics
+from src import utility, metrics, translator, helper
 from src.overrides import WeightedLossTrainer
 from src.config import SharedConfig, AppConfig
 
-def train(csv_path: str, configClass):
+def train(configClass, require_translation: bool = False):
     modelConfig = configClass()
     set_seed(SharedConfig.SEED)
-
-    train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(csv_path)
+    
+    jsonl = ""
+    if not require_translation:
+        jsonl = helper.read_jsonl_as_string(Path(AppConfig.DATASET))
+    else:
+        jsonl = translator.from_jsonl(AppConfig.DATASET)
+        
+    train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)
 
     tokenizer, tok_fn = utility.make_tokenizer(modelConfig.MODEL_NAME)
@@ -74,7 +82,8 @@ def train(csv_path: str, configClass):
 
     trainer.train()
     eval_metrics = trainer.evaluate(eval_dataset=test_ds)
-    print("Test metrics:", eval_metrics)
+    print("\r\nTest metrics:")
+    pprint.pprint(eval_metrics)
 
     if AppConfig.SAVE_MODEL:
         os.makedirs(modelConfig.OUTPUT_DIR, exist_ok=True)

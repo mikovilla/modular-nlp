@@ -1,10 +1,6 @@
 import numpy as np
 
 class HFSkPipeEstimator:
-    """
-    Minimal sklearn-compatible wrapper around a Hugging Face text-classification pipeline.
-    """
-    
     def __init__(self, pipe):
         self.pipe = pipe
         cfg = pipe.model.config

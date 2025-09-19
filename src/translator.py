@@ -1,0 +1,148 @@
+import os
+import io
+import sys
+import json
+from pathlib import Path
+from typing import List, Dict, Any, Union
+
+from transformers import pipeline
+from tqdm import tqdm
+
+from src import helper
+from src.config import SharedConfig, TranslateConfig, AppConfig
+
+def read_jsonl(path: Path) -> List[Dict[str, Any]]:
+    rows = []
+    with path.open("r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            rows.append(json.loads(line))
+    return rows
+
+def load_translation_cache(path: Path) -> Dict[str, str]:
+    cache = {}
+    if path is None or not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.touch()
+    with path.open("r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+                txt = obj.get("text")
+                trn = obj.get("translation_en")
+                if isinstance(txt, str) and isinstance(trn, str):
+                    cache[txt] = trn
+            except Exception:
+                continue
+    return cache
+
+def append_translation_cache(path: Path, new_items: Dict[str, str]) -> None:
+    if path is None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.touch()
+    with path.open("a", encoding="utf-8") as f:
+        for txt, trn in new_items.items():
+            f.write(json.dumps({"text": txt, "translation_en": trn}, ensure_ascii=False) + "\n")
+
+def raw_translate(texts: List[str], translator, max_new_tokens: int = 256) -> List[str]:
+    # transformers pipeline handles batching internally but we call it on lists for efficiency
+    outs = translator(texts, truncation=True, max_new_tokens=max_new_tokens)
+    # Some pipelines return dict, some list of dicts
+    if isinstance(outs, dict):
+        outs = [outs]
+    return [o["translation_text"] for o in outs]
+
+def batched(iterable, n: int):
+    batch = []
+    for item in iterable:
+        batch.append(item)
+        if len(batch) == n:
+            yield batch
+            batch = []
+    if batch:
+        yield batch
+
+def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
+    """
+    Reads a JSONL dataset with at least {'text', 'label'} (plus optional 'id'),
+    translates 'text', preserves 'label' and 'id', and returns a JSONL string:
+    {'id', 'text' (translated), 'label', 'original_text'}.
+
+    Cache file must be a FILE path (e.g., cache/translations_cache.jsonl).
+    """
+    dataset = Path(dataset)
+    # Use a FILE path for the cache (not a directory)
+    cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", "cache/translations_cache.jsonl"))
+
+    cache = load_translation_cache(cache_path)
+    device = 0 if SharedConfig.USE_FP16 else -1
+
+    translator = pipeline(
+        "translation",
+        model=TranslateConfig.MODEL,  # e.g. "Helsinki-NLP/opus-mt-tl-en" (requires `sentencepiece`)
+        device=device,
+    )
+
+    rows = read_jsonl(dataset)
+    print(f"[INFO] Loaded {len(rows)} rows")
+
+    outputs: List[Dict[str, Any]] = []
+    new_cache_accumulator: Dict[str, str] = {}
+
+    for batch in tqdm(list(batched(rows, TranslateConfig.BATCH_SIZE)), desc="Processing"):
+        texts = [r.get("text", "") for r in batch]
+
+        # build translations list aligned with texts (use cache or mark missing)
+        translations: List[Any] = []
+        to_translate_idx: List[int] = []
+        to_translate_texts: List[str] = []
+        for i, t in enumerate(texts):
+            if t in cache:
+                translations.append(cache[t])
+            else:
+                translations.append(None)
+                to_translate_idx.append(i)
+                to_translate_texts.append(t)
+
+        # translate only the missing ones
+        if to_translate_texts:
+            try:
+                new_tr = raw_translate(
+                    to_translate_texts, translator, max_new_tokens=TranslateConfig.MAX_NEW_TOKENS
+                )
+            except Exception as e:
+                print(f"[WARN] Translation failed for a batch ({len(to_translate_texts)} items): {e}", file=sys.stderr)
+                new_tr = to_translate_texts  # fallback: passthrough
+
+            # fill back + update cache
+            for i, tr in zip(to_translate_idx, new_tr):
+                translations[i] = tr
+                src = texts[i]
+                cache[src] = tr
+                new_cache_accumulator[src] = tr
+
+            # periodically flush cache
+            if new_cache_accumulator and len(new_cache_accumulator) >= 100:
+                append_translation_cache(cache_path, new_cache_accumulator)
+                new_cache_accumulator.clear()
+
+        # 🚨 important: always append outputs for the batch (even if 100% cached)
+        for r, tr in zip(batch, translations):
+            outputs.append({
+                "id": r.get("id"),
+                "text": tr,                     # translated text
+                "label": r.get("label"),        # preserved label
+                "original_text": r.get("text"), # original
+            })
+
+    # flush any remaining cache lines
+    if new_cache_accumulator:
+        append_translation_cache(cache_path, new_cache_accumulator)
+
+    # return the translated DATASET (not the cache)
+    return helper.to_jsonl(outputs)

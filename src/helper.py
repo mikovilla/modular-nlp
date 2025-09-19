@@ -1,8 +1,13 @@
 import pandas as pd
+import json
 
-def jsonToCSV(infile, outfile):
-    df = pd.read_json(infile)
-    df.to_csv(outfile, index=False)
+from pathlib import Path
+
+def read_jsonl_as_string(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
+
+def to_jsonl(rows):
+    return "\n".join(json.dumps(r, ensure_ascii=False) for r in rows)
 
 def to_list_str(col):
     out = []
