@@ -25,6 +25,10 @@ class XlmrConfig:
     MODEL_NAME = "xlm-roberta-base"
     OUTPUT_DIR = "./xlmr_sentiment"
 
+class MambaConfig:
+    MODEL_NAME = "state-spaces/mamba-130m"
+    OUTPUT_DIR = "./mamba_sentiment"
+
 class AppConfig:
     SAVE_MODEL = True
     DATASET = "./miko.jsonl"

@@ -1,13 +1,9 @@
 import os
-import numpy as np
 import torch
 import pprint
 
-from pathlib import Path
 from transformers import (
     set_seed,
-    DataCollatorWithPadding,
-    AutoModelForSequenceClassification,
     TrainingArguments
 )
 
@@ -15,38 +11,9 @@ from src import utility, metrics, translator, helper
 from src.overrides import WeightedLossTrainer
 from src.config import SharedConfig, AppConfig
 
-def train(configClass, require_translation: bool = False):
-    modelConfig = configClass()
+def train(context):
+    modelConfig = context.modelConfig
     set_seed(SharedConfig.SEED)
-    
-    jsonl = ""
-    if not require_translation:
-        jsonl = helper.read_jsonl_as_string(Path(AppConfig.DATASET))
-    else:
-        jsonl = translator.from_jsonl(AppConfig.DATASET)
-        
-    train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
-    num_labels = len(id2label)
-
-    tokenizer, tok_fn = utility.make_tokenizer(modelConfig.MODEL_NAME)
-    train_ds = train_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
-    val_ds   = val_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
-    test_ds  = test_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
-
-    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-
-    y_train = np.array(train_ds["label"])
-    counts = np.bincount(y_train, minlength=num_labels).astype(np.float32)
-    weights = counts.sum() / (counts + 1e-9)
-    class_weights = torch.tensor(weights / weights.mean())
-
-    model = AutoModelForSequenceClassification.from_pretrained(
-        modelConfig.MODEL_NAME,
-        num_labels=num_labels,
-        id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
-        label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None,
-        problem_type="single_label_classification",
-    )
 
     training_args = TrainingArguments(
         output_dir=modelConfig.OUTPUT_DIR,
@@ -70,25 +37,25 @@ def train(configClass, require_translation: bool = False):
     )
 
     trainer = WeightedLossTrainer(
-        model=model,
+        model=context.model,
         args=training_args,
-        train_dataset=train_ds,
-        eval_dataset=val_ds,
-        tokenizer=tokenizer,
-        data_collator=data_collator,
+        train_dataset=context.train_ds,
+        eval_dataset=context.val_ds,
+        tokenizer=context.tokenizer,
+        data_collator=context.data_collator,
         compute_metrics=metrics.compute_metrics,
-        class_weights=class_weights,
+        class_weights=context.class_weights,
     )
 
     trainer.train()
-    eval_metrics = trainer.evaluate(eval_dataset=test_ds)
+    eval_metrics = trainer.evaluate(eval_dataset=context.test_ds)
     print("\r\nTest metrics:")
     pprint.pprint(eval_metrics)
 
     if AppConfig.SAVE_MODEL:
         os.makedirs(modelConfig.OUTPUT_DIR, exist_ok=True)
         trainer.save_model(modelConfig.OUTPUT_DIR)
-        tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
+        context.tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
 
     return trainer
 
