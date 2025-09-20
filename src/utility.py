@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from datasets import Dataset
 from transformers import AutoTokenizer
 
-from src.config import SharedConfig
+from src.config import SharedConfig, MambaConfig
 
 def build_label_maps(series: pd.Series):
     if series.dtype.kind in {"i", "u"}:
@@ -36,7 +36,6 @@ def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1
         stratify=df["label_id"]
     )
 
-    # Split val / test
     rel_val = val_size / (test_size + val_size)
     X_val, X_test, y_val, y_test = train_test_split(
         X_temp,
@@ -59,8 +58,34 @@ def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1
         id2label
     )
 
-def make_tokenizer(model_name: str):
-    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+def make_tokenizer(configClass, model_name: str):
+    modelConfig = configClass()
+
+    tokenizer = None
+    if isinstance(modelConfig, MambaConfig):
+        try:
+            tokenizer = AutoTokenizer.from_pretrained(
+                model_name,
+                trust_remote_code=True,
+                use_fast=False,
+                local_files_only=False,
+            )
+        except Exception:
+            tokenizer = AutoTokenizer.from_pretrained(
+                model_name,
+                trust_remote_code=True,
+                use_fast=True,
+                local_files_only=False,
+            )
+    
+        if tokenizer.pad_token_id is None:
+            if getattr(tokenizer, "eos_token", None) is not None:
+                tokenizer.pad_token = tokenizer.eos_token
+            else:
+                tokenizer.add_special_tokens({"pad_token": "<|pad|>"})
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+        
     def tok(batch):
         return tokenizer(
             batch[SharedConfig.TEXT_COL],

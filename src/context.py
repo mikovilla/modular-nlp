@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Type
 from dataclasses import dataclass
 
-from src import helper, utility, translator
+from src import helper, utility, translator, classifiers
 from src.config import AppConfig, SharedConfig, MambaConfig
 
 @dataclass
@@ -40,7 +40,7 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)
 
-    tokenizer, tok_fn = utility.make_tokenizer(modelConfig.MODEL_NAME)
+    tokenizer, tok_fn = utility.make_tokenizer(configClass, modelConfig.MODEL_NAME)
     train_ds = train_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
     val_ds   = val_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
     test_ds  = test_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
@@ -54,7 +54,7 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
 
     def get_model():
         if isinstance(modelConfig, MambaConfig):
-            load_res = load_mamba_for_classification(
+            load_res = classifiers.load_mamba_for_classification(
                 model_name=modelConfig.MODEL_NAME,
                 num_labels=num_labels,
                 id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,

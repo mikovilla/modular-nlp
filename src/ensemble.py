@@ -8,7 +8,7 @@ class HFSkPipeEstimator:
         if isinstance(cfg.id2label, dict) and len(cfg.id2label) > 0:
             ids = sorted([int(k) if isinstance(k, str) and k.isdigit() else int(k) for k in cfg.id2label.keys()])
             self.id2label = {i: str(cfg.id2label[i]) for i in ids}
-            self.classes_ = np.array(ids)  # sklearn expects labels here; we’ll emit ints
+            self.classes_ = np.array(ids)
         else:
             ids = list(range(cfg.num_labels))
             self.id2label = {i: str(i) for i in ids}

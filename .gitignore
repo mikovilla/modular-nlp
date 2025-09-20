@@ -9,6 +9,7 @@ __pycache__/
 # Model outputs / checkpoints
 mbert_sentiment/
 xlmr_sentiment/
+mamba_sentiment/
 
 # OS-specific (optional, but nice to have)
 .DS_Store
@@ -20,3 +21,4 @@ miko.*
 
 # Cache
 cache/
+requirements.txt

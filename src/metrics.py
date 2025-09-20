@@ -18,7 +18,7 @@ def evaluate_pipe(pipe, texts, labels, id2label=None, average="macro"):
     for x in texts:
         if x is None:
             clean_texts.append("")
-        elif hasattr(x, "as_py"):  # pyarrow scalar
+        elif hasattr(x, "as_py"):
             clean_texts.append(str(x.as_py()))
         else:
             clean_texts.append(str(x))

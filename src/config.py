@@ -26,7 +26,7 @@ class XlmrConfig:
     OUTPUT_DIR = "./xlmr_sentiment"
 
 class MambaConfig:
-    MODEL_NAME = "state-spaces/mamba-130m"
+    MODEL_NAME = "state-spaces/mamba-130m-hf"
     OUTPUT_DIR = "./mamba_sentiment"
 
 class AppConfig:
