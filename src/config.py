@@ -33,9 +33,15 @@ class AppConfig:
     SAVE_MODEL = True
     DATASET = "./miko.jsonl"
     CACHE_DIR = "./cache/translations_cache.jsonl"
+    DEVICE = 0 if torch.cuda.is_available() else -1
+    ENVIRONMENT = "sandbox"
+    DEBUG = 0
+    INFER_SAMPLE = 0
 
 class TranslateConfig:
     MODEL = "Helsinki-NLP/opus-mt-tl-en" # requires sentencepiece
     CACHE_DIR = "./cache/translations_cache.jsonl"
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128
+
+__all__ = ["SharedConfig", "AppConfig", "TranslateConfig", "MBertConfig", "XlmrConfig", "MambaConfig"]

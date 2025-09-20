@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Type
 from dataclasses import dataclass
 
-from src import helper, utility
+from src import helper, utility, translator
 from src.config import AppConfig, SharedConfig, MambaConfig
 
 @dataclass
@@ -24,10 +24,18 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     modelConfig = configClass()
     
     jsonl = ""
+
+    if AppConfig.DEBUG and AppConfig.ENVIRONMENT == "sandbox":
+        helper.print_header("original data")
+        print(helper.read_jsonl_as_string(Path(AppConfig.DATASET)))
+    
     if not require_translation:
         jsonl = helper.read_jsonl_as_string(Path(AppConfig.DATASET))
     else:
         jsonl = translator.from_jsonl(AppConfig.DATASET)
+        if AppConfig.DEBUG and AppConfig.ENVIRONMENT == "sandbox":
+            helper.print_header("translated data")
+            print(translator.from_jsonl(AppConfig.DATASET))
         
     train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)

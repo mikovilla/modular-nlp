@@ -69,12 +69,11 @@ def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
     dataset = Path(dataset)
     cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", "cache/translations_cache.jsonl"))
     cache = load_translation_cache(cache_path)
-    device = 0 if SharedConfig.USE_FP16 else -1
 
     translator = pipeline(
         "translation",
         model=TranslateConfig.MODEL,
-        device=device,
+        device=AppConfig.DEVICE,
     )
 
     rows = read_jsonl(dataset)

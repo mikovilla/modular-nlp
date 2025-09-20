@@ -49,7 +49,7 @@ def train(context):
 
     trainer.train()
     eval_metrics = trainer.evaluate(eval_dataset=context.test_ds)
-    print("\r\nTest metrics:")
+    helper.print_header("evaluation metrics")
     pprint.pprint(eval_metrics)
 
     if AppConfig.SAVE_MODEL:
@@ -65,4 +65,5 @@ def infer(texts, tokenizer, model):
     with torch.no_grad():
         logits = model(**{k: v.to(model.device) for k, v in enc.items()}).logits
         preds = torch.argmax(logits, dim=-1).cpu().numpy().tolist()
-    print("Sample predictions:", list(zip(texts, preds)))
+    helper.print_header("sample predictions")
+    print( list(zip(texts, preds)))

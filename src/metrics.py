@@ -29,7 +29,6 @@ def evaluate_pipe(pipe, texts, labels, id2label=None, average="macro"):
 
     preds = []
     if isinstance(labels[0], int):
-        # Build label2id mapping
         if id2label is None and hasattr(pipe.model, "config"):
             id2label = getattr(pipe.model.config, "id2label", None)
         if id2label:
