@@ -53,10 +53,6 @@ def train(context):
     )
     switch_cb.bind(trainer)
     trainer.add_callback(switch_cb)
-
-    dbg = DebugCallback(); 
-    dbg.bind(trainer)
-    trainer.add_callback(dbg)
     
     if AppConfig.DEBUG:
         dbg = DebugCallback(); 
