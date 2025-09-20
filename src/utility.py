@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import io
 
@@ -58,34 +59,39 @@ def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1
         id2label
     )
 
-def make_tokenizer(configClass, model_name: str):
+def make_tokenizer(configClass):
     modelConfig = configClass()
 
-    tokenizer = None
-    if isinstance(modelConfig, MambaConfig):
-        try:
-            tokenizer = AutoTokenizer.from_pretrained(
-                model_name,
-                trust_remote_code=True,
-                use_fast=False,
-                local_files_only=False,
-            )
-        except Exception:
-            tokenizer = AutoTokenizer.from_pretrained(
-                model_name,
-                trust_remote_code=True,
-                use_fast=True,
-                local_files_only=False,
-            )
-    
-        if tokenizer.pad_token_id is None:
-            if getattr(tokenizer, "eos_token", None) is not None:
-                tokenizer.pad_token = tokenizer.eos_token
-            else:
-                tokenizer.add_special_tokens({"pad_token": "<|pad|>"})
-    else:
-        tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+    if os.path.exists(modelConfig.OUTPUT_DIR):
+        tokenizer = AutoTokenizer.from_pretrained(modelConfig.OUTPUT_DIR)
+    else: 
+        if isinstance(modelConfig, MambaConfig):
+            try:
+                tokenizer = AutoTokenizer.from_pretrained(
+                    configClass.MODEL_NAME,
+                    trust_remote_code=True,
+                    use_fast=False,
+                    local_files_only=False,
+                )
+            except Exception:
+                tokenizer = AutoTokenizer.from_pretrained(
+                    configClass.MODEL_NAME,
+                    trust_remote_code=True,
+                    use_fast=True,
+                    local_files_only=False,
+                )
         
+            if tokenizer.pad_token_id is None:
+                if getattr(tokenizer, "eos_token", None) is not None:
+                    tokenizer.pad_token = tokenizer.eos_token
+                else:
+                    tokenizer.add_special_tokens({"pad_token": "<|pad|>"})
+        else:
+            tokenizer = AutoTokenizer.from_pretrained(configClass.MODEL_NAME, use_fast=True)
+
+    return tokenizer
+
+def make_tokenizer_fn(tokenizer):
     def tok(batch):
         return tokenizer(
             batch[SharedConfig.TEXT_COL],
@@ -93,4 +99,5 @@ def make_tokenizer(configClass, model_name: str):
             max_length=SharedConfig.MAX_LENGTH,
             padding=False,
         )
-    return tokenizer, tok
+    return tok
+    

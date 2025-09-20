@@ -1,12 +1,13 @@
-import numpy as np
+import os
 import torch
+import numpy as np
 
-from transformers import AutoModelForSequenceClassification, DataCollatorWithPadding
+from transformers import AutoModelForSequenceClassification, AutoModel, AutoTokenizer, DataCollatorWithPadding
 from pathlib import Path
 from typing import Type
 from dataclasses import dataclass
 
-from src import helper, utility, translator, classifiers
+from src import helper, utility, translator, mamba
 from src.config import AppConfig, SharedConfig, MambaConfig
 
 @dataclass
@@ -22,7 +23,6 @@ class Context:
 
 def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     modelConfig = configClass()
-    
     jsonl = ""
 
     if AppConfig.DEBUG and AppConfig.ENVIRONMENT == "sandbox":
@@ -40,7 +40,33 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)
 
-    tokenizer, tok_fn = utility.make_tokenizer(configClass, modelConfig.MODEL_NAME)
+    model = None
+    tokenizer = None
+    if isinstance(modelConfig, MambaConfig):
+        load_res = mamba.load_model_for_classification(
+            model_name=modelConfig.OUTPUT_DIR if modelConfig.USE_SAVED_MODEL else modelConfig.MODEL_NAME,
+            backbone_name = modelConfig.MODEL_NAME,
+            num_labels=num_labels,
+            id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
+            label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None
+        )
+        model = load_res.model
+        tokenizer = load_res.tokenizer
+    else:
+        if modelConfig.USE_SAVED_MODEL:
+            model = AutoModelForSequenceClassification.from_pretrained(modelConfig.OUTPUT_DIR)
+            tokenizer = AutoTokenizer.from_pretrained(modelConfig.OUTPUT_DIR)
+        else:
+            model = AutoModelForSequenceClassification.from_pretrained(
+                modelConfig.MODEL_NAME,
+                num_labels=num_labels,
+                id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
+                label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None,
+                problem_type="single_label_classification",
+            )
+            tokenizer = utility.make_tokenizer(configClass)
+    
+    tok_fn = utility.make_tokenizer_fn(tokenizer)
     train_ds = train_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
     val_ds   = val_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
     test_ds  = test_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
@@ -52,29 +78,9 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     weights = counts.sum() / (counts + 1e-9)
     class_weights = torch.tensor(weights / weights.mean())
 
-    def get_model():
-        if isinstance(modelConfig, MambaConfig):
-            load_res = classifiers.load_mamba_for_classification(
-                model_name=modelConfig.MODEL_NAME,
-                num_labels=num_labels,
-                id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
-                label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None
-            )
-            tokenizer = load_res.tokenizer
-            return load_res.model
-        else:
-            model = AutoModelForSequenceClassification.from_pretrained(
-                modelConfig.MODEL_NAME,
-                num_labels=num_labels,
-                id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
-                label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None,
-                problem_type="single_label_classification",
-            )
-            return model
-
     return Context(
         modelConfig=modelConfig,
-        model=get_model(),
+        model=model,
         tokenizer=tokenizer,
         train_ds=train_ds,
         val_ds=val_ds,

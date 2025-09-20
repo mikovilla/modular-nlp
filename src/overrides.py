@@ -6,20 +6,38 @@ class WeightedLossTrainer(Trainer):
     def __init__(self, *args, class_weights=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.class_weights = class_weights
+        self._dbg = False
 
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.get("labels")
         outputs = model(**{k: v for k, v in inputs.items() if k != "labels"})
-        logits = outputs.get("logits", outputs[0])
+        logits = getattr(outputs, "logits", None)
 
-        if self.class_weights is not None:
-            cw = self.class_weights.to(logits.device, dtype=logits.dtype)
-            loss_fct = nn.CrossEntropyLoss(weight=cw)
+        if labels is not None and labels.dtype != torch.long:
+            labels = labels.long()
+
+        if not self._dbg:
+            self._dbg = True
+
+        weight = self.class_weights.to(logits.device) if self.class_weights is not None else None
+
+        if logits.dim() == 2:
+            loss = nn.CrossEntropyLoss(weight=weight)(logits, labels)
+
+        elif logits.dim() == 3:
+            if labels is not None and labels.dim() == 2:
+                loss = nn.CrossEntropyLoss(weight=weight, ignore_index=-100)(
+                    logits.view(-1, logits.size(-1)), labels.view(-1)
+                )
+            else:
+                attn = inputs.get("attention_mask")
+                if attn is not None and attn.dim() == 2:
+                    mask = attn.unsqueeze(-1).float()
+                    pooled = (logits * mask).sum(1) / mask.sum(1).clamp_min(1e-9)  # [B, C]
+                else:
+                    pooled = logits.mean(dim=1)
+                loss = nn.CrossEntropyLoss(weight=weight)(pooled, labels)
         else:
-            loss_fct = nn.CrossEntropyLoss()
+            raise ValueError(f"Unexpected logits shape: {logits.shape}")
 
-        loss = loss_fct(
-            logits.view(-1, logits.size(-1)),
-            labels.view(-1)
-        )
         return (loss, outputs) if return_outputs else loss

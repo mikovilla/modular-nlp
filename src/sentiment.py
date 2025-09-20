@@ -34,14 +34,14 @@ def train(context):
         save_total_limit=SharedConfig.SAVE_TOTAL_LIMIT,
         logging_steps=50,
         dataloader_num_workers=2,
-    )
+    )      
 
     trainer = WeightedLossTrainer(
         model=context.model,
         args=training_args,
         train_dataset=context.train_ds,
         eval_dataset=context.val_ds,
-        tokenizer=context.tokenizer,
+        processing_class=context.tokenizer,
         data_collator=context.data_collator,
         compute_metrics=metrics.compute_metrics,
         class_weights=context.class_weights,
@@ -49,7 +49,7 @@ def train(context):
 
     trainer.train()
     eval_metrics = trainer.evaluate(eval_dataset=context.test_ds)
-    helper.print_header("evaluation metrics")
+    helper.print_header(f"{context.modelConfig.MODEL_NAME} evaluation metrics")
     pprint.pprint(eval_metrics)
 
     if AppConfig.SAVE_MODEL:
