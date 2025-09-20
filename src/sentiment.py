@@ -8,8 +8,9 @@ from transformers import (
 )
 
 from src import utility, metrics, translator, helper
-from src.overrides import WeightedLossTrainer
+from src.trainer import WeightedLossTrainer
 from src.config import SharedConfig, AppConfig
+from src.optimizer import SwitchOptimizerCallback, DebugCallback
 
 def train(context):
     modelConfig = context.modelConfig
@@ -23,6 +24,7 @@ def train(context):
         num_train_epochs=SharedConfig.EPOCHS,
         weight_decay=SharedConfig.WEIGHT_DECAY,
         warmup_ratio=SharedConfig.WARMUP_RATIO,
+        lr_scheduler_type="constant",
         eval_strategy="epoch",
         save_strategy="epoch",
         load_best_model_at_end=True,
@@ -36,6 +38,9 @@ def train(context):
         dataloader_num_workers=2,
     )      
 
+    switch_cb = SwitchOptimizerCallback(switch_after_epoch=2, 
+                                        opt_class=torch.optim.SGD,
+                                        opt_kwargs={"lr":3e-3, "momentum":0.9, "nesterov":True})
     trainer = WeightedLossTrainer(
         model=context.model,
         args=training_args,
@@ -44,9 +49,20 @@ def train(context):
         processing_class=context.tokenizer,
         data_collator=context.data_collator,
         compute_metrics=metrics.compute_metrics,
-        class_weights=context.class_weights,
+        class_weights=context.class_weights
     )
+    switch_cb.bind(trainer)
+    trainer.add_callback(switch_cb)
 
+    dbg = DebugCallback(); 
+    dbg.bind(trainer)
+    trainer.add_callback(dbg)
+    
+    if AppConfig.DEBUG:
+        dbg = DebugCallback(); 
+        dbg.bind(trainer)
+        trainer.add_callback(dbg)
+    
     trainer.train()
     eval_metrics = trainer.evaluate(eval_dataset=context.test_ds)
     helper.print_header(f"{context.modelConfig.MODEL_NAME} evaluation metrics")

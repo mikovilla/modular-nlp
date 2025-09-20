@@ -24,7 +24,6 @@ def evaluate_pipe(pipe, texts, labels, id2label=None, average="macro"):
             clean_texts.append(str(x))
 
     outs = pipe(clean_texts, batch_size=32, truncation=True, return_all_scores=True)
-
     pred_labels = [max(row, key=lambda r: r["score"])["label"] for row in outs]
 
     preds = []

@@ -1,4 +1,6 @@
+from torch.optim import AdamW
 from transformers import Trainer
+
 import torch
 import torch.nn as nn
 
@@ -7,6 +9,15 @@ class WeightedLossTrainer(Trainer):
         super().__init__(*args, **kwargs)
         self.class_weights = class_weights
         self._dbg = False
+
+    def create_optimizer(self):
+        if self.optimizer is None:
+            self.optimizer = AdamW(
+                self.model.parameters(),
+                lr=self.args.learning_rate,
+                weight_decay=self.args.weight_decay
+            )
+        return self.optimizer
 
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.get("labels")
