@@ -44,8 +44,7 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     tokenizer = None
     if isinstance(modelConfig, MambaConfig):
         load_res = mamba.load_model_for_classification(
-            model_name=modelConfig.OUTPUT_DIR if modelConfig.USE_SAVED_MODEL else modelConfig.MODEL_NAME,
-            backbone_name = modelConfig.MODEL_NAME,
+            model_name=modelConfig.MODEL_NAME,
             num_labels=num_labels,
             id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
             label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None
@@ -53,18 +52,14 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
         model = load_res.model
         tokenizer = load_res.tokenizer
     else:
-        if modelConfig.USE_SAVED_MODEL:
-            model = AutoModelForSequenceClassification.from_pretrained(modelConfig.OUTPUT_DIR)
-            tokenizer = AutoTokenizer.from_pretrained(modelConfig.OUTPUT_DIR)
-        else:
-            model = AutoModelForSequenceClassification.from_pretrained(
+        model = AutoModelForSequenceClassification.from_pretrained(
                 modelConfig.MODEL_NAME,
                 num_labels=num_labels,
                 id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
                 label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None,
                 problem_type="single_label_classification",
             )
-            tokenizer = utility.make_tokenizer(configClass)
+        tokenizer = utility.make_tokenizer(configClass)
     
     tok_fn = utility.make_tokenizer_fn(tokenizer)
     train_ds = train_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
@@ -77,7 +72,7 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     counts = np.bincount(y_train, minlength=num_labels).astype(np.float32)
     weights = counts.sum() / (counts + 1e-9)
     class_weights = torch.tensor(weights / weights.mean())
-
+    
     return Context(
         modelConfig=modelConfig,
         model=model,

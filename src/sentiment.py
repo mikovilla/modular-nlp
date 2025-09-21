@@ -4,12 +4,14 @@ import pprint
 
 from transformers import (
     set_seed,
-    TrainingArguments
+    TrainingArguments,
+    AutoTokenizer, 
+    AutoModelForSequenceClassification
 )
 
-from src import utility, metrics, translator, helper
+from src import utility, metrics, translator, helper, mamba
 from src.trainer import WeightedLossTrainer
-from src.config import SharedConfig, AppConfig
+from src.config import SharedConfig, AppConfig, MambaConfig
 from src.optimizer import SwitchOptimizerCallback, DebugCallback
 
 def train(context):
@@ -67,12 +69,18 @@ def train(context):
 
     if AppConfig.SAVE_MODEL:
         os.makedirs(modelConfig.OUTPUT_DIR, exist_ok=True)
+        trainer.model.config.save_pretrained(modelConfig.OUTPUT_DIR)
         trainer.save_model(modelConfig.OUTPUT_DIR)
         context.tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
 
     return trainer
 
-def infer(texts, tokenizer, model):
+def infer(texts, configClass):
+    modelConfig = configClass()
+    saved_model = mamba.load_saved_model() 
+    model = saved_model.model if isinstance(modelConfig, MambaConfig) else AutoModelForSequenceClassification.from_pretrained(modelConfig.OUTPUT_DIR)
+    tokenizer = saved_model.tokenizer if isinstance(modelConfig, MambaConfig) else AutoTokenizer.from_pretrained(modelConfig.OUTPUT_DIR)
+
     enc = tokenizer(texts, return_tensors="pt", truncation=True, padding=True, max_length=SharedConfig.MAX_LENGTH)
     model.eval()
     with torch.no_grad():

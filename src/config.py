@@ -20,26 +20,23 @@ class SharedConfig:
 class MBertConfig:
     MODEL_NAME = "bert-base-multilingual-cased"
     OUTPUT_DIR = "./mbert_sentiment"
-    USE_SAVED_MODEL = 1
 
 class XlmrConfig:
     MODEL_NAME = "xlm-roberta-base"
     OUTPUT_DIR = "./xlmr_sentiment"
-    USE_SAVED_MODEL = 1
 
 class MambaConfig:
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     OUTPUT_DIR = "./mamba_sentiment"
-    USE_SAVED_MODEL = 1
 
 class AppConfig:
+    DEBUG = False
+    INFER = True
     SAVE_MODEL = True
+    SHOW_DATA = False
     DATASET = "./miko.jsonl"
     CACHE_DIR = "./cache/translations_cache.jsonl"
     DEVICE = 0 if torch.cuda.is_available() else -1
-    SHOW_DATA = 0
-    DEBUG = 0
-    INFER_SAMPLE = 0
 
 class TranslateConfig:
     MODEL = "Helsinki-NLP/opus-mt-tl-en" # requires sentencepiece

@@ -17,7 +17,6 @@ class SwitchOptimizerCallback(TrainerCallback):
         self.trainer = trainer
 
     def on_epoch_end(self, args, state, control, model=None, **kwargs):
-        # Switch AFTER the chosen epoch completes
         if state.epoch is None or int(state.epoch) != self.switch_after_epoch:
             return control
 
@@ -27,7 +26,6 @@ class SwitchOptimizerCallback(TrainerCallback):
 
         base_opt = self.opt_class(model.parameters(), **self.opt_kwargs)
 
-        # 2) Wrap with Accelerate so Trainer sees an AcceleratedOptimizer
         accel = getattr(self.trainer, "accelerator", None)
         if accel is not None:
             new_opt = accel.prepare_optimizer(base_opt)
@@ -37,18 +35,15 @@ class SwitchOptimizerCallback(TrainerCallback):
         else:
             self.trainer.optimizer = base_opt
 
-        # 3) Reset GradScaler if fp16
         if getattr(self.trainer, "scaler", None) is not None:
             new_scaler = GradScaler()
             self.trainer.scaler = new_scaler
             if accel is not None:
                 accel.scaler = new_scaler
 
-        # 4) Rebuild scheduler bound to NEW optimizer and force constant LR
         steps = self.trainer.state.max_steps or self.trainer.get_num_training_steps(self.trainer.get_train_dataloader())
         self.trainer.create_scheduler(num_training_steps=steps, optimizer=self.trainer.optimizer)
 
-        # 5) Sanity print (live)
         base = getattr(self.trainer.optimizer, "optimizer", self.trainer.optimizer)
         if AppConfig.DEBUG:
             print(f"[SWITCHED] base={type(base).__name__} lr={self.trainer.optimizer.param_groups[0]['lr']}")
