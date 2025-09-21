@@ -32,7 +32,7 @@ class MambaConfig:
 class AppConfig:
     DEBUG = False
     INFER = False
-    ENSEMBLE = False
+    ENSEMBLE = True
     SAVE_MODEL = True
     SHOW_DATA = False
     DATASET = "./miko.jsonl"
