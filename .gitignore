@@ -21,3 +21,4 @@ miko.*
 
 # Cache
 cache/
+datasets/

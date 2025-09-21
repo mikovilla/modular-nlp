@@ -13,11 +13,16 @@ from src import utility, metrics, translator, helper, mamba
 from src.trainer import WeightedLossTrainer
 from src.config import SharedConfig, AppConfig, MambaConfig
 from src.optimizer import SwitchOptimizerCallback, DebugCallback
+from datasets import load_from_disk
 
 def train(context):
     modelConfig = context.modelConfig
     set_seed(SharedConfig.SEED)
 
+    val_ds, val_loaded = helper.load_dataset_if_exists("val_ds", context.val_ds)
+    train_ds, train_loaded = helper.load_dataset_if_exists("train_ds", context.train_ds)
+    test_ds, test_loaded = helper.load_dataset_if_exists("test_ds", context.test_ds)
+    
     training_args = TrainingArguments(
         output_dir=modelConfig.OUTPUT_DIR,
         per_device_train_batch_size=SharedConfig.BATCH_SIZE,
@@ -47,8 +52,8 @@ def train(context):
     trainer = WeightedLossTrainer(
         model=context.model,
         args=training_args,
-        train_dataset=context.train_ds,
-        eval_dataset=context.val_ds,
+        train_dataset=train_ds,
+        eval_dataset=val_ds,
         processing_class=context.tokenizer,
         data_collator=context.data_collator,
         compute_metrics=metrics.compute_metrics,
@@ -63,7 +68,7 @@ def train(context):
         trainer.add_callback(dbg)
     
     trainer.train()
-    eval_metrics = trainer.evaluate()
+    eval_metrics = trainer.evaluate(test_ds)
     helper.print_header(f"{context.modelConfig.MODEL_NAME} evaluation metrics")
     pprint.pprint(eval_metrics)
 
@@ -72,6 +77,10 @@ def train(context):
         trainer.model.config.save_pretrained(modelConfig.OUTPUT_DIR)
         trainer.save_model(modelConfig.OUTPUT_DIR)
         context.tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
+        
+        context.val_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/val_ds") if not val_loaded else None
+        context.train_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/train_ds") if not train_loaded else None
+        context.test_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/test_ds") if not test_loaded else None
 
     return trainer
 
@@ -87,4 +96,4 @@ def infer(texts, configClass):
         logits = model(**{k: v.to(model.device) for k, v in enc.items()}).logits
         preds = torch.argmax(logits, dim=-1).cpu().numpy().tolist()
     helper.print_header("sample predictions")
-    print( list(zip(texts, preds)))
+    print(list(zip(texts, preds)))

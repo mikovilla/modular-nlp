@@ -67,7 +67,7 @@ def batched(iterable, n: int):
 
 def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
     dataset = Path(dataset)
-    cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", "cache/translations_cache.jsonl"))
+    cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", TranslateConfig.CACHE_DIR))
     cache = load_translation_cache(cache_path)
 
     translator = pipeline(

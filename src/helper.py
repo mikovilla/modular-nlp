@@ -1,6 +1,7 @@
 import pandas as pd
 import json
-
+import os
+from datasets import load_from_disk
 from src.config import *
 from pathlib import Path
 
@@ -52,3 +53,11 @@ def list_config():
             if not name.startswith("__"):
                 print(f"\t{name}: {value}") 
         print("### CONFIGURATION: END ###")
+
+
+
+def load_dataset_if_exists(folder, fallback):
+    try:
+        return load_from_disk(f"{AppConfig.DATASET_SPLITS_DIR}/{folder}"), True
+    except Exception:
+        return fallback, False

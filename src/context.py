@@ -36,7 +36,8 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
         if AppConfig.DEBUG and AppConfig.SHOW_DATA:
             helper.print_header("translated data")
             print(translator.from_jsonl(AppConfig.DATASET))
-        
+
+    # TODO: PERSIST
     train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)
 

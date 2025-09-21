@@ -1,4 +1,4 @@
---extra-index-url https://download.pytorch.org/whl/cu128
+--extra-index-url https://download.pytorch.org/whl/cu129
 
 pandas==2.3.2
 transformers==4.56.2
@@ -9,6 +9,6 @@ sentencepiece==0.2.1
 sacremoses==0.1.1
 causal-conv1d==1.5.2
 mamba-ssm==2.2.5
-torch==2.8.0+cu128
-torchvision==0.23.0+cu128
-torchaudio==2.8.0+cu128
+torch==2.8.0+cu129
+torchvision==0.23.0+cu129
+torchaudio==2.8.0+cu129

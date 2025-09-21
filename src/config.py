@@ -31,11 +31,12 @@ class MambaConfig:
 
 class AppConfig:
     DEBUG = False
-    INFER = True
+    INFER = False
+    ENSEMBLE = True
     SAVE_MODEL = True
     SHOW_DATA = False
     DATASET = "./miko.jsonl"
-    CACHE_DIR = "./cache/translations_cache.jsonl"
+    DATASET_SPLITS_DIR = "./datasets"
     DEVICE = 0 if torch.cuda.is_available() else -1
 
 class TranslateConfig:

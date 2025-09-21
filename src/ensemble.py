@@ -1,52 +1,65 @@
+import os
 import numpy as np
+from datasets import load_from_disk
+import torch
+import torch.nn.functional as F
+from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
+from src import mamba, metrics, helper
+from src.config import MambaConfig, SharedConfig
+from transformers import (
+    AutoTokenizer, 
+    AutoModelForSequenceClassification
+)
 
-class HFSkPipeEstimator:
-    def __init__(self, pipe):
-        self.pipe = pipe
-        cfg = pipe.model.config
-        
-        if isinstance(cfg.id2label, dict) and len(cfg.id2label) > 0:
-            ids = sorted([int(k) if isinstance(k, str) and k.isdigit() else int(k) for k in cfg.id2label.keys()])
-            self.id2label = {i: str(cfg.id2label[i]) for i in ids}
-            self.classes_ = np.array(ids)
-        else:
-            ids = list(range(cfg.num_labels))
-            self.id2label = {i: str(i) for i in ids}
-            self.classes_ = np.array(ids)
+def evaluate(configClasses, temps=None, weights=None):
 
-        self.label2id = {}
+    val_ds, val_loaded = helper.load_dataset_if_exists("val_ds", None)
+    if not val_loaded:
+        raise ValueError("Validation dataset not found")
+    
+    modelConfigs = []
+    for configClass in configClasses:
+        modelConfigs.append(configClass())
         
-        for i, name in self.id2label.items():
-            self.label2id[str(i)] = i
-            self.label2id[f"LABEL_{i}"] = i
-            self.label2id[name] = i
+    m = len(modelConfigs)
+    temps   = temps   or [1.0] * m
+    weights = weights or [1.0] * m
 
-    def predict_proba(self, texts):
-        if not isinstance(texts, list):
-            texts = list(texts)
-            
-        texts = ["" if t is None else str(t) for t in texts]
-        outs = self.pipe(texts, batch_size=32, truncation=True, return_all_scores=True)
-        P = np.zeros((len(outs), len(self.classes_)), dtype=float)
-        
-        for i, row in enumerate(outs):
-            for item in row:
-                lbl = item["label"]
-                if lbl in self.label2id:
-                    j = self.label2id[lbl]
-                    P[i, j] = float(item["score"])
-                else:
-                    if lbl.startswith("LABEL_") and lbl[6:].isdigit():
-                        j = int(lbl[6:])
-                        if j < P.shape[1]:
-                            P[i, j] = float(item["score"])
-        
-        row_sums = P.sum(axis=1, keepdims=True)
-        row_sums[row_sums == 0] = 1.0
-        
-        return P / row_sums
+    all_logits = []
+    y_true = None
+    
+    for modelConfig in modelConfigs:
+        saved_model = mamba.load_saved_model() 
+        model = saved_model.model if isinstance(modelConfig, MambaConfig) else AutoModelForSequenceClassification.from_pretrained(modelConfig.OUTPUT_DIR)
+        tokenizer = saved_model.tokenizer if isinstance(modelConfig, MambaConfig) else AutoTokenizer.from_pretrained(modelConfig.OUTPUT_DIR)
+        texts = [tokenizer.decode(ex['input_ids'], skip_special_tokens=True) for ex in val_ds]
+        enc = tokenizer(texts, return_tensors="pt", truncation=True, padding=True, max_length=SharedConfig.MAX_LENGTH)
+        y_true = torch.tensor(val_ds["label"]).long()
+        with torch.no_grad():
+            all_logits.append(model(**{k: v.to(model.device) for k, v in enc.items()}).logits)
+    
+    w = torch.tensor(weights, dtype=all_logits[0].dtype, device=all_logits[0].device)
+    w = w / w.sum()
 
-    def predict(self, texts):
-        P = self.predict_proba(texts)
-        idx = P.argmax(axis=1)
-        return idx
+    ensembled_logits = sum(w[j] * (all_logits[j] / all_logits[j]) for j in range(len(all_logits)))
+
+    probs = F.softmax(ensembled_logits, dim=-1)
+    preds = probs.argmax(dim=-1)
+
+    if torch.is_tensor(y_true):
+        y_np = y_true.cpu().numpy()
+    else:
+        y_np = np.asarray(y_true)
+
+    y_pred = preds.cpu().numpy()
+    p_np   = probs.cpu().numpy()
+
+    nll = F.cross_entropy(ensembled_logits, torch.as_tensor(y_np, device=ensembled_logits.device)).item()
+    metrics = {
+        "accuracy": accuracy_score(y_np, y_pred),
+        "f1_macro": f1_score(y_np, y_pred, average="macro"),
+        "f1_micro": f1_score(y_np, y_pred, average="micro"),
+        "nll": nll
+    }
+    return metrics, y_pred, p_np
+    
