@@ -1,11 +1,17 @@
+import numpy as np
 import os
 import torch
-import numpy as np
 
-from transformers import AutoModelForSequenceClassification, AutoModel, AutoTokenizer, DataCollatorWithPadding
-from pathlib import Path
-from typing import Type
 from dataclasses import dataclass
+from pathlib import Path
+from transformers import (
+    AutoModelForSequenceClassification, 
+    AutoModel, 
+    AutoTokenizer, 
+    DataCollatorWithPadding
+)
+from typing import Type
+
 
 from src import helper, utility, translator, mamba
 from src.config import AppConfig, SharedConfig, MambaConfig
@@ -37,7 +43,6 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
             helper.print_header("translated data")
             print(translator.from_jsonl(AppConfig.DATASET))
 
-    # TODO: PERSIST
     train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)
 

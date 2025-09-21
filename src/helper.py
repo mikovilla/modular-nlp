@@ -1,9 +1,11 @@
-import pandas as pd
 import json
 import os
+import pandas as pd
+
 from datasets import load_from_disk
-from src.config import *
 from pathlib import Path
+
+from src.config import *
 
 def read_jsonl_as_string(path: Path) -> str:
     return path.read_text(encoding="utf-8")
@@ -56,7 +58,9 @@ def list_config():
 
 
 
-def load_dataset_if_exists(folder, fallback):
+def load_dataset_if_exists(folder, fallback, ignore: bool = False):
+    if ignore:
+            return fallback, False
     try:
         return load_from_disk(f"{AppConfig.DATASET_SPLITS_DIR}/{folder}"), True
     except Exception:

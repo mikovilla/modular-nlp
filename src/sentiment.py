@@ -1,27 +1,34 @@
 import os
-import torch
 import pprint
+import torch
 
+from datasets import load_from_disk
 from transformers import (
+    AutoModelForSequenceClassification,
+    AutoTokenizer, 
     set_seed,
     TrainingArguments,
-    AutoTokenizer, 
-    AutoModelForSequenceClassification
 )
 
-from src import utility, metrics, translator, helper, mamba
-from src.trainer import WeightedLossTrainer
-from src.config import SharedConfig, AppConfig, MambaConfig
+from src.config import *
 from src.optimizer import SwitchOptimizerCallback, DebugCallback
-from datasets import load_from_disk
+from src.trainer import WeightedLossTrainer
+from src import (
+    helper,
+    mamba, 
+    metrics,
+    translator,
+    utility, 
+)
 
 def train(context):
     modelConfig = context.modelConfig
     set_seed(SharedConfig.SEED)
 
-    val_ds, val_loaded = helper.load_dataset_if_exists("val_ds", context.val_ds)
-    train_ds, train_loaded = helper.load_dataset_if_exists("train_ds", context.train_ds)
-    test_ds, test_loaded = helper.load_dataset_if_exists("test_ds", context.test_ds)
+    isMamba = isinstance(modelConfig, MambaConfig)
+    val_ds, val_loaded = helper.load_dataset_if_exists("val_ds", context.val_ds, ignore=isMamba)
+    train_ds, train_loaded = helper.load_dataset_if_exists("train_ds", context.train_ds, ignore=isMamba)
+    test_ds, test_loaded = helper.load_dataset_if_exists("test_ds", context.test_ds, ignore=isMamba)
     
     training_args = TrainingArguments(
         output_dir=modelConfig.OUTPUT_DIR,
@@ -78,9 +85,9 @@ def train(context):
         trainer.save_model(modelConfig.OUTPUT_DIR)
         context.tokenizer.save_pretrained(modelConfig.OUTPUT_DIR)
         
-        context.val_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/val_ds") if not val_loaded else None
-        context.train_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/train_ds") if not train_loaded else None
-        context.test_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/test_ds") if not test_loaded else None
+        context.val_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/val_ds") if not (val_loaded and isMamba) else None
+        context.train_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/train_ds") if not (train_loaded and isMamba) else None
+        context.test_ds.save_to_disk(f"{AppConfig.DATASET_SPLITS_DIR}/test_ds") if not (test_loaded and isMamba) else None
 
     return trainer
 

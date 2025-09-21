@@ -1,8 +1,8 @@
-from torch.optim import AdamW
-from transformers import Trainer
-
 import torch
 import torch.nn as nn
+
+from torch.optim import AdamW
+from transformers import Trainer
 
 class WeightedLossTrainer(Trainer):
     def __init__(self, *args, class_weights=None, **kwargs):

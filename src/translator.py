@@ -1,15 +1,20 @@
-import os
 import io
-import sys
 import json
-from pathlib import Path
-from typing import List, Dict, Any, Union
+import os
+import sys
 
-from transformers import pipeline
+from pathlib import Path
 from tqdm import tqdm
+from transformers import pipeline
+from typing import (
+    List, 
+    Dict, 
+    Any, 
+    Union
+)
 
 from src import helper
-from src.config import SharedConfig, TranslateConfig, AppConfig
+from src.config import *
 
 def read_jsonl(path: Path) -> List[Dict[str, Any]]:
     rows = []
@@ -67,7 +72,7 @@ def batched(iterable, n: int):
 
 def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
     dataset = Path(dataset)
-    cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", TranslateConfig.CACHE_DIR))
+    cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", "cache/translations_cache.jsonl"))
     cache = load_translation_cache(cache_path)
 
     translator = pipeline(

@@ -1,5 +1,6 @@
-from transformers import TrainerCallback
 import torch.optim as optim
+
+from transformers import TrainerCallback
 
 from src.config import SharedConfig, AppConfig
 

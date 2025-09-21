@@ -32,7 +32,7 @@ class MambaConfig:
 class AppConfig:
     DEBUG = False
     INFER = False
-    ENSEMBLE = True
+    ENSEMBLE = False
     SAVE_MODEL = True
     SHOW_DATA = False
     DATASET = "./miko.jsonl"
@@ -40,8 +40,8 @@ class AppConfig:
     DEVICE = 0 if torch.cuda.is_available() else -1
 
 class TranslateConfig:
-    MODEL = "Helsinki-NLP/opus-mt-tl-en" # requires sentencepiece
-    CACHE_DIR = "./cache/translations_cache.jsonl"
+    MODEL = "Helsinki-NLP/opus-mt-tl-en"
+    CACHE_DIR = "cache/translations_cache.jsonl"
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128
 

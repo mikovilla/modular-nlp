@@ -1,5 +1,11 @@
 import numpy as np
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report
+from sklearn.metrics import (
+    accuracy_score, 
+    classification_report,
+    f1_score, 
+    precision_score, 
+    recall_score, 
+)
 
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
