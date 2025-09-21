@@ -25,7 +25,7 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     modelConfig = configClass()
     jsonl = ""
 
-    if AppConfig.DEBUG and AppConfig.ENVIRONMENT == "sandbox":
+    if AppConfig.DEBUG and AppConfig.SHOW_DATA:
         helper.print_header("original data")
         print(helper.read_jsonl_as_string(Path(AppConfig.DATASET)))
     
@@ -33,7 +33,7 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
         jsonl = helper.read_jsonl_as_string(Path(AppConfig.DATASET))
     else:
         jsonl = translator.from_jsonl(AppConfig.DATASET)
-        if AppConfig.DEBUG and AppConfig.ENVIRONMENT == "sandbox":
+        if AppConfig.DEBUG and AppConfig.SHOW_DATA:
             helper.print_header("translated data")
             print(translator.from_jsonl(AppConfig.DATASET))
         

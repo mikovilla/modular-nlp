@@ -27,6 +27,7 @@ def train(context):
         lr_scheduler_type="constant",
         eval_strategy="epoch",
         save_strategy="epoch",
+        logging_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1_macro",
         greater_is_better=True,
@@ -60,7 +61,7 @@ def train(context):
         trainer.add_callback(dbg)
     
     trainer.train()
-    eval_metrics = trainer.evaluate(eval_dataset=context.test_ds)
+    eval_metrics = trainer.evaluate()
     helper.print_header(f"{context.modelConfig.MODEL_NAME} evaluation metrics")
     pprint.pprint(eval_metrics)
 

@@ -20,7 +20,7 @@ class SharedConfig:
 class MBertConfig:
     MODEL_NAME = "bert-base-multilingual-cased"
     OUTPUT_DIR = "./mbert_sentiment"
-    USE_SAVED_MODEL = 0
+    USE_SAVED_MODEL = 1
 
 class XlmrConfig:
     MODEL_NAME = "xlm-roberta-base"
@@ -30,14 +30,14 @@ class XlmrConfig:
 class MambaConfig:
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     OUTPUT_DIR = "./mamba_sentiment"
-    USE_SAVED_MODEL = 0
+    USE_SAVED_MODEL = 1
 
 class AppConfig:
     SAVE_MODEL = True
     DATASET = "./miko.jsonl"
     CACHE_DIR = "./cache/translations_cache.jsonl"
     DEVICE = 0 if torch.cuda.is_available() else -1
-    ENVIRONMENT = "sandbox"
+    SHOW_DATA = 0
     DEBUG = 0
     INFER_SAMPLE = 0
 
@@ -47,4 +47,9 @@ class TranslateConfig:
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128
 
-__all__ = ["SharedConfig", "AppConfig", "TranslateConfig", "MBertConfig", "XlmrConfig", "MambaConfig"]
+class MambaBackend: 
+    AUTO = None
+    FORCE_CUDA = "0"
+    FORCE_PYTHON = "1"
+
+__all__ = ["SharedConfig", "AppConfig", "TranslateConfig", "MBertConfig", "XlmrConfig", "MambaConfig", "MambaBackend"]

@@ -1,6 +1,8 @@
 from transformers import TrainerCallback
 import torch.optim as optim
 
+from src.config import SharedConfig, AppConfig
+
 class SwitchOptimizerCallback(TrainerCallback):
     def __init__(self, switch_after_epoch:int, opt_class, opt_kwargs: dict = None):
         """
@@ -19,8 +21,9 @@ class SwitchOptimizerCallback(TrainerCallback):
         if state.epoch is None or int(state.epoch) != self.switch_after_epoch:
             return control
 
-        print(f"Switching optimizer to SGD right after epoch {int(state.epoch)} "
-              f"(next epoch will print SGD in your debug)")
+        if AppConfig.DEBUG:
+            print(f"Switching optimizer to SGD right after epoch {int(state.epoch)} "
+                  f"(next epoch will print SGD in your debug)")
 
         base_opt = self.opt_class(model.parameters(), **self.opt_kwargs)
 
@@ -47,7 +50,9 @@ class SwitchOptimizerCallback(TrainerCallback):
 
         # 5) Sanity print (live)
         base = getattr(self.trainer.optimizer, "optimizer", self.trainer.optimizer)
-        print(f"[SWITCHED] base={type(base).__name__} lr={self.trainer.optimizer.param_groups[0]['lr']}")
+        if AppConfig.DEBUG:
+            print(f"[SWITCHED] base={type(base).__name__} lr={self.trainer.optimizer.param_groups[0]['lr']}")
+        
         return control
 
 class DebugCallback(TrainerCallback):
