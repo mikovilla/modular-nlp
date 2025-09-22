@@ -1,0 +1,100 @@
+{"id": 1, "text": "Ang ganda ng araw ngayon!", "label": "positive"}
+{"id": 2, "text": "Sobrang bait ng kaibigan ko.", "label": "positive"}
+{"id": 3, "text": "Masarap ang pagkain sa karinderya na iyon.", "label": "positive"}
+{"id": 4, "text": "Ang saya ng laro kagabi.", "label": "positive"}
+{"id": 5, "text": "Nakakatuwa ang mga aso sa park.", "label": "positive"}
+{"id": 6, "text": "Napakabilis ng internet ngayon.", "label": "positive"}
+{"id": 7, "text": "Nakaka-inspire ang kanyang speech.", "label": "positive"}
+{"id": 8, "text": "Maganda ang pagkaka-edit ng pelikula.", "label": "positive"}
+{"id": 9, "text": "Sulit ang binayad ko sa concert.", "label": "positive"}
+{"id": 10, "text": "Astig ang bagong phone na binili ko.", "label": "positive"}
+{"id": 11, "text": "Pangit ang serbisyo sa tindahan.", "label": "negative"}
+{"id": 12, "text": "Mabagal ang internet kagabi.", "label": "negative"}
+{"id": 13, "text": "Mainit at siksikan sa bus.", "label": "negative"}
+{"id": 14, "text": "Nadismaya ako sa lasa ng pagkain.", "label": "negative"}
+{"id": 15, "text": "Nakakainis ang pila sa mall.", "label": "negative"}
+{"id": 16, "text": "Sobrang mahal ng ticket!", "label": "negative"}
+{"id": 17, "text": "Hindi maganda ang tunog ng speakers.", "label": "negative"}
+{"id": 18, "text": "Walang kwenta ang customer service.", "label": "negative"}
+{"id": 19, "text": "Luma na agad ang binili kong gadget.", "label": "negative"}
+{"id": 20, "text": "Hindi ko nagustuhan ang pelikula.", "label": "negative"}
+{"id": 21, "text": "Umuulan buong araw.", "label": "neutral"}
+{"id": 22, "text": "Maraming tao sa palengke.", "label": "neutral"}
+{"id": 23, "text": "Ang klase ay magsisimula ng alas otso.", "label": "neutral"}
+{"id": 24, "text": "May bagyong paparating bukas.", "label": "neutral"}
+{"id": 25, "text": "Sarado ang bangko tuwing Linggo.", "label": "neutral"}
+{"id": 26, "text": "Nagbiyahe ako papuntang Maynila.", "label": "neutral"}
+{"id": 27, "text": "Bumili ako ng tatlong libro.", "label": "neutral"}
+{"id": 28, "text": "May assignment kami sa klase.", "label": "neutral"}
+{"id": 29, "text": "Naglakad siya papuntang opisina.", "label": "neutral"}
+{"id": 30, "text": "Nasa tindahan si Maria kanina.", "label": "neutral"}
+{"id": 31, "text": "I love the new update on my phone.", "label": "positive"}
+{"id": 32, "text": "That meal was really delicious!", "label": "positive"}
+{"id": 33, "text": "Grabe ang galing ng teacher namin.", "label": "positive"}
+{"id": 34, "text": "Nakakagaan ng loob ang musika.", "label": "positive"}
+{"id": 35, "text": "I enjoyed watching the series.", "label": "positive"}
+{"id": 36, "text": "Super saya ng birthday celebration!", "label": "positive"}
+{"id": 37, "text": "I’m so proud of my friend.", "label": "positive"}
+{"id": 38, "text": "Gusto ko yung design ng bahay nila.", "label": "positive"}
+{"id": 39, "text": "Ang daming magagandang tanawin sa Baguio.", "label": "positive"}
+{"id": 40, "text": "Nakaka-excite mag-travel ulit!", "label": "positive"}
+{"id": 41, "text": "This app keeps on crashing.", "label": "negative"}
+{"id": 42, "text": "Ang init sobra hindi komportable.", "label": "negative"}
+{"id": 43, "text": "The service was disappointing.", "label": "negative"}
+{"id": 44, "text": "Nawala ang package ko sa delivery.", "label": "negative"}
+{"id": 45, "text": "Hindi masarap ang kape nila.", "label": "negative"}
+{"id": 46, "text": "I feel so frustrated right now.", "label": "negative"}
+{"id": 47, "text": "Ang gulo ng klase kanina.", "label": "negative"}
+{"id": 48, "text": "Nagkaroon ng error sa system.", "label": "negative"}
+{"id": 49, "text": "Boring ang event na dinaluhan ko.", "label": "negative"}
+{"id": 50, "text": "Hindi worth it ang binayad ko.", "label": "negative"}
+{"id": 51, "text": "The train leaves at 6 PM.", "label": "neutral"}
+{"id": 52, "text": "Nagbukas ang bagong tindahan kahapon.", "label": "neutral"}
+{"id": 53, "text": "Ang meeting ay sa Lunes.", "label": "neutral"}
+{"id": 54, "text": "May announcement sa school bukas.", "label": "neutral"}
+{"id": 55, "text": "Nasa bahay ako kahapon.", "label": "neutral"}
+{"id": 56, "text": "The bus arrived at the station.", "label": "neutral"}
+{"id": 57, "text": "Naglakad kami sa parke.", "label": "neutral"}
+{"id": 58, "text": "She is reading a book.", "label": "neutral"}
+{"id": 59, "text": "May exam sa klase bukas.", "label": "neutral"}
+{"id": 60, "text": "Nagluto si mama ng ulam.", "label": "neutral"}
+{"id": 61, "text": "Masarap ang halo-halo ngayong summer.", "label": "positive"}
+{"id": 62, "text": "I passed my exam ang saya!", "label": "positive"}
+{"id": 63, "text": "Napaka-supportive ng team ko.", "label": "positive"}
+{"id": 64, "text": "Ang cute ng pusa namin.", "label": "positive"}
+{"id": 65, "text": "This new movie is amazing.", "label": "positive"}
+{"id": 66, "text": "Sobrang saya ng bakasyon namin.", "label": "positive"}
+{"id": 67, "text": "Nakaka-motivate ang libro na binasa ko.", "label": "positive"}
+{"id": 68, "text": "The music made me feel happy.", "label": "positive"}
+{"id": 69, "text": "I had a wonderful time yesterday.", "label": "positive"}
+{"id": 70, "text": "Astig ang bagong laro sa phone.", "label": "positive"}
+{"id": 71, "text": "My laptop keeps overheating.", "label": "negative"}
+{"id": 72, "text": "Nakakainis ang traffic sa EDSA.", "label": "negative"}
+{"id": 73, "text": "Hindi ko gusto ang lasa ng ulam.", "label": "negative"}
+{"id": 74, "text": "Nakakasakit ng ulo ang ingay.", "label": "negative"}
+{"id": 75, "text": "This chair is so uncomfortable.", "label": "negative"}
+{"id": 76, "text": "Sobrang bagal ng serbisyo.", "label": "negative"}
+{"id": 77, "text": "The app drains my battery fast.", "label": "negative"}
+{"id": 78, "text": "Nabigo ako sa resulta.", "label": "negative"}
+{"id": 79, "text": "Hindi responsive ang website.", "label": "negative"}
+{"id": 80, "text": "Nakakadismaya ang exam results ko.", "label": "negative"}
+{"id": 81, "text": "She went to the library.", "label": "neutral"}
+{"id": 82, "text": "Naglinis ako ng kwarto kanina.", "label": "neutral"}
+{"id": 83, "text": "The teacher entered the room.", "label": "neutral"}
+{"id": 84, "text": "Si Juan ay nag-aral buong gabi.", "label": "neutral"}
+{"id": 85, "text": "May bagong release sa software.", "label": "neutral"}
+{"id": 86, "text": "The sun sets at 6:30 PM.", "label": "neutral"}
+{"id": 87, "text": "Tumawag si Ana sa cellphone.", "label": "neutral"}
+{"id": 88, "text": "Nagpahinga ako sa bahay.", "label": "neutral"}
+{"id": 89, "text": "Nasa opisina si Pedro ngayon.", "label": "neutral"}
+{"id": 90, "text": "He is walking to school.", "label": "neutral"}
+{"id": 91, "text": "Sobrang saya ng laban kagabi!", "label": "positive"}
+{"id": 92, "text": "Ang ganda ng tanawin sa bundok.", "label": "positive"}
+{"id": 93, "text": "I really enjoyed the concert.", "label": "positive"}
+{"id": 94, "text": "Masarap ang cake na gawa ni mama.", "label": "positive"}
+{"id": 95, "text": "Napaka-inam ng panahon ngayon.", "label": "positive"}
+{"id": 96, "text": "Nakaka-proud ang achievements niya.", "label": "positive"}
+{"id": 97, "text": "I’m very satisfied with the service.", "label": "positive"}
+{"id": 98, "text": "Gusto ko ang bagong kanta.", "label": "positive"}
+{"id": 99, "text": "This day feels wonderful.", "label": "positive"}
+{"id": 100, "text": "Nakaka-inspire ang kanyang kwento.", "label": "positive"}
