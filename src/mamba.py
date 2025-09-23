@@ -12,7 +12,7 @@ from transformers import (
 from transformers.modeling_outputs import SequenceClassifierOutput
 
 from src import utility
-from src.config import MambaConfig
+from src.config import Mamba
 
 @dataclass
 class MambaLoadResult:
@@ -48,7 +48,7 @@ class MambaClassifier(nn.Module):
         return next(self.parameters()).device
 
 def load_model_for_classification(model_name, num_labels, id2label, label2id):
-    tokenizer = utility.make_tokenizer(MambaConfig)
+    tokenizer = utility.make_tokenizer(Mamba)
     model = AutoModel.from_pretrained(model_name, trust_remote_code=True)
     config = AutoConfig.from_pretrained(
         pretrained_model_name_or_path=model_name,
@@ -63,12 +63,12 @@ def load_model_for_classification(model_name, num_labels, id2label, label2id):
     return MambaLoadResult(tokenizer, model)
 
 def load_saved_model():
-    src = MambaConfig.OUTPUT_DIR
+    src = Mamba.OUTPUT_DIR
     state = load_state(src)
     config = AutoConfig.from_pretrained(src, trust_remote_code=True)
-    tokenizer = utility.make_tokenizer(MambaConfig)
+    tokenizer = utility.make_tokenizer(Mamba)
     
-    backbone = AutoModel.from_pretrained(MambaConfig.MODEL_NAME, trust_remote_code=True)
+    backbone = AutoModel.from_pretrained(Mamba.MODEL_NAME, trust_remote_code=True)
     hidden = getattr(config, "hidden_size", None) or getattr(config, "d_model", None) or model.get_input_embeddings().weight.shape[1]
     model = MambaClassifier(backbone, hidden, config)
 

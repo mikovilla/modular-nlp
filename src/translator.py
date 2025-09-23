@@ -14,7 +14,7 @@ from typing import (
 )
 
 from src import helper
-from src.config import *
+from src.config import App, Data, Translation
 
 def read_jsonl(path: Path) -> List[Dict[str, Any]]:
     rows = []
@@ -70,24 +70,22 @@ def batched(iterable, n: int):
     if batch:
         yield batch
 
-def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
+def from_jsonl(dataset: Union[str, Path] = Data.DATASET) -> str:
     dataset = Path(dataset)
-    cache_path = Path(getattr(TranslateConfig, "CACHE_FILE", "cache/translations_cache.jsonl"))
+    cache_path = Path(Translation.CACHE_DIR)
     cache = load_translation_cache(cache_path)
 
     translator = pipeline(
         "translation",
-        model=TranslateConfig.MODEL,
-        device=AppConfig.DEVICE,
+        model=Translation.MODEL,
+        device=App.DEVICE,
     )
 
     rows = read_jsonl(dataset)
-    print(f"[INFO] Loaded {len(rows)} rows")
-
     outputs: List[Dict[str, Any]] = []
     new_cache_accumulator: Dict[str, str] = {}
 
-    for batch in tqdm(list(batched(rows, TranslateConfig.BATCH_SIZE)), desc="Processing"):
+    for batch in tqdm(list(batched(rows, Translation.BATCH_SIZE)), desc="Translating"):
         texts = [r.get("text", "") for r in batch]
 
         translations: List[Any] = []
@@ -104,7 +102,7 @@ def from_jsonl(dataset: Union[str, Path] = AppConfig.DATASET) -> str:
         if to_translate_texts:
             try:
                 new_tr = raw_translate(
-                    to_translate_texts, translator, max_new_tokens=TranslateConfig.MAX_NEW_TOKENS
+                    to_translate_texts, translator, max_new_tokens=Translation.MAX_NEW_TOKENS
                 )
             except Exception as e:
                 print(f"[WARN] Translation failed for a batch ({len(to_translate_texts)} items): {e}", file=sys.stderr)

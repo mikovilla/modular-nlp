@@ -2,52 +2,73 @@ import torch
 
 from dataclasses import dataclass
 
-class SharedConfig:
-    TEXT_COL = "text"
-    LABEL_COL = "label"
-    MAX_LENGTH = 128 # tokens after tokenization (increase for longer sentiments)
-    SEED = 42 # randomization for reproducibility
-    USE_FP16 = torch.cuda.is_available() # Use GPU
-    BATCH_SIZE = 8 # dataset/64 to maximize 16G VRAM of effective batching
-    EPOCHS = 5
-    LR = 2e-5 # Range: 1e-5 to 5e-5, higher is faster but can cause instability
-    WEIGHT_DECAY = 0.01 # BERT default to reduce overfitting, increasing shrinks the model's weight and may cause underfitting
-    WARMUP_RATIO = 0 # 0.06 Linearly scale with LR
-    GRAD_ACCUM_STEPS = 1 # BATCH_SIZE * GRAD_ACCUM_STEPS
-    EVAL_STEPS = 0  # set > 0 for periodic eval, 0 for epoch
-    SAVE_TOTAL_LIMIT = 2 # increase for more rollback points
+@dataclass
+class DefaultTrainingArguments:
+    EVAL_STRATEGY = "epoch"
+    SAVE_STRATEGY = "epoch"
+    LOGGING_STRATEGY = "steps"
+    LOGGING_STEPS = 50
+    PER_DEVICE_TRAIN_BATCH_SIZE = 32
+    PER_DEVICE_EVAL_BATCH_SIZE = 64
+    NUM_TRAIN_EPOCHS = 5
+    FP16 = torch.cuda.is_available()
+    LEARNING_RATE = 2e-5
+    GRADIENT_ACCUMULATION_STEPS = 1
+    WEIGHT_DECAY = 0.01
+    MAX_GRAD_NORM = 1.0
+    WARMUP_RATIO = 0.06
+    LR_SCHEDULER_TYPE = "linear"
+    DATALOADER_NUM_WORKERS = 4
+    LOAD_BEST_MODEL_AT_END = True
+    METRIC_FOR_BEST_MODEL = "eval_f1_macro"
+    GREATER_IS_BETTER = True
+    SEED = 42
+    EXCLUDE_KEYS = ["MODEL_NAME", "TEMP", "WEIGHT"]
 
-class MBertConfig:
+@dataclass
+class MBert(DefaultTrainingArguments):
     MODEL_NAME = "bert-base-multilingual-cased"
     OUTPUT_DIR = "./mbert_sentiment"
 
-class XlmrConfig:
+@dataclass
+class Xlmr(DefaultTrainingArguments):
     MODEL_NAME = "xlm-roberta-base"
     OUTPUT_DIR = "./xlmr_sentiment"
+    LEARNING_RATE = 1e-5
+    PER_DEVICE_TRAIN_BATCH_SIZE = 16
+    PER_DEVICE_EVAL_BATCH_SIZE = 32
+    GRADIENT_ACCUMULATION_STEPS = 2
+    MAX_GRAD_NORM = 0.95
+    WARMUP_RATIO = 0.07
 
-class MambaConfig:
+@dataclass
+class Mamba(DefaultTrainingArguments):
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     OUTPUT_DIR = "./mamba_sentiment"
+    NUM_TRAIN_EPOCHS = 6
+    WEIGHT_DECAY = 0.05
+    FORCE_CUDA = "0"
+    FORCE_PYTHON = "1"
 
-class AppConfig:
+class App:
+    ACTION = "ENSEMBLE"
+    HAS_GPU = torch.cuda.is_available()
+    DEVICE = 0 if HAS_GPU else -1
     DEBUG = False
-    INFER = False
-    ENSEMBLE = True
-    SAVE_MODEL = True
-    SHOW_DATA = False
+
+class Data:
+    SHOW_ON_DEBUG = False
+    TEXT_COL = "text"
+    LABEL_COL = "label"
+    MAX_LENGTH = 128
     DATASET = "./miko.jsonl"
     DATASET_SPLITS_DIR = "./datasets"
-    DEVICE = 0 if torch.cuda.is_available() else -1
+    SAVE_MODEL = True
 
-class TranslateConfig:
+class Translation:
     MODEL = "Helsinki-NLP/opus-mt-tl-en"
     CACHE_DIR = "cache/translations_cache.jsonl"
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128
 
-class MambaBackend: 
-    AUTO = None
-    FORCE_CUDA = "0"
-    FORCE_PYTHON = "1"
-
-__all__ = ["SharedConfig", "AppConfig", "TranslateConfig", "MBertConfig", "XlmrConfig", "MambaConfig", "MambaBackend"]
+__all__ = ["App", "Translation", "MBert", "Xlmr", "Mamba"]
