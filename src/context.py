@@ -14,11 +14,11 @@ from typing import Type
 
 
 from src import helper, utility, translator, mamba
-from src.config import AppConfig, SharedConfig, MambaConfig
+from src.config import App, Data, Mamba
 
 @dataclass
 class Context:
-    modelConfig: Type
+    instance: Type
     model: object
     tokenizer: object
     train_ds: object
@@ -27,30 +27,30 @@ class Context:
     data_collator: object
     class_weights: torch.Tensor
 
-def setup_pipeline(configClass, require_translation: bool = False) -> Context:
-    modelConfig = configClass()
+def setup_pipeline(instance_cls, require_translation: bool = False) -> Context:
+    instance = instance_cls()
     jsonl = ""
 
-    if AppConfig.DEBUG and AppConfig.SHOW_DATA:
+    if App.DEBUG and Data.SHOW_ON_DEBUG:
         helper.print_header("original data")
-        print(helper.read_jsonl_as_string(Path(AppConfig.DATASET)))
+        print(helper.read_jsonl_as_string(Path(Data.DATASET)))
     
     if not require_translation:
-        jsonl = helper.read_jsonl_as_string(Path(AppConfig.DATASET))
+        jsonl = helper.read_jsonl_as_string(Path(Data.DATASET))
     else:
-        jsonl = translator.from_jsonl(AppConfig.DATASET)
-        if AppConfig.DEBUG and AppConfig.SHOW_DATA:
+        jsonl = translator.from_jsonl(Data.DATASET)
+        if App.DEBUG and Data.SHOW_ON_DEBUG:
             helper.print_header("translated data")
-            print(translator.from_jsonl(AppConfig.DATASET))
+            print(translator.from_jsonl(Data.DATASET))
 
     train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)
 
     model = None
     tokenizer = None
-    if isinstance(modelConfig, MambaConfig):
+    if isinstance(instance, Mamba):
         load_res = mamba.load_model_for_classification(
-            model_name=modelConfig.MODEL_NAME,
+            model_name=instance.MODEL_NAME,
             num_labels=num_labels,
             id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
             label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None
@@ -59,18 +59,18 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
         tokenizer = load_res.tokenizer
     else:
         model = AutoModelForSequenceClassification.from_pretrained(
-                modelConfig.MODEL_NAME,
+                instance.MODEL_NAME,
                 num_labels=num_labels,
                 id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
                 label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None,
                 problem_type="single_label_classification",
             )
-        tokenizer = utility.make_tokenizer(configClass)
+        tokenizer = utility.make_tokenizer(instance_cls)
     
     tok_fn = utility.make_tokenizer_fn(tokenizer)
-    train_ds = train_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
-    val_ds   = val_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
-    test_ds  = test_ds.map(tok_fn, batched=True, remove_columns=[SharedConfig.TEXT_COL])
+    train_ds = train_ds.map(tok_fn, batched=True, remove_columns=[Data.TEXT_COL])
+    val_ds   = val_ds.map(tok_fn, batched=True, remove_columns=[Data.TEXT_COL])
+    test_ds  = test_ds.map(tok_fn, batched=True, remove_columns=[Data.TEXT_COL])
 
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
@@ -80,7 +80,7 @@ def setup_pipeline(configClass, require_translation: bool = False) -> Context:
     class_weights = torch.tensor(weights / weights.mean())
     
     return Context(
-        modelConfig=modelConfig,
+        instance=instance,
         model=model,
         tokenizer=tokenizer,
         train_ds=train_ds,

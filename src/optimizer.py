@@ -2,13 +2,10 @@ import torch.optim as optim
 
 from transformers import TrainerCallback
 
-from src.config import SharedConfig, AppConfig
+from src.config import App
 
 class SwitchOptimizerCallback(TrainerCallback):
     def __init__(self, switch_after_epoch:int, opt_class, opt_kwargs: dict = None):
-        """
-        Example: switch_after_epoch=2  -> AdamW for epochs 1–2, SGD from epoch 3.
-        """
         self.switch_after_epoch = switch_after_epoch
         self.opt_class = opt_class
         self.opt_kwargs = opt_kwargs or {}
@@ -21,7 +18,7 @@ class SwitchOptimizerCallback(TrainerCallback):
         if state.epoch is None or int(state.epoch) != self.switch_after_epoch:
             return control
 
-        if AppConfig.DEBUG:
+        if App.DEBUG:
             print(f"Switching optimizer to SGD right after epoch {int(state.epoch)} "
                   f"(next epoch will print SGD in your debug)")
 
@@ -46,7 +43,7 @@ class SwitchOptimizerCallback(TrainerCallback):
         self.trainer.create_scheduler(num_training_steps=steps, optimizer=self.trainer.optimizer)
 
         base = getattr(self.trainer.optimizer, "optimizer", self.trainer.optimizer)
-        if AppConfig.DEBUG:
+        if App.DEBUG:
             print(f"[SWITCHED] base={type(base).__name__} lr={self.trainer.optimizer.param_groups[0]['lr']}")
         
         return control
