@@ -1,10 +1,12 @@
+import torch
+
 from __future__ import annotations
 import time, math, inspect
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
-
-import torch
 from transformers import TrainerCallback
+
+from src.config import App
 
 try:
     from fvcore.nn import FlopCountAnalysis
@@ -111,7 +113,7 @@ class PerfCallback(TrainerCallback):
 
     @staticmethod
     def _gpu_peak_alloc_bytes() -> int:
-        if torch.cuda.is_available():
+        if App.HAS_GPU:
             return torch.cuda.max_memory_allocated()
         return 0
 
@@ -160,7 +162,7 @@ class PerfCallback(TrainerCallback):
 
     def on_train_begin(self, args, state, control, **kw):
         self._trainer = kw.get("trainer", self._trainer)
-        if torch.cuda.is_available():
+        if App.HAS_GPU:
             torch.cuda.reset_peak_memory_stats()
         self._peak_alloc = 0
         self._epoch_tokens = self._epoch_examples = 0
@@ -235,7 +237,7 @@ class PerfCallback(TrainerCallback):
         self._epoch_time = 0.0
         self._padding_total = self._tokens_total = 0
         self._peak_alloc = 0
-        if torch.cuda.is_available():
+        if App.HAS_GPU:
             torch.cuda.reset_peak_memory_stats()
         return control
 
