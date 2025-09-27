@@ -43,6 +43,7 @@ def train(context):
     switch_opt = SwitchOptimizerCallback(switch_after_epoch=3, 
                                         opt_class=opt_cls_switch,
                                         opt_kwargs=opt_kwargs_switch)
+
     trainer = WeightedLossTrainer(
         model=context.model,
         args=training_args,

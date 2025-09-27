@@ -73,23 +73,6 @@ def load_dataset_if_exists(folder, fallback, ignore: bool = False):
 
 from transformers import TrainingArguments
 
-def to_args(cls, valid_keys, exclude):
-    args = {}
-    for name in dir(cls):
-        if name.startswith("__"):
-            continue
-        if name in exclude:
-            continue
-            
-        value = getattr(cls, name)
-        if callable(value):
-            continue
-
-        key = name.lower()
-        if key in valid_keys:
-            args[key] = value
-    return args
-
 def to_training_args(obj_or_cls) -> TrainingArguments:
     cls = obj_or_cls if isinstance(obj_or_cls, type) else obj_or_cls.__class__
     exclude = set(getattr(cls, "EXCLUDE_KEYS", [])) | set(getattr(cls, "exclude_keys", []))
@@ -146,4 +129,3 @@ def to_optimizer_args(obj_or_cls):
 
     kwargs = {k: raw[k] for k in valid_keys if k in raw}
     return opt_cls, kwargs
-    
