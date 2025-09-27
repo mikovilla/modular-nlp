@@ -7,21 +7,11 @@ from transformers import Trainer
 from src.config import App
 
 class WeightedLossTrainer(Trainer):
-    def __init__(self, *args, class_weights=None, **kwargs):
+    def __init__(self, *args, class_weights=None, optimizer=None, **kwargs):
         super().__init__(*args, **kwargs)
+        self.optimizer=optimizer
         self.class_weights = class_weights
         self._dbg = False
-
-    def create_optimizer(self):
-        if self.optimizer is None:
-            self.optimizer = AdamW(
-                self.model.parameters(),
-                lr=self.args.learning_rate,
-                betas=(0.9, 0.999),
-                eps = 1e-6 if App.HAS_GPU else 1e-8,
-                weight_decay=self.args.weight_decay
-            )
-        return self.optimizer
 
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.get("labels")

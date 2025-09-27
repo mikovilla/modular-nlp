@@ -17,6 +17,7 @@ from src.config import App, Data, Mamba, MBert
 from src.optimizer import SwitchOptimizerCallback, DebugCallback
 from src.trainer import WeightedLossTrainer
 from src import (
+    config,
     helper,
     mamba, 
     metrics,
@@ -35,9 +36,13 @@ def train(context):
 
     training_args = helper.to_training_args(context.instance)     
 
-    switch_cb = SwitchOptimizerCallback(switch_after_epoch=2, 
-                                        opt_class=torch.optim.SGD,
-                                        opt_kwargs={"lr":3e-3, "momentum":0.9, "nesterov":True})
+    opt_cls, opt_kwargs = helper.to_optimizer_args(config.AdamW)
+    opt_cls_switch, opt_kwargs_switch = helper.to_optimizer_args(config.SGD)
+    print(opt_cls.__name__, opt_kwargs)
+    print(opt_cls_switch.__name__, opt_kwargs_switch)
+    switch_opt = SwitchOptimizerCallback(switch_after_epoch=3, 
+                                        opt_class=opt_cls_switch,
+                                        opt_kwargs=opt_kwargs_switch)
     trainer = WeightedLossTrainer(
         model=context.model,
         args=training_args,
@@ -46,10 +51,11 @@ def train(context):
         processing_class=context.tokenizer,
         data_collator=context.data_collator,
         compute_metrics=metrics.compute_metrics,
-        class_weights=context.class_weights
+        class_weights=context.class_weights,
+        optimizer=opt_cls(context.model.parameters(), **opt_kwargs)
     )
-    switch_cb.bind(trainer)
-    trainer.add_callback(switch_cb)
+    switch_opt.bind(trainer)
+    trainer.add_callback(switch_opt)
     
     if App.DEBUG:
         dbg = DebugCallback(); 

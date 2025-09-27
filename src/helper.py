@@ -1,6 +1,9 @@
+import inspect
 import json
 import os
 import pandas as pd
+import torch
+import torch.optim as optim
 
 from datasets import load_from_disk
 from pathlib import Path
@@ -70,6 +73,23 @@ def load_dataset_if_exists(folder, fallback, ignore: bool = False):
 
 from transformers import TrainingArguments
 
+def to_args(cls, valid_keys, exclude):
+    args = {}
+    for name in dir(cls):
+        if name.startswith("__"):
+            continue
+        if name in exclude:
+            continue
+            
+        value = getattr(cls, name)
+        if callable(value):
+            continue
+
+        key = name.lower()
+        if key in valid_keys:
+            args[key] = value
+    return args
+
 def to_training_args(obj_or_cls) -> TrainingArguments:
     cls = obj_or_cls if isinstance(obj_or_cls, type) else obj_or_cls.__class__
     exclude = set(getattr(cls, "EXCLUDE_KEYS", [])) | set(getattr(cls, "exclude_keys", []))
@@ -94,3 +114,36 @@ def to_training_args(obj_or_cls) -> TrainingArguments:
         print(args)
 
     return TrainingArguments(**args)
+
+def to_optimizer_args(obj_or_cls):
+    cfg = obj_or_cls
+    cls = obj_or_cls if isinstance(obj_or_cls, type) else obj_or_cls.__class__
+    name = getattr(cfg, "OPTIMIZER_NAME", None) or getattr(cls, "OPTIMIZER_NAME", None)
+    opt_cls = getattr(optim, name)
+    sig = inspect.signature(opt_cls)        
+    valid_keys = {name.lower() for name in sig.parameters if name != "params"}
+    exclude = set(getattr(cls, "EXCLUDE_KEYS", [])) | set(getattr(cls, "exclude_keys", []))
+    
+    def harvest(obj):
+        out = {}
+        for name in dir(obj):
+            if name.startswith("__"):
+                continue
+            if name in exclude:
+                continue
+            try:
+                val = getattr(obj, name)
+            except Exception:
+                continue
+            if callable(val):
+                continue
+            out[name.lower()] = val
+        return out
+
+    raw = harvest(cls)
+    if not isinstance(obj_or_cls, type):
+        raw.update(harvest(cfg))
+
+    kwargs = {k: raw[k] for k in valid_keys if k in raw}
+    return opt_cls, kwargs
+    

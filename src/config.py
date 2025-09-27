@@ -23,7 +23,7 @@ class DefaultTrainingArguments:
     METRIC_FOR_BEST_MODEL = "eval_f1_macro"
     GREATER_IS_BETTER = True
     SEED = 42
-    EXCLUDE_KEYS = ["MODEL_NAME", "TEMP", "WEIGHT"]
+    EXCLUDE_KEYS = [ "EXCLUDE_KEYS", "MODEL_NAME", "TEMP", "WEIGHT" ]
 
 @dataclass
 class MBert(DefaultTrainingArguments):
@@ -50,11 +50,27 @@ class Mamba(DefaultTrainingArguments):
     FORCE_CUDA = "0"
     FORCE_PYTHON = "1"
 
+class AdamW:
+    OPTIMIZER_NAME = "AdamW"
+    LR = 2e-5
+    BETAS = (0.9, 0.999)
+    EPS = 1e-6 if torch.cuda.is_available() else 1e-8
+    WEIGHT_DECAY = 0.01
+    EXCLUDE_KEYS = [ "EXCLUDE_KEYS", "OPTIMIZER_NAME" ]
+
+class SGD:
+    OPTIMIZER_NAME = "SGD"
+    LR = 1e-4
+    MOMENTUM = 0.95
+    NESTEROV = True if MOMENTUM > 0 else False
+    WEIGHT_DECAY = 0.01
+    EXCLUDE_KEYS = [ "EXCLUDE_KEYS", "OPTIMIZER_NAME" ]
+
 class App:
-    ACTION = "ENSEMBLE"
+    ACTION = "TRAIN"
     HAS_GPU = torch.cuda.is_available()
     DEVICE = 0 if HAS_GPU else -1
-    DEBUG = False
+    DEBUG = True
 
 class Data:
     SHOW_ON_DEBUG = False
@@ -71,4 +87,4 @@ class Translation:
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128
 
-__all__ = ["App", "Translation", "MBert", "Xlmr", "Mamba"]
+__all__ = ["App", "Data", "Translation", "DefaultTrainingArguments", "MBert", "Xlmr", "Mamba"]
