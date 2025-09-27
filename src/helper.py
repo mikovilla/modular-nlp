@@ -31,7 +31,7 @@ def print_header(text):
     print(f"\r\n### {text.upper()} ###")
 
 def list_config():
-    if App.DEBUG:
+    if Debug.CONFIG:
         print("\r\n### CONFIGURATION: START ###")
         print("### DEFAULT TRAINING ARGUMENTS CONFIG ###")
         for name, value in vars(DefaultTrainingArguments).items():
@@ -93,7 +93,7 @@ def to_training_args(obj_or_cls) -> TrainingArguments:
         if key in valid_keys:
             args[key] = value
 
-    if App.DEBUG:
+    if Debug.TRAINER:
         print(args)
 
     return TrainingArguments(**args)

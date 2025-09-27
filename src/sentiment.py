@@ -14,15 +14,17 @@ from transformers import (
 )
 
 from src.config import App, Data, Mamba, MBert
-from src.optimizer import SwitchOptimizerCallback, DebugCallback
+from src.instrumentation import PerfCallback, DebugCallback, CostModel
+from src.optimizer import SwitchOptimizerCallback
 from src.trainer import WeightedLossTrainer
 from src import (
     config,
     helper,
+    instrumentation,
     mamba, 
     metrics,
     translator,
-    utility, 
+    utility,
 )
 
 def train(context):
@@ -38,12 +40,21 @@ def train(context):
 
     opt_cls, opt_kwargs = helper.to_optimizer_args(config.AdamW)
     opt_cls_switch, opt_kwargs_switch = helper.to_optimizer_args(config.SGD)
-    print(opt_cls.__name__, opt_kwargs)
-    print(opt_cls_switch.__name__, opt_kwargs_switch)
     switch_opt = SwitchOptimizerCallback(switch_after_epoch=3, 
                                         opt_class=opt_cls_switch,
                                         opt_kwargs=opt_kwargs_switch)
 
+    perf_cb = PerfCallback(
+        estimate_flops_seq_len=128,
+        flops_batch_size=8,
+        with_gpu_util=True,
+        with_grad_norm=True,
+        with_lr_log=True,
+        with_padding_stats=True,
+        with_examples_sec=True,
+        cost=CostModel(gpu_hourly_usd=2.0, include_energy=True, gpu_watts=300, energy_usd_per_kwh=0.12),
+    )
+    
     trainer = WeightedLossTrainer(
         model=context.model,
         args=training_args,
@@ -57,11 +68,12 @@ def train(context):
     )
     switch_opt.bind(trainer)
     trainer.add_callback(switch_opt)
+    perf_cb.bind(trainer)
+    trainer.add_callback(perf_cb)
     
-    if App.DEBUG:
-        dbg = DebugCallback(); 
-        dbg.bind(trainer)
-        trainer.add_callback(dbg)
+    dbg = DebugCallback(); 
+    dbg.bind(trainer)
+    trainer.add_callback(dbg)
     
     trainer.train()
     eval_metrics = trainer.evaluate(test_ds)

@@ -14,7 +14,7 @@ from typing import Type
 
 
 from src import helper, utility, translator, mamba
-from src.config import App, Data, Mamba
+from src.config import Data, Debug, Mamba
 
 @dataclass
 class Context:
@@ -31,7 +31,7 @@ def setup_pipeline(instance_cls, require_translation: bool = False) -> Context:
     instance = instance_cls()
     jsonl = ""
 
-    if App.DEBUG and Data.SHOW_ON_DEBUG:
+    if Debug.DATA:
         helper.print_header("original data")
         print(helper.read_jsonl_as_string(Path(Data.DATASET)))
     
@@ -39,7 +39,7 @@ def setup_pipeline(instance_cls, require_translation: bool = False) -> Context:
         jsonl = helper.read_jsonl_as_string(Path(Data.DATASET))
     else:
         jsonl = translator.from_jsonl(Data.DATASET)
-        if App.DEBUG and Data.SHOW_ON_DEBUG:
+        if Debug.DATA and Data.SHOW_ON_DEBUG:
             helper.print_header("translated data")
             print(translator.from_jsonl(Data.DATASET))
 

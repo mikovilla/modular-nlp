@@ -70,10 +70,15 @@ class App:
     ACTION = "TRAIN"
     HAS_GPU = torch.cuda.is_available()
     DEVICE = 0 if HAS_GPU else -1
-    DEBUG = True
+
+class Debug:
+    CONFIG = False
+    DATA = False
+    OPTIMIZER = True
+    PERFORMANCE = True
+    TRAINER = True
 
 class Data:
-    SHOW_ON_DEBUG = False
     TEXT_COL = "text"
     LABEL_COL = "label"
     MAX_LENGTH = 128
@@ -87,4 +92,4 @@ class Translation:
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128
 
-__all__ = ["App", "Data", "Translation", "DefaultTrainingArguments", "MBert", "Xlmr", "Mamba"]
+__all__ = ["App", "Data", "Debug", "Translation", "DefaultTrainingArguments", "Mamba", "MBert", "Xlmr" ]
