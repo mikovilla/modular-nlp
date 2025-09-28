@@ -1,5 +1,4 @@
 import torch.optim as optim
-
 from transformers import TrainerCallback
 
 from src.config import Debug
@@ -46,4 +45,61 @@ class SwitchOptimizerCallback(TrainerCallback):
         if Debug.OPTIMIZER:
             print(f"[OPTIMIZER_SWITCH] base={type(base).__name__} lr={self.trainer.optimizer.param_groups[0]['lr']}")
         
+        return control
+
+class SwitchOnPlateauCallback(TrainerCallback):
+    from torch.cuda.amp import GradScaler
+    def __init__(self, opt_class, opt_kwargs=None, metric_name="eval_f1_macro", patience=3):
+        self.metric_name = metric_name
+        self.patience = patience
+        self.opt_class = opt_class
+        self.opt_kwargs = opt_kwargs or {}
+        self.best = None
+        self.wait = 0
+        self.switched = False
+        self.trainer = None
+
+    def bind(self, trainer):
+        self.trainer = trainer
+
+    def on_evaluate(self, args, state, control, metrics=None, **kwargs):
+        if self.switched or metrics is None:
+            return control
+
+        value = metrics.get(self.metric_name)
+        if value is None:
+            return control
+
+        if self.best is None or value > self.best:
+            self.best = value
+            self.wait = 0
+        else:
+            self.wait += 1
+
+        if self.wait >= self.patience:
+            model = self.trainer.model
+            new_opt = self.opt_class(model.parameters(), **self.opt_kwargs)
+
+            accel = getattr(self.trainer, "accelerator", None)
+            if accel is not None:
+                new_opt = accel.prepare_optimizer(new_opt)
+                if hasattr(accel, "_optimizers"):
+                    accel._optimizers = [new_opt]
+
+            self.trainer.optimizer = new_opt
+
+            if getattr(self.trainer, "scaler", None) is not None:
+                self.trainer.scaler = GradScaler()
+                if accel is not None:
+                    accel.scaler = self.trainer.scaler
+
+            steps = self.trainer.state.max_steps or self.trainer.get_num_training_steps(self.trainer.get_train_dataloader())
+            self.trainer.create_scheduler(num_training_steps=steps, optimizer=self.trainer.optimizer)
+
+            if Debug.OPTIMIZER:
+                print(f"[SWITCHED] No improvement for {self.patience} evals → "
+                      f"switched optimizer to {self.opt_class.__name__}")
+
+            self.switched = True
+
         return control

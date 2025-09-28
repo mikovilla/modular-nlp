@@ -6,7 +6,7 @@ from datasets import Dataset
 from sklearn.model_selection import train_test_split
 from transformers import AutoTokenizer
 
-from src.config import DefaultTrainingArguments, Mamba, Data
+from src.config import DefaultTrainingArguments, Mamba, Data, Debug, App
 
 def build_label_maps(series: pd.Series):
     if series.dtype.kind in {"i", "u"}:
@@ -22,6 +22,9 @@ def build_label_maps(series: pd.Series):
 
 def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1):
     df = pd.read_json(io.StringIO(jsonl), lines=True)
+
+    if Debug.DATA:
+        print(f"Sentiment count: {len(df)}")
 
     label2id, id2label, y = build_label_maps(df[Data.LABEL_COL])
     df = df.assign(label_id=y)
@@ -59,7 +62,7 @@ def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1
 def make_tokenizer(instance_cls):
     instance = instance_cls()
 
-    if os.path.exists(instance.OUTPUT_DIR):
+    if App.ACTION == "INFER" and os.path.exists(instance.OUTPUT_DIR):
         tokenizer = AutoTokenizer.from_pretrained(instance.OUTPUT_DIR)
     else: 
         if isinstance(instance, Mamba):

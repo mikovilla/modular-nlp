@@ -13,9 +13,9 @@ from transformers import (
     TrainingArguments,
 )
 
-from src.config import App, Data, Mamba, MBert
+from src.config import App, Data, Mamba, MBert, Debug
 from src.instrumentation import PerfCallback, DebugCallback, CostModel
-from src.optimizer import SwitchOptimizerCallback
+from src.optimizer import SwitchOptimizerCallback#, SwitchOnPlateauCallback
 from src.trainer import WeightedLossTrainer
 from src import (
     config,
@@ -30,31 +30,17 @@ from src import (
 def train(context):
     instance = context.instance
     set_seed(instance.SEED)
-
+    
     isMamba = isinstance(instance, Mamba)
     val_ds, val_loaded = helper.load_dataset_if_exists("val_ds", context.val_ds, ignore=isMamba)
     train_ds, train_loaded = helper.load_dataset_if_exists("train_ds", context.train_ds, ignore=isMamba)
     test_ds, test_loaded = helper.load_dataset_if_exists("test_ds", context.test_ds, ignore=isMamba)
-
-    training_args = helper.to_training_args(context.instance)     
+    
+    training_args = helper.to_training_args(context.instance)   
 
     opt_cls, opt_kwargs = helper.to_optimizer_args(config.AdamW)
     opt_cls_switch, opt_kwargs_switch = helper.to_optimizer_args(config.SGD)
-    switch_opt = SwitchOptimizerCallback(switch_after_epoch=3, 
-                                        opt_class=opt_cls_switch,
-                                        opt_kwargs=opt_kwargs_switch)
 
-    perf_cb = PerfCallback(
-        estimate_flops_seq_len=128,
-        flops_batch_size=8,
-        with_gpu_util=True,
-        with_grad_norm=True,
-        with_lr_log=True,
-        with_padding_stats=True,
-        with_examples_sec=True,
-        cost=CostModel(gpu_hourly_usd=2.0, include_energy=True, gpu_watts=300, energy_usd_per_kwh=0.12),
-    )
-    
     trainer = WeightedLossTrainer(
         model=context.model,
         args=training_args,
@@ -66,10 +52,32 @@ def train(context):
         class_weights=context.class_weights,
         optimizer=opt_cls(context.model.parameters(), **opt_kwargs)
     )
+
+    switch_opt = SwitchOptimizerCallback(switch_after_epoch=training_args.to_dict()["num_train_epochs"] - 3, 
+                                        opt_class=opt_cls_switch,
+                                        opt_kwargs=opt_kwargs_switch)
+    # switch_opt = SwitchOnPlateauCallback(
+    #     metric_name="eval_f1_macro",
+    #     patience=3,
+    #     opt_class=opt_cls_switch,
+    #     opt_kwargs=opt_kwargs_switch
+    # )
     switch_opt.bind(trainer)
     trainer.add_callback(switch_opt)
-    perf_cb.bind(trainer)
-    trainer.add_callback(perf_cb)
+
+    if Debug.PERFORMANCE:
+        perf_cb = PerfCallback(
+            estimate_flops_seq_len=128,
+            flops_batch_size=8,
+            with_gpu_util=True,
+            with_grad_norm=True,
+            with_lr_log=True,
+            with_padding_stats=True,
+            with_examples_sec=True,
+            cost=CostModel(gpu_hourly_usd=2.0, include_energy=True, gpu_watts=300, energy_usd_per_kwh=0.12),
+        )
+        perf_cb.bind(trainer)
+        trainer.add_callback(perf_cb)
     
     dbg = DebugCallback(); 
     dbg.bind(trainer)
@@ -103,6 +111,10 @@ def infer(texts, instance_cls):
     with torch.no_grad():
         logits = model(**{k: v.to(model.device) for k, v in enc.items()}).logits
         preds = torch.argmax(logits, dim=-1).cpu().numpy().tolist()
+    
+    config = AutoConfig.from_pretrained(instance.OUTPUT_DIR)
+    id2label = config.id2label
+    labels = [id2label[p] for p in preds]
     helper.print_header("sample predictions")
     print(list(zip(texts, preds)))
 

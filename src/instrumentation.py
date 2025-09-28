@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 import torch
 
-from __future__ import annotations
 import time, math, inspect
 from dataclasses import dataclass
 from typing import Optional, Dict, Any

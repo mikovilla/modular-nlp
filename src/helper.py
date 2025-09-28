@@ -129,3 +129,7 @@ def to_optimizer_args(obj_or_cls):
 
     kwargs = {k: raw[k] for k in valid_keys if k in raw}
     return opt_cls, kwargs
+
+def trace(message):
+    if Debug.TRACE:
+        print(message)

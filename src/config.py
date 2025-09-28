@@ -18,7 +18,7 @@ class DefaultTrainingArguments:
     MAX_GRAD_NORM = 1.0
     WARMUP_RATIO = 0.06
     LR_SCHEDULER_TYPE = "linear"
-    DATALOADER_NUM_WORKERS = 4
+    DATALOADER_NUM_WORKERS = 1
     LOAD_BEST_MODEL_AT_END = True
     METRIC_FOR_BEST_MODEL = "eval_f1_macro"
     GREATER_IS_BETTER = True
@@ -29,6 +29,10 @@ class DefaultTrainingArguments:
 class MBert(DefaultTrainingArguments):
     MODEL_NAME = "bert-base-multilingual-cased"
     OUTPUT_DIR = "./mbert_sentiment"
+    PER_DEVICE_TRAIN_BATCH_SIZE = 8
+    PER_DEVICE_EVAL_BATCH_SIZE = 32
+    GRADIENT_ACCUMULATION_STEPS = 2
+    NUM_TRAIN_EPOCHS = 15
 
 @dataclass
 class Xlmr(DefaultTrainingArguments):
@@ -77,6 +81,7 @@ class Debug:
     OPTIMIZER = True
     PERFORMANCE = True
     TRAINER = True
+    TRACE = True
 
 class Data:
     TEXT_COL = "text"
