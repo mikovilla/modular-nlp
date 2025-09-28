@@ -7,6 +7,7 @@ import torch.nn.functional as F
 from datasets import load_from_disk
 from sklearn.metrics import accuracy_score, f1_score
 from transformers import (
+    AutoConfig,
     AutoModelForSequenceClassification,
     AutoTokenizer, 
     set_seed,
