@@ -102,7 +102,11 @@ def train(context):
 
 def infer(texts, instance_cls):
     instance = instance_cls()
-    saved_model = mamba.load_saved_model() 
+    saved_model = None
+    try:
+        saved_model = mamba.load_saved_model()
+    except:
+        pass
     model = saved_model.model if isinstance(instance, Mamba) else AutoModelForSequenceClassification.from_pretrained(instance.OUTPUT_DIR)
     tokenizer = saved_model.tokenizer if isinstance(instance, Mamba) else AutoTokenizer.from_pretrained(instance.OUTPUT_DIR)
 
@@ -134,7 +138,11 @@ def ensemble(instance_classes, temps=None, weights=None):
     y_true = None
     
     for instance in instances:
-        saved_model = mamba.load_saved_model() 
+        saved_model = None
+        try:
+            saved_model = mamba.load_saved_model()
+        except:
+            pass
         model = saved_model.model if isinstance(instance, Mamba) else AutoModelForSequenceClassification.from_pretrained(instance.OUTPUT_DIR)
         tokenizer = saved_model.tokenizer if isinstance(instance, Mamba) else AutoTokenizer.from_pretrained(instance.OUTPUT_DIR)
         texts = [tokenizer.decode(ex['input_ids'], skip_special_tokens=True) for ex in val_ds]
