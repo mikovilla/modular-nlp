@@ -1,21 +1,110 @@
+import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from sklearn.metrics import (
     accuracy_score, 
     classification_report,
     f1_score, 
+    mean_squared_error,
     precision_score, 
-    recall_score, 
+    recall_score
 )
 
+try:
+    from transformers.trainer_utils import EvalPrediction
+except Exception:
+    EvalPrediction = None
+
+def _unpack(eval_pred):
+    # Supports (preds, labels) tuple or EvalPrediction
+    if EvalPrediction is not None and isinstance(eval_pred, EvalPrediction):
+        return eval_pred.predictions, eval_pred.label_ids
+    return eval_pred  # assume (preds, labels)
+
+def _to_numpy(x):
+    if hasattr(x, "detach"):
+        x = x.detach().cpu().numpy()
+    return np.asarray(x)
+
+def _softmax(logits):
+    logits = logits - np.max(logits, axis=-1, keepdims=True)
+    exp = np.exp(logits)
+    return exp / np.sum(exp, axis=-1, keepdims=True)
+
+def compute_sse_mse_from_logits(logits, labels):
+    """
+    Brier-style: MSE between probabilities and one-hot labels.
+    Returns (mse, sse).
+    """
+    logits = _to_numpy(logits)
+    labels = _to_numpy(labels).astype(int)
+
+    # If the model outputs class scores/logits: shape [N, C]
+    if logits.ndim > 1:
+        # Heuristic: if already probs (sum≈1), skip softmax
+        row_sums = logits.sum(axis=-1, keepdims=True)
+        if np.allclose(row_sums, 1.0, atol=1e-3) and np.all(logits >= 0.0):
+            probs = logits
+        else:
+            probs = _softmax(logits)
+        num_classes = probs.shape[-1]
+        one_hot = np.eye(num_classes, dtype=float)[labels]
+        mse = mean_squared_error(one_hot.reshape(-1), probs.reshape(-1))
+        sse = mse * labels.shape[0]
+        return mse, sse
+    else:
+        # Binary case with a single logit/prob per example
+        # If values look like probs, use directly; else sigmoid is needed.
+        x = logits
+        if np.all((0.0 <= x) & (x <= 1.0)):
+            probs_pos = x
+        else:
+            # sigmoid
+            probs_pos = 1.0 / (1.0 + np.exp(-x))
+        probs = np.stack([1.0 - probs_pos, probs_pos], axis=-1)
+        one_hot = np.eye(2, dtype=float)[labels]
+        mse = mean_squared_error(one_hot.reshape(-1), probs.reshape(-1))
+        sse = mse * labels.shape[0]
+        return mse, sse
+
 def compute_metrics(eval_pred):
-    logits, labels = eval_pred
-    preds = np.argmax(logits, axis=-1)
+    logits, labels = _unpack(eval_pred)
+    logits = _to_numpy(logits)
+    labels = _to_numpy(labels).astype(int)
+
+    # Predicted class ids
+    if logits.ndim > 1:
+        preds = np.argmax(logits, axis=-1)
+    else:
+        # Binary single logit/prob
+        preds = (logits > 0.5).astype(int)
+
+    # Classification metrics
+    acc = accuracy_score(labels, preds)
+    f1m = f1_score(labels, preds, average="macro")
+    prec = precision_score(labels, preds, average="macro", zero_division=0)
+    rec = recall_score(labels, preds, average="macro", zero_division=0)
+
+    # Probability-based SSE/MSE (Brier)
+    mse, sse = compute_sse_mse_from_logits(logits, labels)
+
     return {
-        "accuracy": accuracy_score(labels, preds),
-        "f1_macro": f1_score(labels, preds, average="macro"),
-        "precision_macro": precision_score(labels, preds, average="macro", zero_division=0),
-        "recall_macro": recall_score(labels, preds, average="macro", zero_division=0),
+        "accuracy": acc,
+        "f1_macro": f1m,
+        "precision_macro": prec,
+        "recall_macro": rec,
+        "mse": mse,   # Brier
+        "sse": sse
     }
+
+def graph_log(history):
+    df = pd.DataFrame(history)
+    plt.plot(df['epoch'], df['eval_mse'], label='Validation MSE')
+    plt.xlabel('Epoch')
+    plt.ylabel('MSE')
+    plt.title('Convergence Curve')
+    plt.legend()
+    plt.show()
 
 def evaluate_pipe(pipe, texts, labels, id2label=None, average="macro"):
     if not isinstance(texts, list):

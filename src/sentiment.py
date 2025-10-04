@@ -80,7 +80,7 @@ def train(context):
         perf_cb.bind(trainer)
         trainer.add_callback(perf_cb)
     
-    dbg = DebugCallback(); 
+    dbg = DebugCallback() 
     dbg.bind(trainer)
     trainer.add_callback(dbg)
     
@@ -88,6 +88,8 @@ def train(context):
     eval_metrics = trainer.evaluate(test_ds)
     helper.print_header(f"{context.instance.MODEL_NAME} evaluation metrics")
     pprint.pprint(eval_metrics)
+
+    metrics.graph_log(trainer.state.log_history)
 
     if Data.SAVE_MODEL:
         os.makedirs(instance.OUTPUT_DIR, exist_ok=True)
@@ -121,7 +123,7 @@ def infer(texts, instance_cls):
     id2label = config.id2label
     labels = [id2label[p] for p in preds]
     helper.print_header("sample predictions")
-    print(list(zip(texts, preds)))
+    print(list(zip(texts, labels)))
 
 def ensemble(instance_classes, temps=None, weights=None):
 

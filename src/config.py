@@ -53,6 +53,8 @@ class Mamba(DefaultTrainingArguments):
     WEIGHT_DECAY = 0.05
     FORCE_CUDA = "0"
     FORCE_PYTHON = "1"
+    METRIC_FOR_BEST_MODEL = "mse"
+    GREATER_IS_BETTER = False
 
 class AdamW:
     OPTIMIZER_NAME = "AdamW"
