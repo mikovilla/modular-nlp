@@ -33,9 +33,9 @@ def train(context):
     set_seed(instance.SEED)
     
     isMamba = isinstance(instance, Mamba)
-    val_ds, val_loaded = helper.load_dataset_if_exists("val_ds", context.val_ds, ignore=isMamba)
-    train_ds, train_loaded = helper.load_dataset_if_exists("train_ds", context.train_ds, ignore=isMamba)
-    test_ds, test_loaded = helper.load_dataset_if_exists("test_ds", context.test_ds, ignore=isMamba)
+    val_ds, val_loaded = helper.load_dataset_if_exists(f"{instance.NAME}/val_ds", context.val_ds, ignore=isMamba)
+    train_ds, train_loaded = helper.load_dataset_if_exists(f"{instance.NAME}/train_ds", context.train_ds, ignore=isMamba)
+    test_ds, test_loaded = helper.load_dataset_if_exists(f"{instance.NAME}/test_ds", context.test_ds, ignore=isMamba)
     
     training_args = helper.to_training_args(context.instance)   
 
@@ -97,9 +97,9 @@ def train(context):
         trainer.save_model(instance.OUTPUT_DIR)
         context.tokenizer.save_pretrained(instance.OUTPUT_DIR)
         
-        context.val_ds.save_to_disk(f"{Data.DATASET_SPLITS_DIR}/val_ds") if not (val_loaded and isMamba) else None
-        context.train_ds.save_to_disk(f"{Data.DATASET_SPLITS_DIR}/train_ds") if not (train_loaded and isMamba) else None
-        context.test_ds.save_to_disk(f"{Data.DATASET_SPLITS_DIR}/test_ds") if not (test_loaded and isMamba) else None
+        context.val_ds.save_to_disk(f"{Data.DATASET_SPLITS_DIR}/{instance.NAME}/val_ds") if not (val_loaded and isMamba) else None
+        context.train_ds.save_to_disk(f"{Data.DATASET_SPLITS_DIR}/{instance.NAME}/train_ds") if not (train_loaded and isMamba) else None
+        context.test_ds.save_to_disk(f"{Data.DATASET_SPLITS_DIR}/{instance.NAME}/test_ds") if not (test_loaded and isMamba) else None
 
     return trainer
 

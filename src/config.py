@@ -23,10 +23,11 @@ class DefaultTrainingArguments:
     METRIC_FOR_BEST_MODEL = "eval_f1_macro"
     GREATER_IS_BETTER = True
     SEED = 42
-    EXCLUDE_KEYS = [ "EXCLUDE_KEYS", "MODEL_NAME", "TEMP", "WEIGHT" ]
+    EXCLUDE_KEYS = [ "EXCLUDE_KEYS", "MODEL_NAME", "TEMP", "WEIGHT", "NAME" ]
 
 @dataclass
 class MBert(DefaultTrainingArguments):
+    NAME = "mBERT"
     MODEL_NAME = "bert-base-multilingual-cased"
     OUTPUT_DIR = "./mbert_sentiment"
     PER_DEVICE_TRAIN_BATCH_SIZE = 8
@@ -36,6 +37,7 @@ class MBert(DefaultTrainingArguments):
 
 @dataclass
 class Xlmr(DefaultTrainingArguments):
+    NAME = "XLM-R"
     MODEL_NAME = "xlm-roberta-base"
     OUTPUT_DIR = "./xlmr_sentiment"
     LEARNING_RATE = 1e-5
@@ -47,6 +49,7 @@ class Xlmr(DefaultTrainingArguments):
 
 @dataclass
 class Mamba(DefaultTrainingArguments):
+    NAME = "Mamba"
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     OUTPUT_DIR = "./mamba_sentiment"
     NUM_TRAIN_EPOCHS = 6
