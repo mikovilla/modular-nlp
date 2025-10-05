@@ -99,7 +99,9 @@ def compute_metrics(eval_pred):
 
 def graph_log(history):
     df = pd.DataFrame(history)
-    plt.plot(df['epoch'], df['eval_mse'], label='Validation MSE')
+    df_eval = df.dropna(subset=['eval_mse'])
+    df_eval = df_eval.sort_values('epoch')
+    plt.plot(df_eval['epoch'], df_eval['eval_mse'], label='Validation MSE')
     plt.xlabel('Epoch')
     plt.ylabel('MSE')
     plt.title('Convergence Curve')
