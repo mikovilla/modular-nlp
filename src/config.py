@@ -1,4 +1,5 @@
 import torch
+import os
 
 from dataclasses import dataclass
 
@@ -11,7 +12,8 @@ class DefaultTrainingArguments:
     PER_DEVICE_TRAIN_BATCH_SIZE = 32
     PER_DEVICE_EVAL_BATCH_SIZE = 64
     NUM_TRAIN_EPOCHS = 5
-    FP16 = torch.cuda.is_available()
+    FP16 = torch.cuda.is_available() and not torch.cuda.is_bf16_supported()
+    BF16 = torch.cuda.is_bf16_supported()
     LEARNING_RATE = 2e-5
     GRADIENT_ACCUMULATION_STEPS = 1
     WEIGHT_DECAY = 0.01
@@ -19,6 +21,7 @@ class DefaultTrainingArguments:
     WARMUP_RATIO = 0.06
     LR_SCHEDULER_TYPE = "linear"
     DATALOADER_NUM_WORKERS = 1
+    SAVE_TOTAL_LIMIT = 3
     LOAD_BEST_MODEL_AT_END = True
     METRIC_FOR_BEST_MODEL = "eval_f1_macro"
     GREATER_IS_BETTER = True
@@ -77,7 +80,7 @@ class SGD:
 
 class App:
     ACTION = "TRAIN"
-    HAS_GPU = torch.cuda.is_available()
+    HAS_GPU = torch.cuda.device_count() > 0
     DEVICE = 0 if HAS_GPU else -1
 
 class Debug:
@@ -102,4 +105,8 @@ class Translation:
     BATCH_SIZE = 64
     MAX_NEW_TOKENS = 128
 
-__all__ = ["App", "Data", "Debug", "Translation", "DefaultTrainingArguments", "Mamba", "MBert", "Xlmr" ]
+class Aws:
+    ENABLED = os.path.isdir("/opt/ml")
+    S3_BUCKET_NAME = "s3-ap-southeast-1-533267127131"
+
+__all__ = ["App", "Aws", "Data", "Debug", "Translation", "DefaultTrainingArguments", "Mamba", "MBert", "Xlmr" ]
