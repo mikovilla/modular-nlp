@@ -13,6 +13,17 @@ from src.config import *
 def read_jsonl_as_string(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
+def from_json_to_jsonl(infile, outfile): 
+    with open(infile, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    with open(outfile, "w", encoding="utf-8") as f:
+        if isinstance(data, list):
+            for item in data:
+                f.write(json.dumps(item) + "\n")
+        else:
+            f.write(json.dumps(data) + "\n")
+
 def to_jsonl(rows):
     return "\n".join(json.dumps(r, ensure_ascii=False) for r in rows)
 

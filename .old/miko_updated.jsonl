@@ -1,0 +1,700 @@
+{"id": 1, "text": "Ang ganda ng araw ngayon!", "label": "positive"}
+{"id": 2, "text": "Sobrang bait ng kaibigan ko.", "label": "positive"}
+{"id": 3, "text": "Masarap ang pagkain sa karinderya na iyon.", "label": "positive"}
+{"id": 4, "text": "Ang saya ng laro kagabi.", "label": "positive"}
+{"id": 5, "text": "Nakakatuwa ang mga aso sa park.", "label": "positive"}
+{"id": 6, "text": "Napakabilis ng internet ngayon.", "label": "positive"}
+{"id": 7, "text": "Nakaka-inspire ang kanyang speech.", "label": "positive"}
+{"id": 8, "text": "Maganda ang pagkaka-edit ng pelikula.", "label": "positive"}
+{"id": 9, "text": "Sulit ang binayad ko sa concert.", "label": "positive"}
+{"id": 10, "text": "Astig ang bagong phone na binili ko.", "label": "positive"}
+{"id": 11, "text": "Pangit ang serbisyo sa tindahan.", "label": "negative"}
+{"id": 12, "text": "Mabagal ang internet kagabi.", "label": "negative"}
+{"id": 13, "text": "Mainit at siksikan sa bus.", "label": "negative"}
+{"id": 14, "text": "Nadismaya ako sa lasa ng pagkain.", "label": "negative"}
+{"id": 15, "text": "Nakakainis ang pila sa mall.", "label": "negative"}
+{"id": 16, "text": "Sobrang mahal ng ticket!", "label": "negative"}
+{"id": 17, "text": "Hindi maganda ang tunog ng speakers.", "label": "negative"}
+{"id": 18, "text": "Walang kwenta ang customer service.", "label": "negative"}
+{"id": 19, "text": "Luma na agad ang binili kong gadget.", "label": "negative"}
+{"id": 20, "text": "Hindi ko nagustuhan ang pelikula.", "label": "negative"}
+{"id": 21, "text": "Umuulan buong araw.", "label": "neutral"}
+{"id": 22, "text": "Maraming tao sa palengke.", "label": "neutral"}
+{"id": 23, "text": "Ang klase ay magsisimula ng alas otso.", "label": "neutral"}
+{"id": 24, "text": "May bagyong paparating bukas.", "label": "neutral"}
+{"id": 25, "text": "Sarado ang bangko tuwing Linggo.", "label": "neutral"}
+{"id": 26, "text": "Nagbiyahe ako papuntang Maynila.", "label": "neutral"}
+{"id": 27, "text": "Bumili ako ng tatlong libro.", "label": "neutral"}
+{"id": 28, "text": "May assignment kami sa klase.", "label": "neutral"}
+{"id": 29, "text": "Naglakad siya papuntang opisina.", "label": "neutral"}
+{"id": 30, "text": "Nasa tindahan si Maria kanina.", "label": "neutral"}
+{"id": 31, "text": "I love the new update on my phone.", "label": "positive"}
+{"id": 32, "text": "That meal was really delicious!", "label": "positive"}
+{"id": 33, "text": "Grabe ang galing ng teacher namin.", "label": "positive"}
+{"id": 34, "text": "Nakakagaan ng loob ang musika.", "label": "positive"}
+{"id": 35, "text": "I enjoyed watching the series.", "label": "positive"}
+{"id": 36, "text": "Super saya ng birthday celebration!", "label": "positive"}
+{"id": 37, "text": "I’m so proud of my friend.", "label": "positive"}
+{"id": 38, "text": "Gusto ko yung design ng bahay nila.", "label": "positive"}
+{"id": 39, "text": "Ang daming magagandang tanawin sa Baguio.", "label": "positive"}
+{"id": 40, "text": "Nakaka-excite mag-travel ulit!", "label": "positive"}
+{"id": 41, "text": "This app keeps on crashing.", "label": "negative"}
+{"id": 42, "text": "Ang init sobra hindi komportable.", "label": "negative"}
+{"id": 43, "text": "The service was disappointing.", "label": "negative"}
+{"id": 44, "text": "Nawala ang package ko sa delivery.", "label": "negative"}
+{"id": 45, "text": "Hindi masarap ang kape nila.", "label": "negative"}
+{"id": 46, "text": "I feel so frustrated right now.", "label": "negative"}
+{"id": 47, "text": "Ang gulo ng klase kanina.", "label": "negative"}
+{"id": 48, "text": "Nagkaroon ng error sa system.", "label": "negative"}
+{"id": 49, "text": "Boring ang event na dinaluhan ko.", "label": "negative"}
+{"id": 50, "text": "Hindi worth it ang binayad ko.", "label": "negative"}
+{"id": 51, "text": "The train leaves at 6 PM.", "label": "neutral"}
+{"id": 52, "text": "Nagbukas ang bagong tindahan kahapon.", "label": "neutral"}
+{"id": 53, "text": "Ang meeting ay sa Lunes.", "label": "neutral"}
+{"id": 54, "text": "May announcement sa school bukas.", "label": "neutral"}
+{"id": 55, "text": "Nasa bahay ako kahapon.", "label": "neutral"}
+{"id": 56, "text": "The bus arrived at the station.", "label": "neutral"}
+{"id": 57, "text": "Naglakad kami sa parke.", "label": "neutral"}
+{"id": 58, "text": "She is reading a book.", "label": "neutral"}
+{"id": 59, "text": "May exam sa klase bukas.", "label": "neutral"}
+{"id": 60, "text": "Nagluto si mama ng ulam.", "label": "neutral"}
+{"id": 61, "text": "Masarap ang halo-halo ngayong summer.", "label": "positive"}
+{"id": 62, "text": "I passed my exam ang saya!", "label": "positive"}
+{"id": 63, "text": "Napaka-supportive ng team ko.", "label": "positive"}
+{"id": 64, "text": "Ang cute ng pusa namin.", "label": "positive"}
+{"id": 65, "text": "This new movie is amazing.", "label": "positive"}
+{"id": 66, "text": "Sobrang saya ng bakasyon namin.", "label": "positive"}
+{"id": 67, "text": "Nakaka-motivate ang libro na binasa ko.", "label": "positive"}
+{"id": 68, "text": "The music made me feel happy.", "label": "positive"}
+{"id": 69, "text": "I had a wonderful time yesterday.", "label": "positive"}
+{"id": 70, "text": "Astig ang bagong laro sa phone.", "label": "positive"}
+{"id": 71, "text": "My laptop keeps overheating.", "label": "negative"}
+{"id": 72, "text": "Nakakainis ang traffic sa EDSA.", "label": "negative"}
+{"id": 73, "text": "Hindi ko gusto ang lasa ng ulam.", "label": "negative"}
+{"id": 74, "text": "Nakakasakit ng ulo ang ingay.", "label": "negative"}
+{"id": 75, "text": "This chair is so uncomfortable.", "label": "negative"}
+{"id": 76, "text": "Sobrang bagal ng serbisyo.", "label": "negative"}
+{"id": 77, "text": "The app drains my battery fast.", "label": "negative"}
+{"id": 78, "text": "Nabigo ako sa resulta.", "label": "negative"}
+{"id": 79, "text": "Hindi responsive ang website.", "label": "negative"}
+{"id": 80, "text": "Nakakadismaya ang exam results ko.", "label": "negative"}
+{"id": 81, "text": "She went to the library.", "label": "neutral"}
+{"id": 82, "text": "Naglinis ako ng kwarto kanina.", "label": "neutral"}
+{"id": 83, "text": "The teacher entered the room.", "label": "neutral"}
+{"id": 84, "text": "Si Juan ay nag-aral buong gabi.", "label": "neutral"}
+{"id": 85, "text": "May bagong release sa software.", "label": "neutral"}
+{"id": 86, "text": "The sun sets at 6:30 PM.", "label": "neutral"}
+{"id": 87, "text": "Tumawag si Ana sa cellphone.", "label": "neutral"}
+{"id": 88, "text": "Nagpahinga ako sa bahay.", "label": "neutral"}
+{"id": 89, "text": "Nasa opisina si Pedro ngayon.", "label": "neutral"}
+{"id": 90, "text": "He is walking to school.", "label": "neutral"}
+{"id": 91, "text": "Sobrang saya ng laban kagabi!", "label": "positive"}
+{"id": 92, "text": "Ang ganda ng tanawin sa bundok.", "label": "positive"}
+{"id": 93, "text": "I really enjoyed the concert.", "label": "positive"}
+{"id": 94, "text": "Masarap ang cake na gawa ni mama.", "label": "positive"}
+{"id": 95, "text": "Napaka-inam ng panahon ngayon.", "label": "positive"}
+{"id": 96, "text": "Nakaka-proud ang achievements niya.", "label": "positive"}
+{"id": 97, "text": "I’m very satisfied with the service.", "label": "positive"}
+{"id": 98, "text": "Gusto ko ang bagong kanta.", "label": "positive"}
+{"id": 99, "text": "This day feels wonderful.", "label": "positive"}
+{"id": 100, "text": "Nakaka-inspire ang kanyang kwento.", "label": "positive"}
+{"text": "Sobrang bilis ng delivery at fresh pa ang pagkain, talagang sulit ang bayad.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "b278068b2ff0c3eb6607025090cee70d6a0f60b1", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356823Z", "length_words": 13, "length_chars": 76, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "May maintenance ang online banking kanina, baka may delayed transactions pero wala pa official notice", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "c5d3ec5db25fa13d55b0b75f3faa2a34ace14c76", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356795Z", "length_words": 15, "length_chars": 101, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery ng food app kanina, tama ang order at masarap ang pagkain", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "172852cb46e09f2959f43f02e955b49a521641e8", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358222Z", "length_words": 15, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery at fresh pa ang pagkain, sulit talaga ang order ko", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.95, "id": "666698ddd73e36f51cacec360cbc99d7e50d21fb", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355935Z", "length_words": 14, "length_chars": 76, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Nag-update yung app kanina pero parang hindi pa rin gumagana ang ilang features, baka may glitch.", "label": "negative", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "aa160e77ae8dd9f263cf90d2a27f26aae61d431e", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357502Z", "length_words": 16, "length_chars": 97, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery at warm pa yung food, sulit na sulit talaga ang order.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "da449e48c10caf734e3bc3066b6f516a1f1186ab", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357112Z", "length_words": 15, "length_chars": 80, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang na-frustrate ako nung delivery ng pagkain, late siya at malamig pa.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "ac2a5a230c6db728724e7942439ad8fe441f9880", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355697Z", "length_words": 12, "length_chars": 75, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Naaksaya yung pagkain dahil late delivery at malamig pa, hindi okay sa order ko.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "fb0f2ff8d075ba0e485a0ef0da0aa74752765358", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357624Z", "length_words": 14, "length_chars": 80, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang late yung delivery kanina, tumawag ako pero walang update mula sa app.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "1f9a81e5c818bf34f9c91f9b54afc41ccee9655e", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356113Z", "length_words": 13, "length_chars": 78, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kagabi, driver polite at food fresh pa, thank you!", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "15fdf2c4715dc5fa7644502a90f02a399dad826c", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357819Z", "length_words": 13, "length_chars": 76, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Di na umabot ang delivery kanina, tumalbog ang customer support at walang update.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "ec44abeaa73a504ce2b586a3035bde62f319afa5", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357697Z", "length_words": 13, "length_chars": 81, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-deliver yung order on time pero packaging medyo damaged; pwedeng i-improve nila para sa susunod.", "label": "neutral", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "f82f820aa81fbc6c650ab17e42ea325b5c222a1e", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355987Z", "length_words": 15, "length_chars": 99, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Kanina nag-update yung app pero wala pa ring pagbabago sa performance at functionality", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "86e79c400f94fe9751254ac3985d12e0921d6bf0", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357239Z", "length_words": 13, "length_chars": 86, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Baka pwedeng i-check ang app status mo, kasi kanina nag-refresh pero walang update.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "d536d2c3757a8f7223f0d497cefa215e5effcfbd", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357264Z", "length_words": 13, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Nag-update ang app kanina; pwedeng i-try ulit ang feature bago mag-report ng bug.", "label": "neutral", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "b535e48ef7e6750ee38c85ba30022126d495b7ef", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357673Z", "length_words": 13, "length_chars": 81, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Grabe, matagal yung delivery kanina at wala ring update; sobra akong na-frustrate.", "label": "negative", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "1697ada7512329f44c5082939beeb9b009f7b2e4", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356896Z", "length_words": 12, "length_chars": 82, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi agad naresolba ang refund ko, nag-follow up ako kanina pero wala pa ring update.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "3f7152d121263c4dca6287b7113c17868ac88d13", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357036Z", "length_words": 15, "length_chars": 86, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Pwede ba akong mag-schedule ng appointment sa bank online kasi may available slot bukas", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "79ee0e48d60fb9ca7ea3ebbcd22c2a0ee5811d2d", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358249Z", "length_words": 14, "length_chars": 87, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina; mainit pa yung pagkain at maayos packaging.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "ebc5f20a52a29bbe3473ba8c9c22200223cfb79d", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357769Z", "length_words": 12, "length_chars": 77, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-late delivery pero okay naman ang pagkain, sana next time mas maayos packaging at timing.", "label": "neutral", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "89c191665ab91d42c11492d5c9feefe947a0dcd6", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356678Z", "length_words": 15, "length_chars": 92, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang tagal ng delivery kanina, box basang-basa at customer service hindi tumutugon.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "ec0096ff581e5bf5583caea6f263dbc1716d3586", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356504Z", "length_words": 12, "length_chars": 86, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, pagkain mainit pa at customer service very helpful.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.95, "id": "7979d822edb2c2c58bc58d9cfef728b88e246535", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356266Z", "length_words": 13, "length_chars": 85, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-deliver yung order kanina pero ibang size yung natanggap namin, naghihintay ng update.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "440fa4a4f83d90da04a44a08b46d8baee6d2dfd5", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356555Z", "length_words": 13, "length_chars": 89, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, pagkain mainit pa at customer service very helpful talaga.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.93, "id": "694f686688f96218d412331ef08591a7c9625af9", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358354Z", "length_words": 14, "length_chars": 92, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, app niya intuitive at pagkain masarap pa talaga.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "35c2e8c5f91809993b9b2a982a9abe10305a6550", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357891Z", "length_words": 13, "length_chars": 82, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Order ko kanina dumating mabilis, driver polite, pagkain mainit pa at masarap sobra", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "e99c612b3f1ce3f3dec043c1a78ee2aae0d7c89f", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357069Z", "length_words": 13, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang dali ng ordering kanina, delivery mabilis at pagkain init pa rin pagdating.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "8bac7d29894b012ef1f797ffe4f9a416bccb2fb7", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357996Z", "length_words": 13, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Ang delivery kanina mabilis, pagkain mainit pa at sobrang na-enjoy ko ang ulam", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "8a21cd3f8ea39744b9bbec4ceafb45b63944df9d", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356397Z", "length_words": 13, "length_chars": 78, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Humingi ako ng impormasyon kanina sa bangko tungkol sa mga opsyon, at nakinig lang ako.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "tagalog", "confidence": 0.6, "id": "99e6ff920c08f5785525ebeb31a683df7ce7f330", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358119Z", "length_words": 15, "length_chars": 87, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Kanina nag-update ang app at may bagong features pero wala pa ring malaking pagbabago.", "label": "neutral", "domain": "posts", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "4101025b8237aea88b54267b4ad40ead36ac2cbc", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356579Z", "length_words": 14, "length_chars": 86, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi ako satisfied sa delivery kanina kasi malamig yung pagkain at late pa", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "e83b136acca19a8d0dc1bd8785486390318d5db7", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355909Z", "length_words": 13, "length_chars": 75, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-deliver agad ang order kanina at super fresh yung pagkain, sobrang saya ako.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "596968dc9f95b3cfe817ec28c95a16681ed9dbb9", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356953Z", "length_words": 13, "length_chars": 79, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Ang delivery ngayon sobrang late at walang update nung courier, sana may refund option.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "0366bdff2bf7fd116373a0f810bf50d1dc6e4116", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357342Z", "length_words": 14, "length_chars": 87, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang happy ako sa delivery nila kanina; mainit ang pagkain at mabilis.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "d635d075fa68a56af6f790d5619917fa42a66a93", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357451Z", "length_words": 12, "length_chars": 73, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Ang delivery kanina mabilis na, food hot pa, sobrang saya ko sa serbisyo nila.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "332d787013c4b9de04162c26b79cd73851ed0d57", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357723Z", "length_words": 14, "length_chars": 78, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Pwede bang i-update niyo ang status ng request ko, kasi wala pa ring update kanina", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "054a3f1d7e66b68cc537bf2d96fa2d195c53b5a3", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356871Z", "length_words": 15, "length_chars": 82, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi na deliver ang order ko kanina, support chat di tumulong at sobrang frustrating.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "28194de31f0192da11a9814c5eeb1fd1b8d80259", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358410Z", "length_words": 14, "length_chars": 86, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Nag-report ako kanina sa opisina ng billing at sinabing susuriin nila ang account status.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "c6c56916029f42273576743e5ef10b7d7cf3ef74", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357165Z", "length_words": 14, "length_chars": 89, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-deliver naman yung order agad, pero medyo malamig ang pagkain pagdating kanina.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.85, "id": "63ec26943a7476fdbada3d1f27cb4d08daa9a9f9", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358064Z", "length_words": 12, "length_chars": 82, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi na naman nag-update ang app kahit sinubukan ko ng restart, nakakainis talaga.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "13a59f71ca52295ce851621663a709d6d3e1bc9f", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356041Z", "length_words": 13, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-check ko na yung order status sa app, pero wala pa ring update kanina", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "5bbd670e59ed3d20a04a4ae0b4cbd41ee14c892b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356653Z", "length_words": 14, "length_chars": 72, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery, and packaging maayos kaya perfect ang buong order.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "50ea9ca328097aa33823053df5663f5150e2c46e", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356315Z", "length_words": 12, "length_chars": 77, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, saved ako ng oras kaya sulit at masaya ako.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "7d0eb0dc2cb97f20059de2b707bb3fd6be985ed7", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356728Z", "length_words": 14, "length_chars": 77, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang late yung delivery kanina, at di pa kompleto ang order, nakakainis talaga ako", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "5cfc77c07d53134df7d91c0391a67bcb9891ce3c", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356766Z", "length_words": 14, "length_chars": 85, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, on time at masarap naman yung pagkain.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "2b0d398f963f61da3c12e94667bc5f1b8d7557c0", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356185Z", "length_words": 12, "length_chars": 72, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Grabe, mabilis delivery kanina at mainit pa ang pagkain; talagang sulit ang order ko.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "732af9c3ef9f117843cfe99b96e3f63d16715619", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357529Z", "length_words": 14, "length_chars": 85, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang disappointing yung delivery kanina; late, cold ang pagkain at walang update mula sa driver.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "3aeeb02ad2b0c3caf2bc1cefb4026d6f3c7d385b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357399Z", "length_words": 15, "length_chars": 99, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, app interface smooth at driver polite naman, sulit talaga.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "5ae012cd6fb38d87051abf74f71c01ed041bcbca", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357372Z", "length_words": 14, "length_chars": 92, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, at init pa ng pagkain, sulit talaga ang experience ko.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "1aa1d6a7be796ce7e99fe4f90b43761a4f08aea6", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355883Z", "length_words": 15, "length_chars": 88, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Tingnan ko muna app history para malaman kung anong nangyari kanina sa delivery.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "df252dbf1c665f440fa0654b45b913246b3cec6d", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356604Z", "length_words": 13, "length_chars": 80, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Grabe, mabilis delivery at warm packaging, sobrang na-enjoy ko yung pagkain kanina.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "5063f42079f738169d8ee8b56128d36ec38afb7e", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358434Z", "length_words": 12, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi na naman dumating ang order ko, and customer service parang walang tulong, sobrang frustrating.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "0ac0b0db9fdf844fc7e39977e0207fed9854d687", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356927Z", "length_words": 15, "length_chars": 101, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang naantala ang food delivery kanina, di nakaabot sa oras at nakaka-frustrate talaga.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "f90489537752b9c5b1fa65934e06fce7a18db55b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355738Z", "length_words": 13, "length_chars": 90, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-update ko na ang app pero hindi pa rin naka-sync ang transaction history ngayon.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "176eee9a2c9bf39c8c481d582597ced85e42026e", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357139Z", "length_words": 14, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, exact time, produkto intact at service friendly.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "976501a1bdfd14329aa6ff19a73242ebaccfd2e0", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356136Z", "length_words": 12, "length_chars": 82, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Wala pang confirmation mula bank, baka may delay sa processing kanina pa naman.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "6f4f9989ef0aff70d7e034c9fd54cfb48052b45b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356703Z", "length_words": 13, "length_chars": 79, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Nag-update lang ako ng app kanina at nakita kong may bagong impormasyon tungkol sa serbisyo.", "label": "neutral", "domain": "logs", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "a190ba93af3007bf1426c768a8fbfcaee7f5956b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357316Z", "length_words": 15, "length_chars": 92, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, pagkain mainit pa at tama ang portion.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "5c32148b887e61d960393a9da81e9856bf5ffc09", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357573Z", "length_words": 12, "length_chars": 72, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang ganda ng delivery app ngayon, mabilis na tracking at helpful customer support talaga.", "label": "positive", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "2986a270cb974ba7e9c2e1b9f78847d58f4eb068", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356291Z", "length_words": 14, "length_chars": 93, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Baka useful ang bagong update ng banking app pero kailangan ko pa ng confirmation mula sa support", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "15a67135b3c609b49a883c524676da68f9cce94e", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357426Z", "length_words": 17, "length_chars": 97, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi gumana delivery app kanina, pero customer support tumulong naman and refund mabilis.", "label": "positive", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "095ae9be297c361ef793947457c444fcb86133e7", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356342Z", "length_words": 13, "length_chars": 90, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang na-surprise ako, mabilis delivery at pagkain masarap, definitely susubukan ulit next time.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "00b6dd3bdf94524b19c7b27b66228b1535de1a4c", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355829Z", "length_words": 13, "length_chars": 98, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina at masarap pa ang pagkain, sulit ang bayad", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "14470387b14303d5265f70181cc3b9dbcd590f40", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355856Z", "length_words": 13, "length_chars": 75, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Mabilis ang serbisyo kanina, pero medyo magulo pa rin ang proseso.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "tagalog", "confidence": 0.6, "id": "8c60256c29ee95a41b5561d653d38169577a8fe1", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357551Z", "length_words": 11, "length_chars": 66, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Late na naman ang delivery, may maling order pa, sobrang naiinis ako at pagod.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "c28bd63ed9e3f221c4db2963f0db30a90bff15c1", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357965Z", "length_words": 14, "length_chars": 78, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery, on time sya at natunaw agad ang stress ko.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "c4e2cbf13030fbcffc3c5dedc6e8163a9780cd12", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356208Z", "length_words": 13, "length_chars": 69, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi dumating ang food delivery kanina, grabe ang delay at walang malinaw na update mula sa app", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "0363f402eb5596e78b7a26099c766cc82f3d72ab", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357844Z", "length_words": 17, "length_chars": 96, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, ang driver maayos, ang pagkain naman perfect.", "label": "positive", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "5eb2246754c9abef597c88404d3e09d9dccb5e1b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356847Z", "length_words": 12, "length_chars": 79, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, kumpleto lahat ng order at masarap pa.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "ac7558c132d7babdc876488c85d6247b773ba51c", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358197Z", "length_words": 12, "length_chars": 72, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Grabe, ang tagal ng delivery kanina at walang update sa app kaya na-frustrate ako.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "5f31b391b4ffd29634f18b8430f0ebc9cbedf0ad", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356241Z", "length_words": 14, "length_chars": 82, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Nag-update ang app kanina at lumabas lang ang bagong feature, baka testing pa lang.", "label": "neutral", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "aa82c12ab6bbc99b6e4d9abb7363ef5006656fb7", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355615Z", "length_words": 14, "length_chars": 83, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Na-frustrate ako kasi late ulit delivery, pero sabi support may problema sa driver.", "label": "negative", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "3ec6db8061490a8219c9dcd45860adf5133143a6", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358327Z", "length_words": 13, "length_chars": 83, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Grabe, delayed delivery at malamig pa yung pagkain; hindi na ako uulit mag-order dito.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "a153632435289b4bc3b7ca3a7573079d3eb2fbf3", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357289Z", "length_words": 14, "length_chars": 86, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Na-try ko na yung bagong banking app kanina, medyo slow pero functional naman overall.", "label": "neutral", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "bb6e4fef6ce76d07f4890e514d08d9b76c182a20", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358277Z", "length_words": 14, "length_chars": 86, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang dali ng delivery kanina; driver mabilis, pagkain mainit pa at masarap naman", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "70c72203991384c3e4510adc9c58a1081651a171", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357190Z", "length_words": 13, "length_chars": 83, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Ang delivery kanina mabilis at maayos ang packaging, sobra ang saya ko.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "f001cfc79280a93b9070d697921d544a7ab72c98", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358170Z", "length_words": 12, "length_chars": 71, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang mabilis delivery kanina, pagkain mainit pa at super sulit ang presyo compared sa ibang apps", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "cebe16458cc9cc3858981090793d9008e21b4f0c", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356370Z", "length_words": 16, "length_chars": 99, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Baka pwedeng i-check ng team ang app dahil naglo-load lang ito kanina pa", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "ed24d7244961446a875458cf2c4dcc407485c0d3", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357649Z", "length_words": 13, "length_chars": 72, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Sinubukan kong i-check ang bagong app update kanina pero wala masyadong bagong features.", "label": "neutral", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "8642a619db7257a91de6623531290f5c8f5ad672", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358031Z", "length_words": 13, "length_chars": 88, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery, na-excite talaga ako sa quality ng binili kong bagong speakers.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "de3b912f17549424ec4208247697019735b25b6b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357795Z", "length_words": 14, "length_chars": 90, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Ang delivery ng food kanina mabilis at maayos, sobra akong natuwa sa service.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "28e428783dd6206c2252ea500e4a57d17723486a", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357475Z", "length_words": 13, "length_chars": 77, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang tagal ng delivery kahapon, driver nag-cancel pa, parang hindi reliable ang app.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "fe243b43eadb7196f76ca580c76d05ab284859d3", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356472Z", "length_words": 13, "length_chars": 87, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Grabe, hindi dumating yung delivery kahit sinabing darating kahapon, sobrang frustrating talaga.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "4295667e6036c41bac6e52f4a49763065ccbead8", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356422Z", "length_words": 12, "length_chars": 96, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Na-update lang ang app kanina at mukhang may bagong feature pero hindi sigurado pa ako.", "label": "neutral", "domain": "posts", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "ad859c25c64523adb74e222af40648049c4b7b62", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358145Z", "length_words": 15, "length_chars": 87, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Na-delay yung delivery kanina pero okay naman packaging, sana mabilis next time.", "label": "negative", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.85, "id": "c6d15e02fbef83355176b681ac8671f22cd57dd6", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358384Z", "length_words": 12, "length_chars": 80, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, init pa yung food at ayos na packaging, super satisfied ako", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "714f2da1474d8b17ae59b942c5fdd33c355c4680", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355800Z", "length_words": 16, "length_chars": 93, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, pagkain fresh pa, sulit na sulit ang experience ko.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.95, "id": "ca64b304b19aaa4843c0006bc33b4e84dc597495", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357214Z", "length_words": 14, "length_chars": 85, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Baka may delay sa app pero hindi pa malinaw kung kailan maayos ito", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "28605628790d44d5855a59b859de56a6f70d52f8", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357746Z", "length_words": 13, "length_chars": 66, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Nag-submit ako ng ticket kanina, nag-follow up na sana pero wala pang update.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "6d13dec60573f3850e2ab480bfb50f20b5dbfd08", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356016Z", "length_words": 13, "length_chars": 77, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina, fresh pa ang pagkain at sulit na sulit.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "c2fd3b816968068f3188866a3f33793c85b66e33", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357595Z", "length_words": 13, "length_chars": 73, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Grabe hindi dumating ang order ko kahit naka-track na, at napakahirap makakuha ng refund.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "ec28f103d43c31930c114071e500f32259b97702", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358093Z", "length_words": 14, "length_chars": 89, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kagabi, at masarap naman yung food kahit malamig pa.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "2e428776b2307e59c95e627cb9980fddb73d6cf5", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356065Z", "length_words": 13, "length_chars": 78, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Baka okay yung app update pero nagla-lag pa rin sa phone ko kanina, sana maayos.", "label": "neutral", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "3e7dcf954b8700e3358821d6a2f31465bcd37f18", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356162Z", "length_words": 15, "length_chars": 80, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Na-deliver yung order kanina pero kulang ang sauce, sana ayusin nila agad next time.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "959e0382a31bc180799d12c7737309a0c8b6ea42", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356448Z", "length_words": 14, "length_chars": 84, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang impressed ako, mabilis yung delivery kanina at fresh talaga ang pagkain namin", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "e66278b0162aade1d272f620905a20c1bc7d80fe", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356529Z", "length_words": 13, "length_chars": 85, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Na-deliver agad yung order, packaging ay maayos at customer service sobrang helpful talaga.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.92, "id": "136e60574d442ce7e22a803cab2d3d55c37886fc", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356629Z", "length_words": 13, "length_chars": 91, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Ang delivery mabilis at kumpleto ang order, sobrang nakatulong sa busy kong gabi.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "b0d4cff96a7194ac81e4b033dfd0b48082062238", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.358303Z", "length_words": 13, "length_chars": 81, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery kanina at fresh pa yung pagkain, sulit talaga ang order ko.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.95, "id": "3d8ccd2a126e3b80854f78469866138c67ad155f", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.355771Z", "length_words": 15, "length_chars": 85, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery nila, on time at maayos packaging, very satisfied talaga.", "label": "positive", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "6454214c5d48702b5b20252741858403adf2d9b0", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.356089Z", "length_words": 13, "length_chars": 83, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery at fresh pa ang pagkain, sulit na sulit ang experience ko.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "e96580152aee0bd7dfb5e4ff8a0433d58310176b", "source": "openai_generated", "created_at": "2025-09-28T07:56:55.357937Z", "length_words": 15, "length_chars": 84, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang late yung delivery kanina pero okay naman yung pagkain at customer service tumulong", "label": "neutral", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "7e5740ddc1b8895910ae21c9d670ddfc73f6f2cb", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622994Z", "length_words": 14, "length_chars": 91, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang mabilis yung delivery kanina, packaging okay na, satisfied talaga sa order ko", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "2bbb16ee22facbbf8c8b51a12b549d9965aebda4", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622898Z", "length_words": 13, "length_chars": 85, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Super bilis ng delivery kanina at fresh pa ang pagkain, sulit talaga ang order.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "2792c99d85b648f0a45eaf4d68e8d4fd0e5cff66", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622871Z", "length_words": 14, "length_chars": 79, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Nag-submit ako ng form online kanina pero wala pang update mula sa bank.", "label": "neutral", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "50fa3ad8dab20cc721330efb657d7e99cd7d8965", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.623016Z", "length_words": 13, "length_chars": 72, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang smooth ng delivery app ngayon, pero sana mas mabilis ang support kapag may issue.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.85, "id": "65d5a43c059463852e5012c2cc34ffd97d6adcfb", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622949Z", "length_words": 15, "length_chars": 89, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Na-resolve naman yung issue ko sa app, pero medyo matagal process nila kanina.", "label": "positive", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.85, "id": "c2a5e7ab1d632cd665a0e658f2ebdb6d28fec9c4", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622972Z", "length_words": 13, "length_chars": 78, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Ang delivery kanina sobrang late at di nasunod ang estimated time, nakakainis talaga.", "label": "negative", "domain": "support_tickets", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "b231cc9dbf18cae4babe83af76529f6c4b688da5", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.623039Z", "length_words": 13, "length_chars": 85, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng delivery at kumpleto lahat ng order, swak na swak ang serbisyo.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "9146963a996f3fefe7111ee4060e8e1119eb5686", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622923Z", "length_words": 14, "length_chars": 80, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang dali ng app checkout kanina, ang delivery ay on time at masarap.", "label": "positive", "domain": "reviews", "lang": "tl", "variant": "taglish", "confidence": 0.9, "id": "7d30bb2e26b7f29bb17b54c2da2e257d5d1dc722", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622764Z", "length_words": 13, "length_chars": 72, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Baka later sa app update may improvement, pero wala akong malaking expectations ngayon.", "label": "neutral", "domain": "tweets", "lang": "tl", "variant": "taglish", "confidence": 0.6, "id": "448019b464bf4cdf819d22f0a3dbcecbbb50384c", "source": "openai_generated", "created_at": "2025-09-24T03:11:12.622835Z", "length_words": 13, "length_chars": 87, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text":"Sobrang bilis ng refund process sa app kagabi kaya na-appreciate ko talaga ang service nila","label":"positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Hindi gumana yung internet connection buong umaga kahit ilang restart ginawa ko","label":"negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"May bagong update yung banking app, neutral lang kasi di pa kita kung useful talaga","label":"neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Nag-enjoy ako sa bagong series kagabi, sobrang ganda ng acting at storyline","label":"positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Grabe, delayed na naman yung bus kaninang umaga, hassle sa pasok","label":"negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"May bagong promo yung telco, baka makatulong sa mga naghahanap ng murang data","label":"neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.65}
+{"text":"Nakakatuwa kasi on-time dumating yung pagkain at friendly pa yung rider","label":"positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Di pa rin naaayos yung account issue ko kahit ilang beses akong nag-report","label":"negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.83}
+{"text":"Nag-usap kami kanina tungkol sa project deadline, wala namang strong reaction","label":"neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.55}
+{"text":"Maganda yung response ng support agent, mabilis siyang nagbigay ng solution","label":"positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakaka-frustrate kasi wala pa ring update tungkol sa complaint ko","label":"negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Sinabihan ako na ipapasa yung concern sa ibang team, kaya hintay lang siguro","label":"neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masarap talaga yung bagong burger, sulit ang presyo at quality","label":"positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Ang pangit ng movie na napanood namin, sayang oras at pera","label":"negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.88}
+{"text":"May nagsabi na may bagong branch yung coffee shop, baka subukan namin","label":"neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Natuwa ako kasi gumana agad yung bagong feature ng app","label":"positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Error na naman lumabas sa system kahit sinunod ko lahat ng instructions","label":"negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.84}
+{"text":"Nag-log ng activity yung system kagabi, mukhang routine lang naman","label":"neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Kanina pa ako tawa nang tawa sa mga memes na nakita ko, solid yung humor","label":"positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.93}
+{"text":"Kaso sobrang toxic ng thread kahapon, puro away at walang sense","label":"negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"May nag-post tungkol sa bagong law, informative naman kahit mahaba","label":"neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.64}
+{"text":"Ang saya kasi nahanap ko yung lumang kanta na gusto ko pa rin pakinggan","label":"positive","domain":"comments","lang":"tl","variant":"tagalog","confidence":0.9}
+{"text":"Hindi ko gusto yung attitude ng ibang commenters, parang wala silang respeto","label":"negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para lang magbigay ng clarification sa topic","label":"neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Satisfied ako kasi dumating ng maaga yung in-order kong shoes online","label":"positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Sayang, mali yung item na dumating at di sumasagot ang seller","label":"negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nagbasa ako ng reviews kagabi, mixed opinions yung nakita ko","label":"neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.63}
+{"text":"Nakakagaan ng loob yung supportive na comments ng mga kaibigan","label":"positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Ayoko ng bagong policy ng telco, sobrang limiting at unfair","label":"negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.88}
+{"text":"May event announcement sa feed, hindi ko pa alam kung pupunta ako","label":"neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.55}
+{"text":"Natutuwa ako kasi maayos ang response ng team sa project update","label":"positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Na-stress ako kasi ang daming errors sa system kahapon","label":"negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-usap kami tungkol sa exam schedule, parang normal lang naman","label":"neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masaya kasi may discount voucher akong nakuha mula sa support","label":"positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Hindi ako satisfied sa sagot ng support agent, parang copy paste lang","label":"negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Na-forward lang daw yung concern ko, kaya antay pa siguro","label":"neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Ang galing ng bagong teacher namin, sobrang klaro niyang magpaliwanag","label":"positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis kasi walang nag-update tungkol sa cancelled class","label":"negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"May suggestion lang ako para mas maging organized yung meeting","label":"neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.65}
+{"text":"Nag-improve talaga yung system performance after ng maintenance","label":"positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Biglang nag-crash yung app habang nasa checkout ako, hassle sobra","label":"negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log yung device ng battery drain kanina, normal observation lang","label":"neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Nakaka-happy yung mga bagong episodes, excited ako lagi manood","label":"positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naging sobrang toxic yung discussion kagabi, puro negativity","label":"negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-post sila tungkol sa bagong project, mukhang informative naman","label":"neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.64}
+{"text":"Ang saya kasi supportive yung friends sa comment section","label":"positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Na-badtrip ako kasi rude yung nag-reply sa suggestion ko","label":"negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-leave ako ng neutral feedback kasi hindi naman extreme experience","label":"neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super helpful yung staff sa branch kanina, sobrang impressed ako","label":"positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.93}
+{"text":"Disappointed kasi sobrang bagal ng response ng seller sa inquiry","label":"negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbabasa lang ako ng reviews para may idea bago bumili","label":"neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Masaya ako kasi smooth yung experience sa online class platform","label":"positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi walang signal buong araw, wala tuloy communication","label":"negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.88}
+{"text":"Nag-tweet ako tungkol sa exam results, neutral lang para i-share info","label":"neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.55}
+{"text":"Nagustuhan ko yung bagong feature sa chat app, sobrang useful","label":"positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi hindi nag-sync yung files kagabi","label":"negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat ako sa friend tungkol sa schedule, wala namang problema","label":"neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Mabilis yung support reply kaya ang dali ng transaction ko","label":"positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Ang tagal ng resolution, parang walang gumagawa ng action","label":"negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-open ako ng ticket kagabi, pending pa rin status","label":"neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Ang saya kasi sobrang linis ng park, relaxing maglakad","label":"positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis kasi wala pa ring refund sa cancelled flight","label":"negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Narinig ko may bagong policy sa office, neutral lang muna","label":"neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.64}
+{"text":"Gumana agad yung system after update, impressive improvement","label":"positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Crash nanaman yung application nung nag-save ako ng file","label":"negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-log ng user activity kahapon, normal naman yung details","label":"neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Enjoy ako sa bagong mobile game, nakakawala ng stress","label":"positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Grabe toxic ng community minsan, puro negative vibes","label":"negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-post sila tungkol sa event schedule, informative content","label":"neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.65}
+{"text":"Happy ako kasi may mga good vibes sa comment section","label":"positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Di ko gusto yung tone ng reply ng ibang commenters","label":"negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para magtanong lang ng clarification","label":"neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super smooth transaction, on-time lahat at hassle-free","label":"positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.93}
+{"text":"Sobrang bagal ng delivery service nila, nakaka-frustrate","label":"negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-leave ako ng review para lang magbigay ng info","label":"neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Saya ng event kagabi, sobrang saya kasama ang barkada","label":"positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nainis ako kasi ang mahal ng bagong plan ng telco","label":"negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-tweet ako tungkol sa update ng app, neutral lang","label":"neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi clear yung explanation ng professor","label":"positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi hindi pumasok yung files sa system","label":"negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa travel plans, neutral lang","label":"neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Sobrang helpful ng agent, mabilis magbigay ng solution","label":"positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakainis kasi paulit ulit yung sagot ng support","label":"negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Pending pa rin yung ticket status, neutral observation","label":"neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super ganda ng bagong app interface, user-friendly talaga","label":"positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakaka-stress yung matagal na processing ng documents","label":"negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Narinig ko may bagong rules sa department, neutral lang","label":"neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.64}
+{"text":"Nag-improve ang loading speed pagkatapos ng update","label":"positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nagka-error ulit nung nag-download ako, sobrang hassle","label":"negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-log ng temperature readings kagabi, normal values lang","label":"neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Saya kasi trending na yung favorite song ko ngayon","label":"positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Toxic masyado yung arguments sa post, wala nang sense","label":"negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-post sila ng summary ng news, informative naman","label":"neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.65}
+{"text":"Happy ako kasi maraming good feedback sa comment section","label":"positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Badtrip kasi rude yung sagot ng ibang users","label":"negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.84}
+{"text":"Nag-comment ako kagabi para magtanong lang ng details","label":"neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super smooth yung process ng online payment, walang hassle at mabilis ma-confirm","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-stress kasi ang tagal ng cashier line kagabi sa supermarket","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-check lang ako ng review ng bagong app, parang okay pero di pa sure","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.63}
+{"text":"Masarap talaga yung cake na inorder ko kahapon, worth every peso","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Grabe, down na naman yung app ng bank, hassle tuloy magbayad","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-scroll ako sa Twitter feed kagabi, puro neutral news updates","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.55}
+{"text":"Na-appreciate ko yung tulong ng officemate sa report, sobrang galing niya","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Di ko gusto yung attitude ng teammate, parang wala siyang pakialam","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-chat lang kami tungkol sa schedule ng quiz, info sharing lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.59}
+{"text":"Ang bilis ng support agent magbigay ng instructions, very helpful","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi hindi pa rin resolved yung ticket ko after ilang days","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Na-escalate daw yung issue ko, kaya neutral lang muna habang naghihintay","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Enjoy ako sa bagong kanta ng band, sobrang catchy at uplifting","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakadisappoint yung performance ng actor sa movie, parang kulang sa effort","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"May nag-share ng opinion tungkol sa exam policy, neutral lang tingin ko","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.64}
+{"text":"Sobrang ganda ng performance metrics kahapon, nakaka-proud","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nagka-error ulit yung database connection, hassle sobra","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-record lang ng login attempts ang system kagabi, routine lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Masaya ako kasi trending yung post ko sa social media","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakabwisit yung toxic comments sa post kahapon, walang respect","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-post sila ng announcement ng event, parang informative naman","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.63}
+{"text":"Sobrang tuwa ko kasi nag-reply yung idol ko sa comment section","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Na-offend ako sa sagot ng commenter, parang bastos ang dating","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbigay ako ng comment para lang magdagdag ng context","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Satisfied ako kasi ang bilis dumating ng order ko sa shop","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Disappointed ako kasi kulang yung item na natanggap ko","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbasa ako ng reviews tungkol sa service, halo-halo ang feedback","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.63}
+{"text":"Ang saya kasi nagustuhan ng mga friends ko yung post ko","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi hindi gumana yung promo code na gamit ko","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-tweet ako tungkol sa bagong law, informative lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi sobrang bait ng kausap ko sa group chat","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Di ko gusto yung sagot ng officemate, parang walang sense","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-chat kami tungkol sa travel plans, wala namang emotions","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Sobrang nakatulong yung support agent, naresolve agad issue","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi walang nag-update sa ticket status ko","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Neutral lang kasi wala pang final answer sa concern ko","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Na-inspire ako kasi sobrang ganda ng lecture ng professor","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakadismaya yung cancellation ng event, sayang effort","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko lang yung opinion ng classmate, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Super ganda ng result ng system test kanina, successful lahat","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Crash nanaman yung application habang nag-save ako ng file","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-log lang ng user activities yung system kagabi","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Saya ng experience ko kagabi sa concert, sobrang sulit","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.93}
+{"text":"Nakaka-badtrip yung toxic na thread na nabasa ko kagabi","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila tungkol sa bagong program, neutral lang muna","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super saya kasi na-like ng mga tao yung comment ko","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi rude yung reply ng ibang commenter","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbigay ako ng comment para magdagdag ng clarification","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi smooth transaction at mabilis delivery","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi sobrang bagal ng cashier service","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbasa lang ako ng reviews para lang magkaroon ng idea","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Enjoy ako kasi sobrang ganda ng bagong kanta ng artist","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakainis kasi walang signal buong hapon, hassle sobra","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako kagabi tungkol sa exam schedule, neutral lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masaya ako kasi sobrang helpful ng officemate sa task","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi walang effort yung teammate ko","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa project plan, normal discussion","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Sobrang galing ng support agent na nakausap ko kahapon","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-frustrate kasi walang progress sa issue ko","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang kasi on-going pa investigation ng team","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super saya kasi sobrang clear ng explanation ng teacher","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis yung traffic policy, parang walang sense","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko yung opinion ng iba tungkol sa policy, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Ang ganda ng system performance after update, mabilis lahat","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nagka-error ulit yung system, sobrang nakakainis","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-log lang ng temperature yung system kagabi","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya ng bagong episode, sobrang nakakatawa at entertaining","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakaasar yung toxic debate sa comment section kagabi","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-post sila tungkol sa bagong feature, neutral lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super saya kasi maraming nag-agree sa comment ko","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi ang rude ng sagot ng iba sa comment","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.84}
+{"text":"Nag-comment lang ako para magdagdag ng detail","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi sobrang bilis ng delivery service nila","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-disappoint kasi hindi kompleto yung items","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbasa lang ako ng reviews tungkol sa bagong product","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Enjoy ako kasi sobrang solid ng concert experience kagabi","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Frustrated ako kasi sobrang mahal ng bagong telco plan","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-tweet ako tungkol sa bagong policy, neutral info lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi sobrang bait ng kausap ko sa chat","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi walang effort yung teammate kagabi","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-chat kami tungkol sa deadline, info lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super galing ng support agent, mabilis magbigay ng solusyon","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-badtrip kasi walang follow-up yung ticket ko","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang kasi wala pang feedback galing sa ibang team","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Ang saya kasi sobrang malinaw ng orientation ng professor","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakaka-stress yung slow process ng government office","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"May narinig akong suggestion kanina, neutral lang muna","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super ganda ng performance report, successful lahat","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nag-error ulit yung application habang nagta-type ako","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-log lang ng activity yung device, nothing unusual","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi trending na yung favorite show ko ngayon","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakaasar yung away sa thread, walang sense ang comments","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila tungkol sa update ng system, info lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super saya kasi sobrang dami ng likes sa comment ko","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi walang respect yung ibang nag-reply","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment lang ako para magdagdag ng info sa thread","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super happy ako kasi ang dali ng refund process sa airline app","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis kasi mali yung item na dumating sa order ko","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbasa ako ng reviews tungkol sa bagong app, neutral lang tingin ko","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Enjoy ako kasi sobrang solid ng bagong album ng band","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi ang bagal ng internet kagabi, hindi ako nakapag-stream","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa news kanina, info sharing lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Happy ako kasi tumulong yung officemate ko matapos ang report","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi walang pakialam yung teammate sa group project","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa schedule ng exam, neutral lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super galing ng support agent na nag-assist sa akin kagabi","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-badtrip kasi walang follow-up yung concern ko after ilang araw","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang ako kasi ongoing pa yung investigation ng support team","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Na-excite ako kasi ang ganda ng bagong design ng app","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakadisappoint yung event kasi hindi maayos ang setup","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"May nag-share ng opinion tungkol sa bagong rules, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Saya kasi mataas yung performance score ng system kagabi","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi nag-crash ulit yung application habang nagta-type ako","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng activity yung system, mukhang normal lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masaya ako kasi sobrang daming nag-like sa post ko","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi sobrang toxic ng thread kagabi, puro away","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-post sila tungkol sa schedule ng seminar, informative naman","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.63}
+{"text":"Super saya kasi nag-reply yung idol ko sa comment section","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi bastos yung reply ng ibang commenters","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment lang ako para magbigay ng dagdag na info","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi mabilis yung delivery ng food order ko","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Disappointed ako kasi kulang yung items na natanggap ko sa order","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbasa lang ako ng reviews kagabi, mixed feedback yung nakita ko","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.63}
+{"text":"Enjoy ako kasi sobrang galing ng bagong movie na napanood ko","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi delayed ulit yung train kaninang umaga","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa update ng app, neutral info lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Saya kasi sobrang helpful ng kaibigan ko sa group chat","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi walang effort yung classmate ko sa project","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat lang kami tungkol sa deadline ng report, neutral lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi sobrang bilis ng support team mag-resolve ng issue","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi hindi ako nasagot agad ng agent","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-open ako ng ticket kagabi, neutral lang kasi pending pa","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang inspiring yung speech ng professor kanina","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakaka-disappoint yung customer service, walang sense kausap","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Narinig ko yung opinion ng iba tungkol sa policy, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi gumanda yung performance ng system after update","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi nag-error ulit yung app habang nag-save","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang yung device ng usage kanina, routine lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Super saya kasi trending yung post ko tungkol sa event","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakaasar kasi sobrang toxic ng debate sa comments kagabi","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng news summary, neutral lang yung dating","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Masaya ako kasi maraming nag-agree sa comment ko kagabi","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Na-badtrip ako kasi rude yung reply ng isang user","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.84}
+{"text":"Nag-comment ako para lang magdagdag ng clarification","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super galing ng delivery service kagabi, mabilis at maayos","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis kasi sobrang bagal ng cashier service sa mall","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbasa lang ako ng reviews tungkol sa product, neutral info lang","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Enjoy ako kasi sobrang saya ng concert experience kagabi","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Naiinis ako kasi sobrang mahal ng bagong subscription plan","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-tweet ako tungkol sa bagong rules, neutral update lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Happy ako kasi nakatulong ang kaibigan sa group project","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi walang effort yung teammate sa report","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa meeting schedule, neutral lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Sobrang helpful ng support agent kaya resolved agad concern ko","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-inis kasi walang nag-update ng status ng ticket ko","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang kasi wala pang feedback mula sa ibang team","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang malinaw yung lecture ng professor kanina","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakaka-stress yung sobrang tagal ng service sa government office","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Narinig ko yung suggestion ng iba, neutral lang muna ako","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi sobrang bilis ng system matapos yung update","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi nagka-error ulit yung app habang nagta-type","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng user session yung device, normal lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masaya ako kasi sobrang daming good vibes sa post kagabi","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi sobrang daming negative comments sa thread","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila tungkol sa bagong app feature, neutral info lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi nagustuhan ng iba yung comment ko kagabi","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Na-offend ako kasi rude yung reply ng ibang commenters","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para lang magbigay ng dagdag na context","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super saya kasi mabilis yung process ng delivery kagabi","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Disappointed ako kasi incomplete yung items sa order","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbasa ako ng reviews tungkol sa event, neutral lang tingin ko","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Enjoy ako kasi sobrang saya ng bagong TV show kagabi","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi wala na namang signal buong gabi","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa seminar kanina, neutral info lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi tumulong yung friend sa assignment sa group chat","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi di nag-effort yung teammate ko kahapon","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa trip plans, neutral lang naman","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi sobrang mabilis ng action ng support agent","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi walang clear update yung ticket ko","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang ako kasi wala pang resolution sa case ko","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang inspiring ng talk ng professor kanina","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Disappointed ako kasi sobrang bagal ng transaction sa bank","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Narinig ko lang yung suggestion ng classmate, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi gumanda yung response time ng system","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi nag-error nanaman yung database kagabi","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng battery status yung device kagabi","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masaya ako kasi sobrang dami ng shares ng post ko","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi sobrang toxic ng comments sa thread","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng event details, neutral lang naman","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi maraming nag-react positively sa comment ko","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Na-badtrip ako kasi rude yung reply ng isang commenter","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako kagabi para magdagdag ng neutral clarification","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masaya ako kasi mabilis dumating ang bagong phone na inorder ko online","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi ang tagal ng cashier line sa grocery kaninang hapon","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-check lang ako ng reviews tungkol sa bagong app, halo-halo ang feedback","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Ang saya kasi sobrang solid ng bagong kanta na nirelease ng paborito kong artist","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Frustrated ako kasi hindi gumagana ang mobile banking app buong umaga","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa bagong policy announcement, neutral lang na info","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi tinulungan ako ng classmate ko sa assignment kagabi","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakaka-badtrip kasi hindi sumipot yung teammate sa group meeting","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa exam schedule, neutral lang yung conversation","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Sobrang galing ng support agent na nakausap ko, mabilis siya magbigay ng solusyon","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi wala pa ring update sa concern ko kahit ilang araw na","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Neutral lang kasi sinabi nila ongoing pa daw ang pag-review ng issue","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Saya kasi sobrang inspiring ng talk ng professor tungkol sa research","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakadisappoint yung movie kagabi, boring ang story at mahina ang acting","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko yung opinion ng iba tungkol sa bagong project, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi sobrang gumanda ang system performance matapos ang update","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-frustrate kasi nag-error ulit ang database connection kagabi","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng routine maintenance ang system, neutral lang ito","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang dami ng nag-react positively sa post ko tungkol sa event","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi toxic yung mga nag-comment sa thread kagabi","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng schedule ng event, neutral na announcement lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi nagustuhan ng mga tao yung comment ko tungkol sa topic","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi rude yung reply ng ibang commenters sa suggestion ko","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para magdagdag ng context sa usapan, neutral lang","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Ang saya kasi smooth ang delivery process at maayos ang packaging","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Disappointed ako kasi kulang ang item na dumating sa order ko","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbasa ako ng reviews kagabi, halo-halo ang naging feedback","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Saya kasi sobrang ganda ng bagong episode ng paborito kong series","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi delayed ang flight kanina, sobrang hassle","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa traffic update, neutral info lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Masaya ako kasi tinulungan ako ng officemate matapos ang deadline","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi walang ginawa yung teammate kahapon sa project","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa mga plano sa bakasyon, neutral lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Super helpful ng support agent, resolved agad yung concern ko","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-badtrip kasi walang follow-up yung ticket ko after ilang araw","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang ako kasi sabi nila ipapasa pa daw sa ibang team","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi sobrang clear ng lecture ng professor tungkol sa topic","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis kasi sobrang bagal ng service sa branch kanina","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko yung suggestion ng classmate tungkol sa assignment, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Saya kasi nag-improve ang response time ng system matapos ang update","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi nagka-error ulit ang application habang nag-save ako","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log ng activity kagabi ang device, mukhang routine check lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super saya kasi sobrang dami ng shares ng post ko tungkol sa kanta","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakainis kasi puro negative vibes ang lumabas sa thread kagabi","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila tungkol sa bagong policy, neutral na impormasyon lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Saya kasi maraming nag-like sa comment ko tungkol sa bagong feature","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi hindi maayos ang tono ng reply ng iba","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment lang ako para magbigay ng dagdag na detalye","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi sobrang bilis ng delivery ng package ko","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi ang bagal ng cashier service kahapon","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbasa lang ako ng reviews tungkol sa bagong store, neutral lang","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Saya kasi sobrang ganda ng bagong pelikula na pinanood ko","label":"Positive","domain":"tweets","lang":"tl","variant":"tagalog","confidence":0.91}
+{"text":"Frustrated ako kasi ang mahal ng bagong subscription fee","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-tweet ako tungkol sa news article, neutral lang na info","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Happy ako kasi sobrang bait ng kausap ko sa group chat","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi walang pakialam yung officemate ko sa report","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa quiz results, neutral lang naman","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Saya kasi mabilis yung support response kagabi, hassle-free","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi paulit-ulit lang sagot ng support agent","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Neutral lang kasi sabi nila ongoing pa ang resolution","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Super saya kasi sobrang malinaw ng orientation ng professor","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis kasi sobrang bagal ng refund sa cancelled flight","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Narinig ko lang yung opinyon ng iba tungkol sa event, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Saya kasi sobrang smooth ng system pagkatapos ng maintenance","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi nagka-error nanaman yung system habang gamit ko","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng activities yung device, neutral info lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Happy ako kasi sobrang daming nag-share ng post ko sa social media","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi sobrang daming away sa comment thread kagabi","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng bagong schedule, neutral update lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Saya kasi maraming nag-react positively sa comment ko kagabi","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi ang bastos ng tono ng reply ng ibang user","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para lang magdagdag ng neutral explanation","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi mabilis yung refund process sa online shop ko kagabi","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Naiinis ako kasi hindi kompleto ang delivery ng order ko","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbasa lang ako ng reviews tungkol sa bagong branch, neutral lang","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi sobrang saya ng bagong album ng favorite artist","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi delayed yung bus kagabi, hassle sobra","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa weather update, neutral lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Saya kasi tinulungan ako ng friend sa task, sobrang nakatulong","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi wala pa ring sagot yung officemate sa project","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat lang kami tungkol sa holidays, neutral lang naman","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi sobrang efficient ng support team kagabi","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi walang clear update sa complaint ko","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang kasi nasa processing stage pa ang ticket ko","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang galing ng presentation ng speaker kahapon","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakakainis kasi sobrang bagal ng system sa school portal","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko yung feedback ng iba tungkol sa portal, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi nag-improve ang response ng app matapos update","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi nagka-error ulit habang nag-upload ako","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng device usage kagabi, neutral observation lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang dami ng likes sa post ko tungkol sa trip","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakainis kasi sobrang gulo ng mga nag-comment sa thread","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng bagong program details, neutral lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi maraming nag-react positively sa comment ko","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi walang respeto yung ibang nag-reply sa comment","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para lang magdagdag ng neutral clarification","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Masaya ako kasi mabilis ang process ng pag-claim ng rewards sa app","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakaka-frustrate kasi sobrang bagal ng cashier service kanina sa store","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nagbasa ako ng reviews tungkol sa bagong branch, neutral lang ang feedback","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.63}
+{"text":"Happy ako kasi sobrang ganda ng bagong single ng artist kagabi","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi nag-down ulit yung telco network buong araw","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa traffic advisory, neutral info lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang helpful ng officemate ko sa pag-edit ng report","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi hindi nagbigay ng output yung teammate sa project","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat lang kami tungkol sa quiz coverage, neutral discussion lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi maayos ang naging handling ng support agent sa case ko","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakainis kasi walang follow-up ang support kahit ilang reminders na","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Neutral lang kasi nasa pending status pa ang request ko","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang ganda ng presentation ng professor kanina","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Disappointed ako kasi boring yung seminar na inattendan namin","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko ang suggestion ng classmates, neutral lang ang dating","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Masaya ako kasi sobrang smooth ng system performance after update","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi nag-error ulit ang application habang nag-upload ako","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log ng system activity kagabi, neutral routine record lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang dami ng nag-like sa post ko tungkol sa concert","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi toxic ang mga nag-reply sa thread tungkol sa topic","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng official schedule ng seminar, neutral info lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi nagustuhan ng mga tao yung comment ko sa article","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi bastos ang tono ng reply ng isang commenter","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para magdagdag ng clarification sa usapan, neutral lang","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi mabilis dumating ang inorder kong groceries online","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi kulang yung items na dumating sa delivery ko","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbasa lang ako ng reviews tungkol sa product, neutral info lang","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi sobrang ganda ng bagong movie kagabi","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi sobrang mahal ng bagong plan ng telco","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa update ng event, neutral lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Saya kasi sobrang helpful ng kaibigan sa pag-finalize ng project","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi wala pang update yung teammate tungkol sa output niya","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat lang kami tungkol sa oras ng klase, neutral info lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi mabilis na-resolve ng support ang concern ko","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi walang sense yung reply ng support agent","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang ako kasi sinabi nilang for further review pa ang issue","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang inspiring ang orientation ng bagong professor","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Nakaka-stress kasi ang tagal ng proseso ng government service","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko ang opinion ng iba tungkol sa rules, neutral lang","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Masaya ako kasi bumilis ang loading time ng system kagabi","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi nag-crash ulit ang app habang ginagamit ko","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng battery level ang system kagabi, neutral entry lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi trending yung post ko tungkol sa bagong kanta","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakaka-badtrip kasi ang daming away sa comments section","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng announcement tungkol sa bagong feature, neutral lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi nagustuhan ng iba yung comment ko tungkol sa lecture","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi rude yung reply ng commenter sa suggestion ko","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako kagabi para magdagdag ng detalye, neutral lang","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi mabilis ang refund process sa online store","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Disappointed ako kasi delayed ang delivery ng inorder kong item","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbasa ako ng reviews tungkol sa bagong app, neutral info lang","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Masaya ako kasi sobrang ganda ng bagong release na series","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi walang signal buong gabi, hindi makatawag","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa schedule ng klase, neutral info lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Saya kasi sobrang helpful ng officemate sa paggawa ng slides","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakakainis kasi walang ginawa ang teammate sa group task","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat kami tungkol sa oras ng meeting, neutral info lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi maayos ang naging handling ng ticket ko ng support","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi walang malinaw na sagot ang support agent","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang kasi sinabi nilang ipapasa pa ang concern sa ibang team","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang malinaw ng explanation ng professor kanina","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Disappointed ako kasi sobrang pangit ng quality ng service","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko ang suggestion ng kaibigan, neutral lang muna ako","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Masaya ako kasi gumanda ang system response time kanina","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi nag-error nanaman ang system habang gamit ko","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log ng user session ang device, neutral info lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi nag-trending yung post ko tungkol sa concert experience","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakaasar kasi sobrang daming away sa comments kagabi","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng bagong project update, neutral announcement lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi maraming nag-react positively sa comment ko kagabi","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi walang respeto ang ibang reply sa comment ko","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako para magdagdag ng neutral clarification lang","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi mabilis dumating ang inorder kong food delivery","label":"Positive","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Naiinis ako kasi incomplete ang order na natanggap ko kagabi","label":"Negative","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nagbasa ako ng reviews tungkol sa bagong restaurant, neutral lang","label":"Neutral","domain":"reviews","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Happy ako kasi sobrang ganda ng bagong music video","label":"Positive","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi delayed ang jeep kaninang umaga","label":"Negative","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.87}
+{"text":"Nag-tweet ako tungkol sa news update, neutral info lang","label":"Neutral","domain":"tweets","lang":"tl","variant":"taglish","confidence":0.57}
+{"text":"Saya kasi sobrang helpful ng kaibigan sa paggawa ng slides","label":"Positive","domain":"chats","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Nakaka-badtrip kasi walang pakialam ang classmate sa project","label":"Negative","domain":"chats","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-chat lang kami tungkol sa homework deadline, neutral lang","label":"Neutral","domain":"chats","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi mabilis nag-resolve ng support sa issue ko","label":"Positive","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Frustrated ako kasi walang clear action ang support team","label":"Negative","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Neutral lang kasi ongoing pa daw ang review ng ticket","label":"Neutral","domain":"support_tickets","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi sobrang inspiring ng speaker sa seminar kagabi","label":"Positive","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.92}
+{"text":"Disappointed ako kasi walang sense ang event organization","label":"Negative","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Narinig ko yung opinion ng iba, neutral lang muna ako","label":"Neutral","domain":"opinions","lang":"tl","variant":"taglish","confidence":0.62}
+{"text":"Masaya ako kasi sobrang gumanda ang speed ng system","label":"Positive","domain":"logs","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Naiinis ako kasi nagka-error ulit habang nag-upload ng file","label":"Negative","domain":"logs","lang":"tl","variant":"taglish","confidence":0.86}
+{"text":"Nag-log lang ng update ang device, neutral entry lang","label":"Neutral","domain":"logs","lang":"tl","variant":"taglish","confidence":0.58}
+{"text":"Saya kasi nag-trending yung post ko tungkol sa bagong album","label":"Positive","domain":"posts","lang":"tl","variant":"taglish","confidence":0.91}
+{"text":"Nakakainis kasi sobrang toxic ang debate sa comments section","label":"Negative","domain":"posts","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-post sila ng announcement tungkol sa conference, neutral lang","label":"Neutral","domain":"posts","lang":"tl","variant":"taglish","confidence":0.6}
+{"text":"Happy ako kasi maraming nag-agree sa comment ko sa article","label":"Positive","domain":"comments","lang":"tl","variant":"taglish","confidence":0.9}
+{"text":"Frustrated ako kasi rude ang reply ng ibang commenters kagabi","label":"Negative","domain":"comments","lang":"tl","variant":"taglish","confidence":0.85}
+{"text":"Nag-comment ako kagabi para magdagdag ng neutral detail","label":"Neutral","domain":"comments","lang":"tl","variant":"taglish","confidence":0.58}
+{"text": "Kumusta ang update ng app kanina, baka kailangan ng dagdag na impormasyon tungkol dito", "label": "Neutral", "domain": "support_tickets", "lang": "tl", "variant": "tagalog", "confidence": 0.6, "id": "155d9028a9cf54820357d1ba234ba9fd3fd42ec6", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.155279Z", "length_words": 14, "length_chars": 86, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng paghahatid kanina, naayos agad ang aking binili at natuwa ako", "label": "Positive", "domain": "reviews", "lang": "tl", "variant": "tagalog", "confidence": 0.9, "id": "579ce97d44dd520042b148a77f851e42e685b089", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.155037Z", "length_words": 13, "length_chars": 78, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Hindi ako natuwa kanina; nahuli ang pagkain at walang malinaw na abiso mula sa serbisyo.", "label": "Negative", "domain": "support_tickets", "lang": "tl", "variant": "tagalog", "confidence": 0.95, "id": "5d23d8bf4e7ca6e1b48b4900b76c199bae82122b", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.154957Z", "length_words": 15, "length_chars": 88, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bagal ng internet kanina, paulit-ulit ang pagkawala ng koneksyon at hindi tumutugon ang suporta.", "label": "Negative", "domain": "support_tickets", "lang": "tl", "variant": "tagalog", "confidence": 0.9, "id": "bf91e82be225cdb99e40a706df61129bdc74eec2", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.155340Z", "length_words": 15, "length_chars": 104, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang nasiyahan ako sa mabilis na delivery at masarap na pagkain kagabi.", "label": "Positive", "domain": "reviews", "lang": "tl", "variant": "tagalog", "confidence": 0.92, "id": "f63067d780a9ed8753076a78906cfab03eb6adc5", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.155161Z", "length_words": 12, "length_chars": 74, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang nasiyahan ako sa mabilis at maayos na paghatid, masarap at tama ang presyo.", "label": "Positive", "domain": "reviews", "lang": "tl", "variant": "tagalog", "confidence": 0.9, "id": "7852c020ee34998ce8a559d5e6ab1bb5ecd9ec1f", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.155220Z", "length_words": 14, "length_chars": 83, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang naantala ang paghahatid ng pagkain kanina at hindi tumugon ang serbisyo ng suporta.", "label": "Negative", "domain": "support_tickets", "lang": "tl", "variant": "tagalog", "confidence": 0.9, "id": "66d5cf959c1bd6327478453912e0d31a20a0c43d", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.155389Z", "length_words": 14, "length_chars": 91, "split": "train", "annotator": "model:gpt-5-mini"}
+{"text": "Kailangan ko ng kopya ng resibo para sa pagbalik ng pera, baka makahinto pa.", "label": "Neutral", "domain": "support_tickets", "lang": "tl", "variant": "tagalog", "confidence": 0.6, "id": "8d149873359642e76cbfa392785a1cde6816465e", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.155101Z", "length_words": 14, "length_chars": 76, "split": "dev", "annotator": "model:gpt-5-mini"}
+{"text": "Ang bagong bersyon kanina nagpakita ng maraming tampok, pero di pa malinaw ang pakinabang.", "label": "Neutral", "domain": "reviews", "lang": "tl", "variant": "tagalog", "confidence": 0.6, "id": "e31c0871ccdcd3b8777cb17d33ceedb96a1ade29", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.154727Z", "length_words": 14, "length_chars": 90, "split": "test", "annotator": "model:gpt-5-mini"}
+{"text": "Sobrang bilis ng paghahatid at mainit pa ang pagkain, talagang nasiyahan ako.", "label": "Positive", "domain": "reviews", "lang": "tl", "variant": "tagalog", "confidence": 0.95, "id": "2308b8a32d1b5b36afba60bfc19833beacbb0220", "source": "openai_generated", "created_at": "2025-09-30T06:30:56.154873Z", "length_words": 12, "length_chars": 77, "split": "test", "annotator": "model:gpt-5-mini"}

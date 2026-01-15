@@ -13,3 +13,4 @@ torch==2.8.0+cu129
 torchvision==0.23.0+cu129
 torchaudio==2.8.0+cu129
 matplotlib==3.10.6
+boto3==1.40.50

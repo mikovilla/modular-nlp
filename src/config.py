@@ -15,7 +15,7 @@ class DefaultTrainingArguments:
     FP16 = torch.cuda.is_available() and not torch.cuda.is_bf16_supported()
     BF16 = torch.cuda.is_bf16_supported()
     LEARNING_RATE = 2e-5
-    GRADIENT_ACCUMULATION_STEPS = 1
+    GRADIENT_ACCUMULATION_STEPS = 2
     WEIGHT_DECAY = 0.01
     MAX_GRAD_NORM = 1.0
     WARMUP_RATIO = 0.06
@@ -34,9 +34,8 @@ class MBert(DefaultTrainingArguments):
     MODEL_NAME = "bert-base-multilingual-cased"
     OUTPUT_DIR = "./mbert_sentiment"
     PER_DEVICE_TRAIN_BATCH_SIZE = 8
-    PER_DEVICE_EVAL_BATCH_SIZE = 32
     GRADIENT_ACCUMULATION_STEPS = 2
-    NUM_TRAIN_EPOCHS = 15
+    NUM_TRAIN_EPOCHS = 4
 
 @dataclass
 class Xlmr(DefaultTrainingArguments):
@@ -45,29 +44,27 @@ class Xlmr(DefaultTrainingArguments):
     OUTPUT_DIR = "./xlmr_sentiment"
     LEARNING_RATE = 1e-5
     PER_DEVICE_TRAIN_BATCH_SIZE = 16
-    PER_DEVICE_EVAL_BATCH_SIZE = 32
-    GRADIENT_ACCUMULATION_STEPS = 2
-    MAX_GRAD_NORM = 0.95
     WARMUP_RATIO = 0.07
+    NUM_TRAIN_EPOCHS = 10
 
 @dataclass
 class Mamba(DefaultTrainingArguments):
     NAME = "Mamba"
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     OUTPUT_DIR = "./mamba_sentiment"
-    NUM_TRAIN_EPOCHS = 6
-    WEIGHT_DECAY = 0.05
+    LEARNING_RATE = 1e-5
+    NUM_TRAIN_EPOCHS = 12
+    WEIGHT_DECAY = 0.1
+    PER_DEVICE_TRAIN_BATCH_SIZE = 24
     FORCE_CUDA = "0"
     FORCE_PYTHON = "1"
-    METRIC_FOR_BEST_MODEL = "mse"
-    GREATER_IS_BETTER = False
 
 class AdamW:
     OPTIMIZER_NAME = "AdamW"
-    LR = 2e-5
-    BETAS = (0.9, 0.999)
+    LR = 1e-5
+    BETAS = (0.9, 0.95)
     EPS = 1e-6 if torch.cuda.is_available() else 1e-8
-    WEIGHT_DECAY = 0.01
+    WEIGHT_DECAY = 0.1
     EXCLUDE_KEYS = [ "EXCLUDE_KEYS", "OPTIMIZER_NAME" ]
 
 class SGD:
