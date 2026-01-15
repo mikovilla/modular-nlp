@@ -49,9 +49,11 @@ class Xlmr(DefaultTrainingArguments):
 
 @dataclass
 class Mamba(DefaultTrainingArguments):
-    NAME = "Mamba"
+    # Mamba-Original, Mamba-Helsinki, Mamba-Google-Translate
+    NAME = "Mamba-Original"
     MODEL_NAME = "state-spaces/mamba-130m-hf"
-    OUTPUT_DIR = "./mamba_sentiment"
+    # "./mamba_original_sentiment" "./mamba_helsinki_sentiment" "./mamba_google_sentiment"
+    OUTPUT_DIR = "./mamba_original_sentiment" 
     LEARNING_RATE = 1e-5
     NUM_TRAIN_EPOCHS = 7 # average of 4-10
     WEIGHT_DECAY = 0.1
