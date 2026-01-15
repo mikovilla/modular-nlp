@@ -53,9 +53,9 @@ class Mamba(DefaultTrainingArguments):
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     OUTPUT_DIR = "./mamba_sentiment"
     LEARNING_RATE = 1e-5
-    NUM_TRAIN_EPOCHS = 12
+    NUM_TRAIN_EPOCHS = 7 # average of 4-10
     WEIGHT_DECAY = 0.1
-    PER_DEVICE_TRAIN_BATCH_SIZE = 24
+    PER_DEVICE_TRAIN_BATCH_SIZE = 16
     FORCE_CUDA = "0"
     FORCE_PYTHON = "1"
 
