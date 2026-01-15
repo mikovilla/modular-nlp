@@ -20,7 +20,47 @@ def build_label_maps(series: pd.Series):
         id2label = {i: c for c, i in label2id.items()}
         return label2id, id2label, series.astype(str).map(label2id)
 
-def load_split_dataset(jsonl: str, test_size: float = 0.1, val_size: float = 0.1):
+def load_split_dataset(jsonl: str):
+    df = pd.read_json(io.StringIO(jsonl), lines=True)
+
+    if Debug.DATA:
+        print(f"Sentiment count: {len(df)}")
+
+    if "split" not in df.columns:
+        raise ValueError("Expected a 'split' column in the dataset.")
+
+    label2id, id2label, y = build_label_maps(df[Data.LABEL_COL])
+    df = df.assign(label_id=y)
+
+    df["split"] = (
+        df["split"]
+        .astype(str)
+        .str.lower()
+        .str.strip()
+        .replace({"validation": "val", "dev": "val"})
+    )
+
+    def to_hf_dataset(split_name: str) -> Dataset:
+        subset = df[df["split"] == split_name].copy()
+
+        if subset.empty:
+            raise ValueError(f"No rows found for split='{split_name}'.")
+
+        subset = subset[[Data.TEXT_COL, "label_id"]].rename(
+            columns={"label_id": "label"}
+        )
+
+        subset = subset.reset_index(drop=True)
+
+        return Dataset.from_pandas(subset)
+
+    train_ds = to_hf_dataset("train")
+    val_ds   = to_hf_dataset("val")
+    test_ds  = to_hf_dataset("test")
+
+    return train_ds, val_ds, test_ds, label2id, id2label
+
+def load_split_dataset_dynamically(jsonl: str, test_size: float = 0.1, val_size: float = 0.1):
     df = pd.read_json(io.StringIO(jsonl), lines=True)
 
     if Debug.DATA:

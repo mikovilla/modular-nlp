@@ -92,7 +92,7 @@ class Data:
     TEXT_COL = "text"
     LABEL_COL = "label"
     MAX_LENGTH = 128
-    DATASET = "./reviews_lite_l.jsonl"
+    DATASET = "./reviews.jsonl"
     DATASET_SPLITS_DIR = "./datasets"
     SAVE_MODEL = True
 
