@@ -92,7 +92,7 @@ class Data:
     TEXT_COL = "text"
     LABEL_COL = "label"
     MAX_LENGTH = 128
-    DATASET = "./miko.jsonl"
+    DATASET = "./reviews_l.jsonl"
     DATASET_SPLITS_DIR = "./datasets"
     SAVE_MODEL = True
 
