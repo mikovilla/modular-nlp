@@ -24,3 +24,6 @@ cache/
 datasets/
 /.vs
 /.old/openai_generate_sentiments.py
+/mamba_original_sentiment
+/mamba_helsinki_sentiment
+/mamba_google_sentiment
