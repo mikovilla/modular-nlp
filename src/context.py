@@ -39,9 +39,10 @@ def setup_pipeline(instance_cls, require_translation: bool = False) -> Context:
         jsonl = helper.read_jsonl_as_string(Path(Data.DATASET))
     else:
         jsonl = translator.from_jsonl(Data.DATASET)
-        if Debug.DATA and Data.SHOW_ON_DEBUG:
-            helper.print_header("translated data")
+        if Debug.TRANSLATION:
+            helper.print_header("start translated data")
             print(translator.from_jsonl(Data.DATASET))
+            helper.print_header("end translated data")
 
     train_ds, val_ds, test_ds, label2id, id2label = utility.load_split_dataset(jsonl)
     num_labels = len(id2label)
