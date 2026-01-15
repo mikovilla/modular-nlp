@@ -20,7 +20,7 @@ def build_label_maps(series: pd.Series):
         id2label = {i: c for c, i in label2id.items()}
         return label2id, id2label, series.astype(str).map(label2id)
 
-def load_split_dataset(jsonl: str, test_size: float = 0.2, val_size: float = 0.1):
+def load_split_dataset(jsonl: str, test_size: float = 0.1, val_size: float = 0.1):
     df = pd.read_json(io.StringIO(jsonl), lines=True)
 
     if Debug.DATA:
