@@ -123,7 +123,8 @@ def from_jsonl(dataset: Union[str, Path] = Data.DATASET) -> str:
                 "id": r.get("id"),
                 "text": tr,
                 "label": r.get("label"),
-                "original_text": r.get("text"),
+                "originalText": r.get("text"),
+                "split": r.get("split"),
             })
 
     if new_cache_accumulator:
