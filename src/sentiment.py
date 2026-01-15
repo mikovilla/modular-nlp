@@ -40,7 +40,7 @@ def train(context):
     training_args = helper.to_training_args(context.instance)   
 
     opt_cls, opt_kwargs = helper.to_optimizer_args(config.AdamW)
-    opt_cls_switch, opt_kwargs_switch = helper.to_optimizer_args(config.SGD)
+    # opt_cls_switch, opt_kwargs_switch = helper.to_optimizer_args(config.SGD)
 
     trainer = WeightedLossTrainer(
         model=context.model,
@@ -54,17 +54,17 @@ def train(context):
         optimizer=opt_cls(context.model.parameters(), **opt_kwargs)
     )
 
-    switch_opt = SwitchOptimizerCallback(switch_after_epoch=training_args.to_dict()["num_train_epochs"] - 3, 
-                                        opt_class=opt_cls_switch,
-                                        opt_kwargs=opt_kwargs_switch)
+    # switch_opt = SwitchOptimizerCallback(switch_after_epoch=training_args.to_dict()["num_train_epochs"] - 3, 
+    #                                     opt_class=opt_cls_switch,
+    #                                     opt_kwargs=opt_kwargs_switch)
     # switch_opt = SwitchOnPlateauCallback(
     #     metric_name="eval_f1_macro",
     #     patience=3,
     #     opt_class=opt_cls_switch,
     #     opt_kwargs=opt_kwargs_switch
     # )
-    switch_opt.bind(trainer)
-    trainer.add_callback(switch_opt)
+    # switch_opt.bind(trainer)
+    # trainer.add_callback(switch_opt)
 
     if Debug.PERFORMANCE:
         perf_cb = PerfCallback(

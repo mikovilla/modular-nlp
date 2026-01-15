@@ -83,16 +83,16 @@ class App:
 class Debug:
     CONFIG = False
     DATA = False
-    OPTIMIZER = True
+    OPTIMIZER = False
     PERFORMANCE = True
-    TRAINER = True
-    TRACE = True
+    TRAINER = False
+    TRACE = False
 
 class Data:
     TEXT_COL = "text"
     LABEL_COL = "label"
     MAX_LENGTH = 128
-    DATASET = "./reviews_l.jsonl"
+    DATASET = "./reviews_lite_l.jsonl"
     DATASET_SPLITS_DIR = "./datasets"
     SAVE_MODEL = True
 
