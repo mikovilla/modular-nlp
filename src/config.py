@@ -50,10 +50,10 @@ class Xlmr(DefaultTrainingArguments):
 @dataclass
 class Mamba(DefaultTrainingArguments):
     # Mamba-Original, Mamba-Helsinki, Mamba-Google-Translate
-    NAME = "Mamba-Original"
+    NAME = "Mamba-Google"
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     # "./mamba_original_sentiment" "./mamba_helsinki_sentiment" "./mamba_google_sentiment"
-    OUTPUT_DIR = "./mamba_original_sentiment" 
+    OUTPUT_DIR = "./mamba_google_sentiment" 
     LEARNING_RATE = 1e-5
     NUM_TRAIN_EPOCHS = 7 # average of 4-10
     WEIGHT_DECAY = 0.1
@@ -94,7 +94,7 @@ class Data:
     TEXT_COL = "text"
     LABEL_COL = "label"
     MAX_LENGTH = 128
-    DATASET = "./reviews.jsonl"
+    DATASET = "./google_translated_reviews.jsonl"
     DATASET_SPLITS_DIR = "./datasets"
     SAVE_MODEL = True
 
