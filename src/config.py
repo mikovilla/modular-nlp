@@ -34,7 +34,6 @@ class MBert(DefaultTrainingArguments):
     MODEL_NAME = "bert-base-multilingual-cased"
     OUTPUT_DIR = "./mbert_sentiment"
     PER_DEVICE_TRAIN_BATCH_SIZE = 8
-    GRADIENT_ACCUMULATION_STEPS = 2
     NUM_TRAIN_EPOCHS = 4
 
 @dataclass
@@ -49,13 +48,13 @@ class Xlmr(DefaultTrainingArguments):
 
 @dataclass
 class Mamba(DefaultTrainingArguments):
-    # Mamba-Original, Mamba-Helsinki, Mamba-Google-Translate
-    NAME = "Mamba-Helsinki"
+    # Mamba-Original, Mamba-Helsinki, Mamba-Google, Mamba-Google-Eval
+    NAME = "Mamba-Google"
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     # "./mamba_original_sentiment" "./mamba_helsinki_sentiment" "./mamba_google_sentiment"
-    OUTPUT_DIR = "./mamba_helsinki_sentiment" 
-    LEARNING_RATE = 1e-5
-    NUM_TRAIN_EPOCHS = 7 # average of 4-10
+    OUTPUT_DIR = "./mamba_google_sentiment" 
+    LEARNING_RATE = 3e-5
+    NUM_TRAIN_EPOCHS = 4 # average of 4-10
     WEIGHT_DECAY = 0.1
     PER_DEVICE_TRAIN_BATCH_SIZE = 16
     FORCE_CUDA = "0"
@@ -63,7 +62,7 @@ class Mamba(DefaultTrainingArguments):
 
 class AdamW:
     OPTIMIZER_NAME = "AdamW"
-    LR = 1e-5
+    LR = 2e-5
     BETAS = (0.9, 0.95)
     EPS = 1e-6 if torch.cuda.is_available() else 1e-8
     WEIGHT_DECAY = 0.1
