@@ -62,7 +62,7 @@ class Mamba(DefaultTrainingArguments):
 
 class AdamW:
     OPTIMIZER_NAME = "AdamW"
-    LR = 2e-5
+    LR = 3e-5
     BETAS = (0.9, 0.95)
     EPS = 1e-6 if torch.cuda.is_available() else 1e-8
     WEIGHT_DECAY = 0.1
