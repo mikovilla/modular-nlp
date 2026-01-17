@@ -1,6 +1,7 @@
 import io
 import os
 import pandas as pd
+import re
 
 from datasets import Dataset
 from sklearn.model_selection import train_test_split
@@ -140,4 +141,9 @@ def make_tokenizer_fn(tokenizer):
             padding=False,
         )
     return tok
+
+def clean_text(text: str) -> str:
+    cleaned = re.sub(r'[^A-Za-z0-9 ]+', '', text)
+    return cleaned.lower()
+
     

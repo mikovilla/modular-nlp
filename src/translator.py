@@ -13,7 +13,7 @@ from typing import (
     Union
 )
 
-from src import helper
+from src import helper, utility
 from src.config import App, Data, Translation
 
 def read_jsonl(path: Path) -> List[Dict[str, Any]]:
@@ -121,7 +121,7 @@ def from_jsonl(dataset: Union[str, Path] = Data.DATASET) -> str:
         for r, tr in zip(batch, translations):
             outputs.append({
                 "id": r.get("id"),
-                "text": tr,
+                "text": utility.clean_text(tr),
                 "label": r.get("label"),
                 "originalText": r.get("text"),
                 "split": r.get("split"),
