@@ -89,10 +89,10 @@ class Roberta(DefaultTrainingArguments):
 @dataclass
 class Mamba(DefaultTrainingArguments):
     # Mamba-Original, Mamba-Helsinki, Mamba-Google
-    NAME = "Mamba-Google"
+    NAME = "Mamba-Original"
     MODEL_NAME = "state-spaces/mamba-130m-hf"
     # "./mamba_original_sentiment" "./mamba_helsinki_sentiment" "./mamba_google_sentiment"
-    OUTPUT_DIR = "./mamba_google_sentiment" 
+    OUTPUT_DIR = "./mamba_original_sentiment" 
     LEARNING_RATE = 3e-5
     NUM_TRAIN_EPOCHS = 4 # average of 4-10
     WEIGHT_DECAY = 0.1
@@ -102,7 +102,7 @@ class Mamba(DefaultTrainingArguments):
 
 class AdamW:
     OPTIMIZER_NAME = "AdamW"
-    LR = 1e-5
+    LR = 3e-5
     BETAS = (0.9, 0.95)
     EPS = 1e-6 if torch.cuda.is_available() else 1e-8
     WEIGHT_DECAY = 0.1
