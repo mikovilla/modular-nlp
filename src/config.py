@@ -47,6 +47,24 @@ class Xlmr(DefaultTrainingArguments):
     NUM_TRAIN_EPOCHS = 10
 
 @dataclass
+class Bert(DefaultTrainingArguments):
+    NAME = "BERT"
+    MODEL_NAME = "bert-base-uncased"
+    OUTPUT_DIR = "./bert_sentiment"
+    PER_DEVICE_TRAIN_BATCH_SIZE = 8
+    NUM_TRAIN_EPOCHS = 4
+
+@dataclass
+class Roberta(DefaultTrainingArguments):
+    NAME = "roBERTa"
+    MODEL_NAME = "roberta-base"
+    OUTPUT_DIR = "./roberta_sentiment"
+    LEARNING_RATE = 1e-5
+    PER_DEVICE_TRAIN_BATCH_SIZE = 16
+    WARMUP_RATIO = 0.07
+    NUM_TRAIN_EPOCHS = 10
+
+@dataclass
 class Mamba(DefaultTrainingArguments):
     # Mamba-Original, Mamba-Helsinki, Mamba-Google
     NAME = "Mamba-Google"
@@ -62,7 +80,7 @@ class Mamba(DefaultTrainingArguments):
 
 class AdamW:
     OPTIMIZER_NAME = "AdamW"
-    LR = 3e-5
+    LR = 1e-5
     BETAS = (0.9, 0.95)
     EPS = 1e-6 if torch.cuda.is_available() else 1e-8
     WEIGHT_DECAY = 0.1
@@ -108,4 +126,4 @@ class Aws:
     ENABLED = os.path.isdir("/opt/ml")
     S3_BUCKET_NAME = "s3-ap-southeast-1-533267127131"
 
-__all__ = ["App", "Aws", "Data", "Debug", "Translation", "DefaultTrainingArguments", "Mamba", "MBert", "Xlmr" ]
+__all__ = ["App", "Aws", "Data", "Debug", "Translation", "DefaultTrainingArguments", "Mamba", "MBert", "Xlmr", "Bert", "Roberta" ]

@@ -27,3 +27,5 @@ datasets/
 /mamba_original_sentiment
 /mamba_helsinki_sentiment
 /mamba_google_sentiment
+/bert_sentiment
+/roberta_sentiment
