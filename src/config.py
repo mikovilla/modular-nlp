@@ -35,6 +35,7 @@ class MBert(DefaultTrainingArguments):
     OUTPUT_DIR = "./mbert_sentiment"
     PER_DEVICE_TRAIN_BATCH_SIZE = 8
     NUM_TRAIN_EPOCHS = 4
+    PRE_TRAINED = True
 
 @dataclass
 class Xlmr(DefaultTrainingArguments):
@@ -45,6 +46,27 @@ class Xlmr(DefaultTrainingArguments):
     PER_DEVICE_TRAIN_BATCH_SIZE = 16
     WARMUP_RATIO = 0.07
     NUM_TRAIN_EPOCHS = 10
+    PRE_TRAINED = True
+
+@dataclass
+class MBertUntrained(DefaultTrainingArguments):
+    NAME = "mBERT_Untrained"
+    MODEL_NAME = "bert-base-multilingual-cased"
+    OUTPUT_DIR = "./mbert_untrained_sentiment"
+    PER_DEVICE_TRAIN_BATCH_SIZE = 8
+    NUM_TRAIN_EPOCHS = 4
+    PRE_TRAINED = False
+
+@dataclass
+class XlmrUntrained(DefaultTrainingArguments):
+    NAME = "XLM-R_Untrained"
+    MODEL_NAME = "xlm-roberta-base"
+    OUTPUT_DIR = "./xlmr_untrained_sentiment"
+    LEARNING_RATE = 1e-5
+    PER_DEVICE_TRAIN_BATCH_SIZE = 16
+    WARMUP_RATIO = 0.07
+    NUM_TRAIN_EPOCHS = 10
+    PRE_TRAINED = False
 
 @dataclass
 class Bert(DefaultTrainingArguments):
@@ -112,7 +134,7 @@ class Data:
     TEXT_COL = "text"
     LABEL_COL = "label"
     MAX_LENGTH = 128
-    DATASET = "./google_translated_reviews.jsonl"
+    DATASET = "./reviews.jsonl"
     DATASET_SPLITS_DIR = "./datasets"
     SAVE_MODEL = True
 
@@ -126,4 +148,4 @@ class Aws:
     ENABLED = os.path.isdir("/opt/ml")
     S3_BUCKET_NAME = "s3-ap-southeast-1-533267127131"
 
-__all__ = ["App", "Aws", "Data", "Debug", "Translation", "DefaultTrainingArguments", "Mamba", "MBert", "Xlmr", "Bert", "Roberta" ]
+__all__ = ["App", "Aws", "Data", "Debug", "Translation", "DefaultTrainingArguments", "Mamba", "MBert", "Xlmr", "Bert", "Roberta", "MBertUntrained", "XlmrUntrained" ]

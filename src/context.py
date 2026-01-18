@@ -5,6 +5,7 @@ import torch
 from dataclasses import dataclass
 from pathlib import Path
 from transformers import (
+    AutoConfig,
     AutoModelForSequenceClassification, 
     AutoModel, 
     AutoTokenizer, 
@@ -59,13 +60,22 @@ def setup_pipeline(instance_cls, require_translation: bool = False) -> Context:
         model = load_res.model
         tokenizer = load_res.tokenizer
     else:
-        model = AutoModelForSequenceClassification.from_pretrained(
+        if instance.PRE_TRAINED: 
+            model = AutoModelForSequenceClassification.from_pretrained(
+                    instance.MODEL_NAME,
+                    num_labels=num_labels,
+                    id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
+                    label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None,
+                    problem_type="single_label_classification",
+                )
+        else: 
+            print(f"Configuring unpretrained model: {instance.NAME}" )
+            config = AutoConfig.from_pretrained(
                 instance.MODEL_NAME,
                 num_labels=num_labels,
-                id2label={i: str(i) for i in range(num_labels)} if not isinstance(id2label, dict) else id2label,
-                label2id={str(v): k for k, v in ({v: k for k, v in id2label.items()}).items()} if isinstance(id2label, dict) else None,
-                problem_type="single_label_classification",
+                problem_type="single_label_classification"
             )
+            model = AutoModelForSequenceClassification.from_config(config)
         tokenizer = utility.make_tokenizer(instance_cls)
     
     tok_fn = utility.make_tokenizer_fn(tokenizer)
