@@ -31,3 +31,5 @@ datasets/
 /roberta_sentiment
 /mbert_untrained_sentiment
 /xlmr_untrained_sentiment
+/mamba_google_eval_sentiment
+/mamba_original_eval_sentiment
